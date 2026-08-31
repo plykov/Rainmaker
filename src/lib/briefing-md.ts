@@ -3,6 +3,28 @@ import { digestWordCount } from "@/lib/data/digests";
 import type { Digest } from "@/lib/data/types";
 import { formatBriefingDate, formatScore, readTimeLabel } from "@/lib/format";
 
+export function toEmailSubject(digest: Digest): string {
+  const words = digestWordCount(digest);
+  return `AI Rainmaker Watch — ${formatBriefingDate(digest.date)} · ${digest.admitted} admitted · ${readTimeLabel(words)}`;
+}
+
+export function toMailtoBody(digest: Digest, pageUrl: string): string {
+  const lede = digest.items.find((i) => i.section === "lede");
+  const snippet = lede
+    ? `${lede.title}\n${lede.body.length > 280 ? `${lede.body.slice(0, 280)}…` : lede.body}`
+    : digest.ledeAbsent
+      ? "No single dominant story today."
+      : "";
+  return [
+    `AI Rainmaker Watch — ${formatBriefingDate(digest.date)}`,
+    `07:00 CET · ${digest.admitted} admitted · hosted page updated in place`,
+    "",
+    snippet,
+    "",
+    `Full briefing:\n${pageUrl}`,
+  ].join("\n");
+}
+
 export function toBriefingMarkdown(digest: Digest): string {
   const words = digestWordCount(digest);
   const lines: string[] = [
@@ -51,5 +73,38 @@ export function toBriefingMarkdown(digest: Digest): string {
     "---",
     `Coverage — ${digest.scanned.toLocaleString()} scanned · ${digest.passedRules} passed rules · ${digest.triaged} triaged ≥6.0 · ${digest.admitted} admitted · ${digest.merged} merged · ${digest.quoteBlocked} blocked by quote check`,
   );
+  if (digest.fetchFailures.length) {
+    lines.push(
+      `Fetch failures — ${digest.fetchFailures.map((f) => `${f.source} (${f.detail})`).join("; ")}`,
+    );
+  }
   return lines.join("\n");
+}
+
+export function downloadMarkdown(filename: string, text: string) {
+  const blob = new Blob([text], { type: "text/markdown;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+export async function copyText(text: string) {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+  }
 }

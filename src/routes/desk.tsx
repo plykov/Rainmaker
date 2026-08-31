@@ -14,12 +14,14 @@ export const Route = createFileRoute("/desk")({ component: DeskPage });
 function DeskPage() {
   const decisions = useReader((s) => s.queueDecisions);
   const setDecision = useReader((s) => s.setQueueDecision);
+  const edition = useReader((s) => s.editions[LATEST_DATE]);
   const extras = useReleasedItems();
   const releasedToday = [
     ...allItems().filter((i) => i.date === LATEST_DATE && i.humanGated),
     ...extras,
   ];
   const pendingLeft = pendingQueue.filter((q) => !decisions[q.id] || decisions[q.id] === "held");
+
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -30,7 +32,11 @@ function DeskPage() {
       <p className="mt-3 max-w-xl text-sm leading-relaxed text-fg-muted">
         Automation proposes. It does not publish unreleased-model or national-security claims
         unreviewed. Anything tagged leak or regulation sits here until you release, hold, or kill
-        it. Decisions stay on this machine.
+        it. Decisions stay on this machine. Released items join today's page when{" "}
+        <Link to="/delivery" className="underline-offset-4 hover:underline">
+          Delivery
+        </Link>{" "}
+        publishes the snapshot in place.
       </p>
       <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.14em] text-fg-subtle">
         {pendingLeft.length} awaiting · {releasedToday.length} released {LATEST_DATE} ·{" "}
@@ -99,11 +105,15 @@ function DeskPage() {
                         {d === "released" ? "Release" : d === "held" ? "Hold" : "Kill"}
                       </Button>
                     ))}
-                    {decision === "released" ? (
+                    {decision === "released" && edition?.queueIds.includes(item.id) ? (
                       <Button variant="ghost" asChild>
                         <Link to="/" hash={item.id}>
                           Open in briefing
                         </Link>
+                      </Button>
+                    ) : decision === "released" ? (
+                      <Button variant="ghost" asChild>
+                        <Link to="/delivery">Stamp at Delivery</Link>
                       </Button>
                     ) : null}
                   </div>
@@ -116,7 +126,9 @@ function DeskPage() {
 
       <section className="mt-12">
         <h2 className="font-serif text-2xl tracking-tight">Released this morning</h2>
-        <p className="mt-1 text-sm text-fg-subtle">In the 07:00 CET briefing. Human-gated, then sent.</p>
+        <p className="mt-1 text-sm text-fg-subtle">
+          In the hosted page after Delivery stamps the snapshot.
+        </p>
         <ul className="mt-5 divide-y divide-border border-y border-border">
           {releasedToday.map((item) => (
             <li key={item.id} className="py-4">

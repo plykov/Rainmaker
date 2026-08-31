@@ -1,50 +1,8 @@
+import { CET_TZ, cetParts, nextHalfHour, secondsLabel } from "@/lib/cet";
 import { getLatestDigest } from "./digests";
 import { sources } from "./sources";
 
-export const CET_TZ = "Europe/Berlin";
-
-export function cetParts(d: Date) {
-  const parts = new Intl.DateTimeFormat("en-GB", {
-    timeZone: CET_TZ,
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hourCycle: "h23",
-    weekday: "short",
-    day: "2-digit",
-    month: "short",
-  }).formatToParts(d);
-  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "";
-  return {
-    weekday: get("weekday"),
-    day: get("day"),
-    month: get("month"),
-    hour: Number(get("hour")),
-    minute: Number(get("minute")),
-    second: Number(get("second")),
-    time: `${get("hour")}:${get("minute")}:${get("second")}`,
-    hm: `${get("hour")}:${get("minute")}`,
-  };
-}
-
-export function nextHalfHour(d: Date): { label: string; seconds: number } {
-  const { hour, minute, second } = cetParts(d);
-  const elapsed = hour * 3600 + minute * 60 + second;
-  const next = (Math.floor(elapsed / 1800) + 1) * 1800;
-  const seconds = next - elapsed;
-  const nh = Math.floor((next % 86400) / 3600);
-  const nm = Math.floor((next % 3600) / 60);
-  return {
-    label: `${String(nh).padStart(2, "0")}:${String(nm).padStart(2, "0")} CET`,
-    seconds,
-  };
-}
-
-export function secondsLabel(total: number): string {
-  const m = Math.floor(total / 60);
-  const s = total % 60;
-  return `${m}m ${String(s).padStart(2, "0")}s`;
-}
+export { CET_TZ, cetParts, nextHalfHour, secondsLabel };
 
 /** One List, ~35 handles. Org accounts fill the roster people who do not post. */
 export const xList = [

@@ -23,6 +23,7 @@ export function DigestView({ digest, isToday }: { digest: Digest; isToday?: bool
   const fontScale = useReader((s) => s.fontScale);
   const markDigestRead = useReader((s) => s.markDigestRead);
   const isRead = useReader((s) => s.readDigests.includes(digest.date));
+  const edition = useReader((s) => s.editions[digest.date]);
   const [copied, setCopied] = useState(false);
   const [emailOpen, setEmailOpen] = useState(false);
   const isAuditIssue = Boolean(digest.weekdayNote?.toLowerCase().includes("audit"));
@@ -79,6 +80,11 @@ export function DigestView({ digest, isToday }: { digest: Digest; isToday?: bool
             07:00 CET · {digest.scanned.toLocaleString()} scanned → {digest.admitted} admitted ·{" "}
             {words} words · read {readTime}
           </p>
+          {edition ? (
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-confirmed">
+              Published {edition.label} · updated in place
+            </p>
+          ) : null}
           <WordBudget words={words} />
           <div className="mt-5 flex flex-wrap items-center gap-2">
             {digest.specimen ? (

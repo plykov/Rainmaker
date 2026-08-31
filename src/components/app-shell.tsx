@@ -15,6 +15,7 @@ const NAV = [
   { to: "/pipeline", label: "Pipeline" },
   { to: "/ops", label: "Ops" },
   { to: "/desk", label: "Desk" },
+  { to: "/delivery", label: "Delivery" },
 ] as const;
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -133,7 +134,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           className="hidden border-t border-border lg:block"
           aria-label="Sections"
         >
-          <div className="mx-auto flex h-11 max-w-6xl items-center gap-0.5 px-4 sm:px-6">
+          <div className="flex min-h-11 flex-wrap items-center gap-x-0.5 gap-y-0.5 px-4 py-1 sm:px-6">
             {NAV.map((item) => {
               const active =
                 item.to === "/"
@@ -149,7 +150,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                       : item.label
                   }
                   className={cn(
-                    "rounded-md px-2.5 py-1.5 text-sm transition-colors",
+                    "rounded-md px-2 py-1.5 text-sm transition-colors",
                     active ? "bg-bg-subtle text-fg" : "text-fg-muted hover:text-fg",
                   )}
                 >
@@ -235,6 +236,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             {" · "}
             <Link to="/ops" className="hover:text-fg">
               Ops
+            </Link>
+            {" · "}
+            <Link to="/delivery" className="hover:text-fg">
+              Delivery
             </Link>
             {" · "}
             Press <kbd className="rounded border border-border px-1 font-mono text-[10px]">?</kbd>{" "}

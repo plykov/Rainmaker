@@ -79,15 +79,18 @@ function ClockStrip() {
           {next ? next.label : "aligns to :00 / :30"}
         </p>
       </div>
-      <div className="rounded-xl border border-border bg-bg-elevated p-4">
+      <Link
+        to="/delivery"
+        className="rounded-xl border border-border bg-bg-elevated p-4 transition-colors hover:border-border-strong"
+      >
         <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-confirmed">
           Today's send
         </p>
         <p className="mt-2 font-serif text-3xl tracking-tight">07:00</p>
         <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-fg-subtle">
-          {digest.admitted} admitted · synthesis 06:40 · gate {digest.humanHeld.releasedAt}
+          {digest.admitted} admitted · Delivery desk
         </p>
-      </div>
+      </Link>
     </section>
   );
 }
@@ -274,6 +277,10 @@ function Schedule() {
       </ol>
       <p className="mt-4 text-sm text-fg-muted">
         After 07:00 the hosted page is the product.{" "}
+        <Link to="/delivery" className="underline-offset-4 hover:underline">
+          Delivery
+        </Link>
+        {" · "}
         <Link to="/" className="underline-offset-4 hover:underline">
           Today's briefing
         </Link>

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArchiveRouteImport } from './routes/archive'
+import { Route as DeliveryRouteImport } from './routes/delivery'
 import { Route as DeskRouteImport } from './routes/desk'
 import { Route as MethodRouteImport } from './routes/method'
 import { Route as OpsRouteImport } from './routes/ops'
@@ -30,6 +31,11 @@ const IndexRoute = IndexRouteImport.update({
 const ArchiveRoute = ArchiveRouteImport.update({
   id: '/archive',
   path: '/archive',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeliveryRoute = DeliveryRouteImport.update({
+  id: '/delivery',
+  path: '/delivery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DeskRoute = DeskRouteImport.update({
@@ -86,6 +92,7 @@ const PersonIdRoute = PersonIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/archive': typeof ArchiveRoute
+  '/delivery': typeof DeliveryRoute
   '/desk': typeof DeskRoute
   '/method': typeof MethodRoute
   '/ops': typeof OpsRoute
@@ -100,6 +107,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/archive': typeof ArchiveRoute
+  '/delivery': typeof DeliveryRoute
   '/desk': typeof DeskRoute
   '/method': typeof MethodRoute
   '/ops': typeof OpsRoute
@@ -115,6 +123,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/archive': typeof ArchiveRoute
+  '/delivery': typeof DeliveryRoute
   '/desk': typeof DeskRoute
   '/method': typeof MethodRoute
   '/ops': typeof OpsRoute
@@ -131,6 +140,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/archive'
+    | '/delivery'
     | '/desk'
     | '/method'
     | '/ops'
@@ -145,6 +155,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/archive'
+    | '/delivery'
     | '/desk'
     | '/method'
     | '/ops'
@@ -159,6 +170,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/archive'
+    | '/delivery'
     | '/desk'
     | '/method'
     | '/ops'
@@ -174,6 +186,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ArchiveRoute: typeof ArchiveRoute
+  DeliveryRoute: typeof DeliveryRoute
   DeskRoute: typeof DeskRoute
   MethodRoute: typeof MethodRoute
   OpsRoute: typeof OpsRoute
@@ -200,6 +213,13 @@ declare module '@tanstack/react-router' {
       path: '/archive'
       fullPath: '/archive'
       preLoaderRoute: typeof ArchiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/delivery': {
+      id: '/delivery'
+      path: '/delivery'
+      fullPath: '/delivery'
+      preLoaderRoute: typeof DeliveryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/desk': {
@@ -278,6 +298,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ArchiveRoute: ArchiveRoute,
+  DeliveryRoute: DeliveryRoute,
   DeskRoute: DeskRoute,
   MethodRoute: MethodRoute,
   OpsRoute: OpsRoute,

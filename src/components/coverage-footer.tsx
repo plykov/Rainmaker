@@ -2,9 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { droppedToday } from "@/lib/data/dropped";
 import { LATEST_DATE } from "@/lib/data/digests";
 import type { Digest } from "@/lib/data/types";
+import { useReader } from "@/lib/store";
 
 export function CoverageFooter({ digest }: { digest: Digest }) {
   const isToday = digest.date === LATEST_DATE;
+  const probe = useReader((s) => s.probe);
+  const live = Boolean(isToday && probe && probe.date === digest.date);
   return (
     <section
       id="coverage"
@@ -19,7 +22,10 @@ export function CoverageFooter({ digest }: { digest: Digest }) {
       </p>
       {digest.fetchFailures.length > 0 ? (
         <div className="mt-3">
-          <p className="text-[10px] uppercase tracking-[0.18em] text-unverified">Fetch failures</p>
+          <p className="text-[10px] uppercase tracking-[0.18em] text-unverified">
+            Fetch failures
+            {live ? " · live probe" : isToday ? " · overnight seed" : ""}
+          </p>
           <ul className="mt-1 space-y-1">
             {digest.fetchFailures.map((f) => (
               <li key={f.source}>
@@ -29,7 +35,10 @@ export function CoverageFooter({ digest }: { digest: Digest }) {
           </ul>
         </div>
       ) : (
-        <p className="mt-3">Fetch failures — none</p>
+        <p className="mt-3">
+          Fetch failures — none
+          {live ? " · live probe" : isToday ? " · overnight seed" : ""}
+        </p>
       )}
       <p className="mt-3">
         Gates — {digest.humanHeld.leak} held (leak) · {digest.humanHeld.regulation} held
@@ -44,6 +53,10 @@ export function CoverageFooter({ digest }: { digest: Digest }) {
             {" · "}
             <Link to="/pipeline" className="underline-offset-4 hover:underline">
               dropped pile
+            </Link>
+            {" · "}
+            <Link to="/delivery" className="underline-offset-4 hover:underline">
+              delivery
             </Link>
           </>
         ) : null}
