@@ -6,8 +6,9 @@ export function PlantBoard() {
     <section className="mt-8">
       <h2 className="font-serif text-2xl tracking-tight">Scheduled plant</h2>
       <p className="mt-2 max-w-2xl text-sm text-fg-muted">
-        Two Grok tasks fire with the tab closed. The 07:00 send is email + app notification — one
-        Stage 2 call a day. n8n and the X List are still a VPS you do not have here.
+        Two Grok tasks fire with the tab closed. Structural GitHub (vLLM, llama.cpp, transformers)
+        only spends a Stage 1 call when a release tag actually lands. n8n and the X List still
+        need a VPS.
       </p>
       <ul className="mt-5 divide-y divide-border border-y border-border">
         {plantJobs.map((job) => (
