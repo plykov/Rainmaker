@@ -52,6 +52,7 @@ export function CoverageFooter({ digest }: { digest: Digest }) {
         {isToday && filing
           ? `filed ${filing.label} · next ${digest.nextAudit}`
           : digest.nextAudit}
+        {" · Grok send 07:00 CET"}
         {digest.rumorScorecardDue ? ` · rumor scorecard due ${digest.rumorScorecardDue}` : ""}
         {isToday ? (
           <>

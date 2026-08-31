@@ -15,6 +15,7 @@ import {
   seedVerdicts,
   weeklyFeeds,
 } from "@/lib/data/audit";
+import { auditPlant } from "@/lib/data/plant";
 import { CET_TZ, cetParts, cetStamp, isMondayCet, nextMondayCet, secondsLabel } from "@/lib/cet";
 import { formatBriefingDate } from "@/lib/format";
 import { probeViaJina, probeWeeklies } from "@/lib/probe";
@@ -34,10 +35,9 @@ function AuditPage() {
         What the pipeline missed
       </h1>
       <p className="mt-3 max-w-2xl text-sm leading-relaxed text-fg-muted">
-        A digest that misses the day's biggest story looks identical to a perfect one. Monday diffs
-        this week against Import AI and Don't Worry About the Vase. The monthly scorecard checks
-        whether confidence labels mean anything. Skip either and you have a digest you trust and
-        cannot evaluate.{" "}
+        A digest that misses the day's biggest story looks identical to a perfect one. A Grok task
+        diffs Import AI and Don't Worry About the Vase every Monday at 08:00 CET and emails you —
+        tab closed. This page is the working copy.{" "}
         <Link to="/pipeline" className="underline-offset-4 hover:underline">
           How admission works
         </Link>
@@ -100,7 +100,7 @@ function ClockStrip() {
           {next ? secondsLabel(next.seconds) : "—"}
         </p>
         <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-fg-subtle">
-          {formatBriefingDate(AUDIT_NEXT)} · {next?.label ?? "Mon 07:00 CET"}
+          {formatBriefingDate(AUDIT_NEXT)} · {auditPlant.time} CET · Grok email
         </p>
       </div>
     </section>

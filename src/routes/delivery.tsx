@@ -13,7 +13,9 @@ import {
 import { CET_TZ, cetParts, cetStamp, nextSevenCet, secondsLabel } from "@/lib/cet";
 import { pendingQueue } from "@/lib/data/desk";
 import { digestWordCount, getLatestDigest, LATEST_DATE } from "@/lib/data/digests";
+import { dailyPlant } from "@/lib/data/plant";
 import { probeTargets } from "@/lib/data/probes";
+import { PlantBoard } from "@/components/plant-board";
 import { formatBriefingDate, readTimeLabel } from "@/lib/format";
 import { useHydratedDigest } from "@/lib/hydrate";
 import { probeViaJina, probeWorkingSet } from "@/lib/probe";
@@ -35,9 +37,9 @@ function DeliveryPage() {
       </p>
       <h1 className="mt-2 font-serif text-4xl tracking-tight sm:text-5xl">The 07:00 send</h1>
       <p className="mt-3 max-w-2xl text-sm leading-relaxed text-fg-muted">
-        One snapshot, two channels: the hosted page updated in place, and the email of that same
-        object. Overnight fetch failures are a seed. Probe the working set to replace them with
-        live HTTP.{" "}
+        One snapshot, two channels: Grok email at 07:00 CET (tab closed), and this hosted page
+        when you stamp it. Overnight fetch failures are a seed. Probe the working set to replace
+        them with live HTTP.{" "}
         <Link to="/ops" className="underline-offset-4 hover:underline">
           Morning run
         </Link>
@@ -52,6 +54,7 @@ function DeliveryPage() {
         .
       </p>
       <ClockStrip admitted={digest.admitted} />
+      <PlantBoard />
       <PublishPanel digestAdmitted={digest.admitted} />
       <EmailPanel />
       <SendLog />
@@ -85,13 +88,13 @@ function ClockStrip({ admitted }: { admitted: number }) {
       </div>
       <div className="rounded-xl border border-border bg-bg-elevated p-4">
         <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-fg-subtle">
-          Next 07:00 job
+          Next Grok send
         </p>
         <p className="mt-2 font-serif text-3xl tabular-nums tracking-tight">
           {next ? secondsLabel(next.seconds) : "—"}
         </p>
         <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-fg-subtle">
-          {next ? next.label : "Europe/Berlin"}
+          {dailyPlant.nextLabel} · email + app
         </p>
       </div>
       <div className="rounded-xl border border-border bg-bg-elevated p-4">

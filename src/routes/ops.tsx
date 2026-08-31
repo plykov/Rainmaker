@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { PlantBoard } from "@/components/plant-board";
 import { getLatestDigest } from "@/lib/data/digests";
 import {
   CET_TZ,
@@ -27,9 +28,8 @@ function OpsPage() {
       <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-subtle">§03 · ingest</p>
       <h1 className="mt-2 font-serif text-4xl tracking-tight sm:text-5xl">The morning run</h1>
       <p className="mt-3 max-w-2xl text-sm leading-relaxed text-fg-muted">
-        n8n owns retries and the seen-items store. Stage 2 runs once, at 06:40 CET, after the
-        Chinese business day has closed. This is the operator view of that cycle — a replay, not a
-        live 110-source fetch.{" "}
+        Two Grok tasks fire with the tab closed (07:00 send, Monday 08:00 audit). The board below
+        is still a replay of last night's 110-source cycle — n8n is not hosted here.{" "}
         <Link to="/pipeline" className="underline-offset-4 hover:underline">
           How admission works
         </Link>
@@ -37,6 +37,7 @@ function OpsPage() {
       </p>
 
       <ClockStrip />
+      <PlantBoard />
       <PollRunner />
       <FetchBoard />
       <XListPanel />
@@ -263,11 +264,7 @@ function Schedule() {
             </div>
             <Badge
               tone={
-                j.state === "live" || j.state === "done"
-                  ? "confirmed"
-                  : j.state === "running"
-                    ? "reported"
-                    : "mute"
+                j.state === "live" ? "confirmed" : j.state === "due" ? "reported" : "mute"
               }
             >
               {j.state}
