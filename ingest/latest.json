@@ -1,5 +1,56 @@
 {
-  "at": "2026-08-31T13:32:01.183Z",
+  "at": "2026-08-31T20:10:46.789Z",
   "bootstrapped": true,
-  "items": []
+  "items": [
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b10726",
+      "name": "b10726",
+      "prerelease": true,
+      "published": "2026-08-31T19:41:30Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10726",
+      "body": "<details open>\n\nAVX2: Speed up large batch size prompt processing of IQ models (#27402)\n\n* Batched gemm for grid IQ quants\n\nStyle updates and a bit more performance\n\nClean up comments\n\nMove code around\n\nVectorize IQ panel decode, lower threshold for speedup\n\nIQ panel: single-source gather layout, gate bias, vectorize interleave\n\nAdd ggml_gemm_iqp_8x8_q8_K_p4 kernel, remove gather buffer\n\nMove IQ panel code out of repack into iqp.cpp, clean up comments\n\nAnother comment sweep\n\n* Add myself as iqp.* codeownder\n\n* Remove ggml_cpu_iqp_scratch_offset and ggml_cpu_iqp_src1_conv_size\n\n* Renaming and moving\n\n* The other half of renaming and moving\n\n* Move macros and ggml_cpu_iqp_mul_mat_id_min_batch definition\n\n* Update ggml/src/ggml-cpu/iqp.h\n\nCo-authored-by: Georgi Gerganov <ggerganov@gmail.com>\n\n* Add iqp_rows work buffer\n\n* Revert \"Add iqp_rows work buffer\"\n\nThis reverts commit 425542991eee1b01fa3844bf87fc4f205ddbfccb.\n\n* Add NUMA fallback\n\n* Add 10 row batch tests for IQP coverage on all grid IQ types\n\n* Swap assert for return false in support check\n\n* Move IQP mul_mat_id test\n\n---------\n\nCo-authored-by: Georgi Gerganov <ggerganov@gmail.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/44236891>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10726/llama-b10726-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10726/llama-b10726-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10726/llama-b10726-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b10724",
+      "name": "b10724",
+      "prerelease": true,
+      "published": "2026-08-31T17:26:21Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10724",
+      "body": "<details open>\n\nkv-cache : optimize restoring non-contiguous cells (#27991)\n\n* kv cache : batch state restore scatter reads per contiguous run\n\nWhen restoring state into non-contiguous destination cells (e.g. a\nprompt-cache snapshot into a fragmented ring), state_read_data issued\none small copy per KV cell - ~1.4M copies of a few KiB each for a\n40k+ token restore, taking 25-63 s on the CUDA backend.\n\nThe snapshot stores cell rows in cell order, so a maximal run of\nconsecutive destination indices maps to one contiguous block and can\nbe restored with a single copy. Precompute the runs once and use them\nin all three scatter loops (K, V, transposed V). Byte-identical.\n\nThe on-device reader copies with a byte cursor when the read and\nwrite chunking differs, so the batched reads are safe for it as well.\nBatching makes equal tensor counts with a different split reachable\n(save ranges [2,1] vs restore runs [1,2]); the next commit teaches the\nreader's 1:1 path to fall back to the byte cursor in that case.\n\nVerified in a production setup: 1,363,616 copies / 25-63 s -> 224\ncopies / 221-424 ms for the same restores (42,603 cells, 4 runs).\n\nAssisted-by: Claude Code (unsloth/qwen3.8-27b)\n\n* context : fall back to the byte cursor when read and write chunking differ\n\nthe on-device reader copies saved state back with a 1:1 copy by tensor\nindex whenever the write and read sides recorded the same number of\ntensors, guarded by a per-tensor size assert.\n\nequal tensor counts do not imply equal chunking: a state restore may\nbatch its reads per contiguous run of destination cells while the save\nused per-range reads, so both sides can record two tensors that split\nthe same data differently, and the assert aborts in all builds.\n\ncompare the per-tensor sizes and only take the 1:1 path when the\nch"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b10723",
+      "name": "b10723",
+      "prerelease": true,
+      "published": "2026-08-31T16:31:50Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10723",
+      "body": "<details open>\n\nopencl: tune the quant paths for Intel Xe-LP GPUs to improve its TG and PP performance (#26438)\n\n* opencl: Q4_K/Q5_K mul_mv N_DST 4->8 on Intel for 2x activation reuse\n\n* opencl: Q4_K mul_mm 8x8 tile fot Intel\n\n* opencl: Q5_K mul_mm 8x8 tile for Intel\n\n* opencl: Q4_K mul_mv N_DST 8->16 for Intel\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/44194717>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10723/llama-b10723-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10723/llama-b10723-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10723/llama-b10723-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10723/llama-b10723-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10723/llama-b10723-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10723/llama-b10723-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10723/llama-b10723-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10723/llama-b10723-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 7.14)](https://github.com/ggml-org/llama.cpp/releases/download/b10723/llama-b10723-bin-ubuntu-rocm-7.14-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b107"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b10721",
+      "name": "b10721",
+      "prerelease": true,
+      "published": "2026-08-31T15:54:59Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10721",
+      "body": "<details open>\n\nwebgpu : avoid crash when offset is not multiple of 4 in WebGPU ggml_backend_tensor_get() implementation (#28045)\n\n* webgpu : avoid crash when offset is not multiple of 4 in WebGPU ggml_backend_tensor_get() implementation\n\n* chore : improve code readability\n\nCo-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>\n\n---------\n\nCo-authored-by: Stanisław Szymczyk <sszymczy@gmail.com>\nCo-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/44185934>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10721/llama-b10721-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10721/llama-b10721-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10721/llama-b10721-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10721/llama-b10721-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10721/llama-b10721-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10721/llama-b10721-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10721/llama-b10721-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10721/llama-b10721-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 7.14)](https://github.com/ggml-org/l"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b10720",
+      "name": "b10720",
+      "prerelease": true,
+      "published": "2026-08-31T15:28:15Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10720",
+      "body": "<details open>\n\nROCm: add radix TOP_K for long rows (#27466)\n\n* ROCm: add radix TOP_K for long rows\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/44178618>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10720/llama-b10720-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10720/llama-b10720-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10720/llama-b10720-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10720/llama-b10720-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10720/llama-b10720-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10720/llama-b10720-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10720/llama-b10720-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10720/llama-b10720-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 7.14)](https://github.com/ggml-org/llama.cpp/releases/download/b10720/llama-b10720-bin-ubuntu-rocm-7.14-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10720/llama-b10720-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10720/llama-b10720-bin-ubuntu-sycl-fp32-x64.tar.gz)\n- [Ubuntu x64 (SYCL "
+    }
+  ]
 }
