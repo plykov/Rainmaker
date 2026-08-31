@@ -69,7 +69,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         Skip to briefing
       </a>
       <header className="sticky top-0 z-40 border-b border-border bg-bg/90 backdrop-blur-md">
-        <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4 sm:h-16 sm:px-6">
+        <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:h-16 sm:gap-3 sm:px-6 md:pr-48 lg:pr-56">
           <Link to="/" className="flex items-center gap-2.5 pr-2">
             <RainmakerMark className="size-6" />
             <span className="flex flex-col leading-none">
@@ -112,7 +112,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </nav>
 
           <div className="ml-auto flex items-center gap-1">
-            <p className="mr-2 hidden font-mono text-[10px] uppercase tracking-[0.16em] text-fg-subtle lg:block">
+            <p className="mr-2 hidden font-mono text-[10px] uppercase tracking-[0.16em] text-fg-subtle xl:block">
               {LATEST_DATE} · 07:00 CET
             </p>
             <Button
