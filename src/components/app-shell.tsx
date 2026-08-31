@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { RainmakerMark } from "@/components/mark";
 import { Button } from "@/components/ui/button";
 import { pendingQueue } from "@/lib/data/desk";
-import { LATEST_DATE } from "@/lib/data/digests";
 import { useReader } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
@@ -70,8 +69,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         Skip to briefing
       </a>
       <header className="sticky top-0 z-40 border-b border-border bg-bg/90 backdrop-blur-md">
-        <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 px-4 sm:h-16 sm:gap-3 sm:px-6 md:pr-48 lg:pr-56">
-          <Link to="/" className="flex items-center gap-2.5 pr-2">
+        <div className="flex h-16 items-center gap-1.5 pl-4 pr-3 sm:gap-2 sm:pl-6 sm:pr-4">
+          <Link to="/" className="flex shrink-0 items-center gap-2.5 pr-1">
             <RainmakerMark className="size-6" />
             <span className="flex flex-col leading-none">
               <span className="font-serif text-[15px] tracking-tight text-fg">Rainmaker</span>
@@ -81,41 +80,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             </span>
           </Link>
 
-          <nav className="ml-3 hidden items-center gap-0.5 lg:flex">
-            {NAV.map((item) => {
-              const active =
-                item.to === "/"
-                  ? pathname === "/" || pathname.startsWith("/d/")
-                  : pathname === item.to || pathname.startsWith(`${item.to}/`);
-              return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  aria-label={
-                    item.to === "/desk" && pendingCount > 0
-                      ? `Desk, ${pendingCount} awaiting review`
-                      : item.label
-                  }
-                  className={cn(
-                    "rounded-md px-2.5 py-1.5 text-sm transition-colors",
-                    active ? "bg-bg-subtle text-fg" : "text-fg-muted hover:text-fg",
-                  )}
-                >
-                  {item.label}
-                  {item.to === "/desk" && pendingCount > 0 ? (
-                    <span className="ml-1.5 font-mono text-[10px] tabular-nums text-unverified">
-                      {pendingCount}
-                    </span>
-                  ) : null}
-                </Link>
-              );
-            })}
-          </nav>
-
-          <div className="ml-auto flex items-center gap-1">
-            <p className="mr-2 hidden font-mono text-[10px] uppercase tracking-[0.16em] text-fg-subtle xl:block">
-              {LATEST_DATE} · 07:00 CET
-            </p>
+          <div className="flex items-center gap-0.5">
             <Button
               variant="ghost"
               size="icon-sm"
@@ -163,6 +128,43 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             </Button>
           </div>
         </div>
+
+        <nav
+          className="hidden border-t border-border lg:block"
+          aria-label="Sections"
+        >
+          <div className="mx-auto flex h-11 max-w-6xl items-center gap-0.5 px-4 sm:px-6">
+            {NAV.map((item) => {
+              const active =
+                item.to === "/"
+                  ? pathname === "/" || pathname.startsWith("/d/")
+                  : pathname === item.to || pathname.startsWith(`${item.to}/`);
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  aria-label={
+                    item.to === "/desk" && pendingCount > 0
+                      ? `Desk, ${pendingCount} awaiting review`
+                      : item.label
+                  }
+                  className={cn(
+                    "rounded-md px-2.5 py-1.5 text-sm transition-colors",
+                    active ? "bg-bg-subtle text-fg" : "text-fg-muted hover:text-fg",
+                  )}
+                >
+                  {item.label}
+                  {item.to === "/desk" && pendingCount > 0 ? (
+                    <span className="ml-1.5 font-mono text-[10px] tabular-nums text-unverified">
+                      {pendingCount}
+                    </span>
+                  ) : null}
+                </Link>
+              );
+            })}
+          </div>
+        </nav>
+
         {open ? (
           <nav className="border-t border-border px-4 py-3 lg:hidden">
             <ul className="flex flex-col gap-1">
