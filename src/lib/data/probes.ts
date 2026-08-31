@@ -1,11 +1,6 @@
-export interface ProbeTarget {
-  id: string;
-  name: string;
-  url: string;
-  group: string;
-  fallback?: string;
-  jina?: boolean;
-}
+import type { ProbeTarget } from "./types";
+
+export type { ProbeTarget };
 
 export interface ProbeResult {
   id: string;

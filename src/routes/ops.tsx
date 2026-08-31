@@ -281,6 +281,10 @@ function Schedule() {
           Delivery
         </Link>
         {" · "}
+        <Link to="/audit" className="underline-offset-4 hover:underline">
+          Audit
+        </Link>
+        {" · "}
         <Link to="/" className="underline-offset-4 hover:underline">
           Today's briefing
         </Link>

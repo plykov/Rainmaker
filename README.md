@@ -12,6 +12,7 @@ Daily briefing at 07:00 CET. Multiplicative admission (novelty × authority × c
 - **Pipeline** — cascade, scorer, dropped pile, quote check, Monday audit
 - **Desk** — morning human gate; released items join today’s page when Delivery stamps it
 - **Delivery** — 07:00 publish in place, mail client send, live fetch probe
+- **Audit** — Monday recall vs Import AI / Zvi; rumor-vs-outcome scorecard
 - **Method** — how the design was adjudicated
 - **Specimen** — §05 format sample (placeholder content, not reporting)
 

@@ -175,6 +175,7 @@ export const mondayAudit: AuditRow[] = [
     inImportAI: true,
     inZvi: true,
     note: "Caught. Structural trace led the English press by more than a day.",
+    verdict: "caught",
   },
   {
     id: "a2",
@@ -183,6 +184,7 @@ export const mondayAudit: AuditRow[] = [
     inImportAI: false,
     inZvi: true,
     note: "Caught via HF org. Import AI skipped; Zvi carried it in the weekly.",
+    verdict: "caught",
   },
   {
     id: "a3",
@@ -191,6 +193,7 @@ export const mondayAudit: AuditRow[] = [
     inImportAI: false,
     inZvi: false,
     note: "Caught. Both weeklies missed the filing. China desk earning its slot.",
+    verdict: "caught",
   },
   {
     id: "a4",
@@ -199,6 +202,7 @@ export const mondayAudit: AuditRow[] = [
     inImportAI: true,
     inZvi: true,
     note: "Miss. Paywall titles-only path dropped the body. Raise Stage 1 on Patel bylines.",
+    verdict: "miss",
   },
   {
     id: "a5",
@@ -207,6 +211,7 @@ export const mondayAudit: AuditRow[] = [
     inImportAI: true,
     inZvi: false,
     note: "Correctly dropped — novelty near zero. Recap would have cleared an additive ranker.",
+    verdict: "correct-drop",
   },
 ];
 

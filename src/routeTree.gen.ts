@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArchiveRouteImport } from './routes/archive'
+import { Route as AuditRouteImport } from './routes/audit'
 import { Route as DeliveryRouteImport } from './routes/delivery'
 import { Route as DeskRouteImport } from './routes/desk'
 import { Route as MethodRouteImport } from './routes/method'
@@ -31,6 +32,11 @@ const IndexRoute = IndexRouteImport.update({
 const ArchiveRoute = ArchiveRouteImport.update({
   id: '/archive',
   path: '/archive',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditRoute = AuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DeliveryRoute = DeliveryRouteImport.update({
@@ -92,6 +98,7 @@ const PersonIdRoute = PersonIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/archive': typeof ArchiveRoute
+  '/audit': typeof AuditRoute
   '/delivery': typeof DeliveryRoute
   '/desk': typeof DeskRoute
   '/method': typeof MethodRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/archive': typeof ArchiveRoute
+  '/audit': typeof AuditRoute
   '/delivery': typeof DeliveryRoute
   '/desk': typeof DeskRoute
   '/method': typeof MethodRoute
@@ -123,6 +131,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/archive': typeof ArchiveRoute
+  '/audit': typeof AuditRoute
   '/delivery': typeof DeliveryRoute
   '/desk': typeof DeskRoute
   '/method': typeof MethodRoute
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/archive'
+    | '/audit'
     | '/delivery'
     | '/desk'
     | '/method'
@@ -155,6 +165,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/archive'
+    | '/audit'
     | '/delivery'
     | '/desk'
     | '/method'
@@ -170,6 +181,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/archive'
+    | '/audit'
     | '/delivery'
     | '/desk'
     | '/method'
@@ -186,6 +198,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ArchiveRoute: typeof ArchiveRoute
+  AuditRoute: typeof AuditRoute
   DeliveryRoute: typeof DeliveryRoute
   DeskRoute: typeof DeskRoute
   MethodRoute: typeof MethodRoute
@@ -213,6 +226,13 @@ declare module '@tanstack/react-router' {
       path: '/archive'
       fullPath: '/archive'
       preLoaderRoute: typeof ArchiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audit': {
+      id: '/audit'
+      path: '/audit'
+      fullPath: '/audit'
+      preLoaderRoute: typeof AuditRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/delivery': {
@@ -298,6 +318,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ArchiveRoute: ArchiveRoute,
+  AuditRoute: AuditRoute,
   DeliveryRoute: DeliveryRoute,
   DeskRoute: DeskRoute,
   MethodRoute: MethodRoute,

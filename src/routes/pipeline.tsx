@@ -24,6 +24,10 @@ function PipelinePage() {
           This morning's run
         </Link>
         {" · "}
+        <Link to="/audit" className="underline-offset-4 hover:underline">
+          Monday's instrument
+        </Link>
+        {" · "}
         <Link to="/method" className="underline-offset-4 hover:underline">
           How the inputs were scored
         </Link>
@@ -190,7 +194,11 @@ function PipelinePage() {
         <p className="mt-2 max-w-2xl text-sm text-fg-muted">
           Diff this week against Import AI and Don't Worry About the Vase. The only instrument that
           measures what the pipeline silently dropped. Skip it for a month and you have a digest you
-          trust and cannot evaluate.
+          trust and cannot evaluate. The working copy lives on{" "}
+          <Link to="/audit" className="underline-offset-4 hover:underline">
+            Audit
+          </Link>
+          .
         </p>
         <div className="mt-5 overflow-x-auto">
           <table className="w-full min-w-[36rem] text-left text-sm">
@@ -223,7 +231,11 @@ function PipelinePage() {
           </table>
         </div>
         <p className="mt-3 text-xs text-fg-subtle">
-          Next audit Mon 07 Sep.{" "}
+          Next audit Mon 07 Sep. File it from{" "}
+          <Link to="/audit" className="underline-offset-4 hover:underline">
+            Audit
+          </Link>
+          .{" "}
           <Link to="/" className="underline-offset-4 hover:underline">
             Today's coverage footer
           </Link>
@@ -235,7 +247,11 @@ function PipelinePage() {
         <h2 className="font-serif text-2xl tracking-tight">Rumor-vs-outcome scorecard</h2>
         <p className="mt-2 max-w-2xl text-sm text-fg-muted">
           Tracks flagged rumors against what actually happened, decaying source trust. Due 01 Oct.
-          Confidence labels mean nothing unless this is kept.
+          Confidence labels mean nothing unless this is kept. Resolve open items on{" "}
+          <Link to="/audit" className="underline-offset-4 hover:underline">
+            Audit
+          </Link>
+          .
         </p>
         <ul className="mt-5 divide-y divide-border border-y border-border">
           {rumorScorecard.map((r) => (

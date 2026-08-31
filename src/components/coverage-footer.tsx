@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { droppedToday } from "@/lib/data/dropped";
+import { AUDIT_DUE } from "@/lib/data/audit";
 import { LATEST_DATE } from "@/lib/data/digests";
 import type { Digest } from "@/lib/data/types";
 import { useReader } from "@/lib/store";
@@ -7,6 +8,7 @@ import { useReader } from "@/lib/store";
 export function CoverageFooter({ digest }: { digest: Digest }) {
   const isToday = digest.date === LATEST_DATE;
   const probe = useReader((s) => s.probe);
+  const filing = useReader((s) => s.auditFilings[AUDIT_DUE]);
   const live = Boolean(isToday && probe && probe.date === digest.date);
   return (
     <section
@@ -46,10 +48,17 @@ export function CoverageFooter({ digest }: { digest: Digest }) {
         {digest.humanHeld.releasedAt ? ` · released ${digest.humanHeld.releasedAt}` : ""}
       </p>
       <p className="mt-3 text-fg-subtle">
-        Next audit — {digest.nextAudit}
+        Next audit —{" "}
+        {isToday && filing
+          ? `filed ${filing.label} · next ${digest.nextAudit}`
+          : digest.nextAudit}
         {digest.rumorScorecardDue ? ` · rumor scorecard due ${digest.rumorScorecardDue}` : ""}
         {isToday ? (
           <>
+            {" · "}
+            <Link to="/audit" className="underline-offset-4 hover:underline">
+              audit
+            </Link>
             {" · "}
             <Link to="/pipeline" className="underline-offset-4 hover:underline">
               dropped pile

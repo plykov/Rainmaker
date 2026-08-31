@@ -143,6 +143,8 @@ export interface RumorRow {
   trust: "up" | "down" | "flat";
 }
 
+export type AuditVerdict = "caught" | "miss" | "correct-drop";
+
 export interface AuditRow {
   id: string;
   item: string;
@@ -150,10 +152,20 @@ export interface AuditRow {
   inImportAI: boolean;
   inZvi: boolean;
   note: string;
+  verdict: AuditVerdict;
 }
 
 export interface Citation {
   outlet: string;
   title: string;
   url: string;
+}
+
+export interface ProbeTarget {
+  id: string;
+  name: string;
+  url: string;
+  group: string;
+  fallback?: string;
+  jina?: boolean;
 }

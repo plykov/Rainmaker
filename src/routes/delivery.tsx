@@ -45,6 +45,10 @@ function DeliveryPage() {
         <Link to="/desk" className="underline-offset-4 hover:underline">
           Desk
         </Link>
+        {" · "}
+        <Link to="/audit" className="underline-offset-4 hover:underline">
+          Monday audit
+        </Link>
         .
       </p>
       <ClockStrip admitted={digest.admitted} />

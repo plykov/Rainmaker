@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { ProbeRun } from "@/lib/data/probes";
+import type { AuditVerdict } from "@/lib/data/types";
 
 type FontScale = "sm" | "md" | "lg";
 export type QueueDecision = "released" | "held" | "killed";
@@ -23,6 +24,20 @@ export interface SendRecord {
   subject: string;
 }
 
+export interface AuditFiling {
+  weekId: string;
+  at: string;
+  label: string;
+  verdicts: Record<string, AuditVerdict>;
+}
+
+export interface RumorResolution {
+  status: "confirmed" | "killed" | "open";
+  trust: "up" | "down" | "flat";
+  at: string;
+  label: string;
+}
+
 interface ReaderState {
   readItems: string[];
   bookmarks: string[];
@@ -33,6 +48,10 @@ interface ReaderState {
   editions: Record<string, Edition>;
   sends: SendRecord[];
   probe: ProbeRun | null;
+  weeklyProbe: ProbeRun | null;
+  auditFilings: Record<string, AuditFiling>;
+  auditVerdicts: Record<string, AuditVerdict>;
+  rumorResolutions: Record<string, RumorResolution>;
   toggleRead: (id: string) => void;
   toggleBookmark: (id: string) => void;
   markDigestRead: (date: string) => void;
@@ -43,6 +62,11 @@ interface ReaderState {
   recordSend: (row: SendRecord) => void;
   setProbe: (run: ProbeRun) => void;
   patchProbeResult: (row: ProbeRun["results"][number]) => void;
+  setWeeklyProbe: (run: ProbeRun) => void;
+  patchWeeklyProbe: (row: ProbeRun["results"][number]) => void;
+  setAuditVerdict: (id: string, verdict: AuditVerdict) => void;
+  fileAudit: (filing: AuditFiling) => void;
+  resolveRumor: (id: string, row: RumorResolution) => void;
 }
 
 export const useReader = create<ReaderState>()(
@@ -57,6 +81,10 @@ export const useReader = create<ReaderState>()(
       editions: {},
       sends: [],
       probe: null,
+      weeklyProbe: null,
+      auditFilings: {},
+      auditVerdicts: {},
+      rumorResolutions: {},
       toggleRead: (id) =>
         set((s) => ({
           readItems: s.readItems.includes(id)
@@ -100,6 +128,30 @@ export const useReader = create<ReaderState>()(
             },
           };
         }),
+      setWeeklyProbe: (weeklyProbe) => set({ weeklyProbe }),
+      patchWeeklyProbe: (row) =>
+        set((s) => {
+          if (!s.weeklyProbe) return s;
+          return {
+            weeklyProbe: {
+              ...s.weeklyProbe,
+              results: s.weeklyProbe.results.map((r) => (r.id === row.id ? row : r)),
+            },
+          };
+        }),
+      setAuditVerdict: (id, verdict) =>
+        set((s) => ({
+          auditVerdicts: { ...s.auditVerdicts, [id]: verdict },
+        })),
+      fileAudit: (filing) =>
+        set((s) => ({
+          auditFilings: { ...s.auditFilings, [filing.weekId]: filing },
+          auditVerdicts: filing.verdicts,
+        })),
+      resolveRumor: (id, row) =>
+        set((s) => ({
+          rumorResolutions: { ...s.rumorResolutions, [id]: row },
+        })),
     }),
     { name: "rainmaker-reader", skipHydration: true },
   ),

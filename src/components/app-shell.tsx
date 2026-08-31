@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { RainmakerMark } from "@/components/mark";
 import { Button } from "@/components/ui/button";
 import { pendingQueue } from "@/lib/data/desk";
+import { AUDIT_DUE } from "@/lib/data/audit";
 import { useReader } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
@@ -16,6 +17,7 @@ const NAV = [
   { to: "/ops", label: "Ops" },
   { to: "/desk", label: "Desk" },
   { to: "/delivery", label: "Delivery" },
+  { to: "/audit", label: "Audit" },
 ] as const;
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -27,6 +29,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const setHelpOpen = useReader((s) => s.setHelpOpen);
   const queueDecisions = useReader((s) => s.queueDecisions);
   const bookmarks = useReader((s) => s.bookmarks);
+  const auditUnfiled = !useReader((s) => s.auditFilings[AUDIT_DUE]);
   const pendingCount = pendingQueue.filter(
     (q) => !queueDecisions[q.id] || queueDecisions[q.id] === "held",
   ).length;
@@ -147,7 +150,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                   aria-label={
                     item.to === "/desk" && pendingCount > 0
                       ? `Desk, ${pendingCount} awaiting review`
-                      : item.label
+                      : item.to === "/audit" && auditUnfiled
+                        ? "Audit, this Monday unfiled"
+                        : item.label
                   }
                   className={cn(
                     "rounded-md px-2 py-1.5 text-sm transition-colors",
@@ -158,6 +163,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                   {item.to === "/desk" && pendingCount > 0 ? (
                     <span className="ml-1.5 font-mono text-[10px] tabular-nums text-unverified">
                       {pendingCount}
+                    </span>
+                  ) : null}
+                  {item.to === "/audit" && auditUnfiled ? (
+                    <span className="ml-1.5 font-mono text-[10px] tabular-nums text-unverified">
+                      due
                     </span>
                   ) : null}
                 </Link>
@@ -176,7 +186,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                     aria-label={
                       item.to === "/desk" && pendingCount > 0
                         ? `Desk, ${pendingCount} awaiting review`
-                        : item.label
+                        : item.to === "/audit" && auditUnfiled
+                          ? "Audit, this Monday unfiled"
+                          : item.label
                     }
                     className="flex h-11 items-center rounded-md px-3 text-sm text-fg hover:bg-bg-subtle"
                   >
@@ -184,6 +196,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                     {item.to === "/desk" && pendingCount > 0 ? (
                       <span className="ml-2 font-mono text-[10px] tabular-nums text-unverified">
                         {pendingCount}
+                      </span>
+                    ) : null}
+                    {item.to === "/audit" && auditUnfiled ? (
+                      <span className="ml-2 font-mono text-[10px] tabular-nums text-unverified">
+                        due
                       </span>
                     ) : null}
                   </Link>
@@ -240,6 +257,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             {" · "}
             <Link to="/delivery" className="hover:text-fg">
               Delivery
+            </Link>
+            {" · "}
+            <Link to="/audit" className="hover:text-fg">
+              Audit
             </Link>
             {" · "}
             Press <kbd className="rounded border border-border px-1 font-mono text-[10px]">?</kbd>{" "}

@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { weeklyFeeds, weeklyFeedsById } from "@/lib/data/audit";
 import { probeTargets, probesById, type ProbeResult, type ProbeTarget } from "@/lib/data/probes";
 
 const UA = "AI-Rainmaker-Watch/1.0 (source-health-check)";
@@ -51,16 +52,23 @@ export const probeWorkingSet = createServerFn({ method: "POST" }).handler(async 
   return { at: new Date().toISOString(), results };
 });
 
+export const probeWeeklies = createServerFn({ method: "POST" }).handler(async () => {
+  const results = await Promise.all(
+    weeklyFeeds.map(async (t) => toResult(t, await hit(t.url), "direct")),
+  );
+  return { at: new Date().toISOString(), results };
+});
+
 
 
 export const probeViaJina = createServerFn({ method: "POST" })
   .validator((d: unknown) => {
     const id = typeof d === "object" && d && "id" in d ? String((d as { id: unknown }).id) : "";
-    if (!probesById[id]?.jina) throw new Error("unknown probe");
+    if (!probesById[id]?.jina && !weeklyFeedsById[id]?.jina) throw new Error("unknown probe");
     return { id };
   })
   .handler(async ({ data }) => {
-    const target = probesById[data.id];
+    const target = probesById[data.id] ?? weeklyFeedsById[data.id];
     if (!target || !target.jina) {
       throw new Error("unknown probe");
     }

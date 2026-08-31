@@ -58,10 +58,47 @@ export function secondsLabel(total: number): string {
   const h = Math.floor(total / 3600);
   const m = Math.floor((total % 3600) / 60);
   const s = total % 60;
+  if (h >= 24) {
+    const d = Math.floor(h / 24);
+    return `${d}d ${String(h % 24).padStart(2, "0")}h`;
+  }
   if (h > 0) return `${h}h ${String(m).padStart(2, "0")}m`;
   return `${m}m ${String(s).padStart(2, "0")}s`;
 }
 
 export function cetStamp(d: Date): string {
   return `${cetParts(d).hm} CET`;
+}
+
+const WEEKDAY_I: Record<string, number> = {
+  Mon: 1,
+  Tue: 2,
+  Wed: 3,
+  Thu: 4,
+  Fri: 5,
+  Sat: 6,
+  Sun: 7,
+};
+
+export function isMondayCet(d: Date) {
+  return cetParts(d).weekday === "Mon";
+}
+
+export function nextMondayCet(d: Date): { label: string; seconds: number; isToday: boolean } {
+  const p = cetParts(d);
+  const dow = WEEKDAY_I[p.weekday] ?? 1;
+  const elapsed = elapsedSeconds(d);
+  if (dow === 1) {
+    return {
+      label: "next Mon 07:00 CET",
+      seconds: 7 * 86400 - elapsed,
+      isToday: true,
+    };
+  }
+  const days = 8 - dow;
+  return {
+    label: "Mon 07:00 CET",
+    seconds: days * 86400 - elapsed,
+    isToday: false,
+  };
 }
