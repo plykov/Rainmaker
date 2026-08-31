@@ -20,6 +20,10 @@ function PipelinePage() {
         Filtering is cheap and summarisation is rare. Facts and analysis never merge. A digest that
         misses the day's biggest story looks identical to a perfect one — which is why Monday's
         recall audit and the rumor scorecard are first-class, not decoration.{" "}
+        <Link to="/ops" className="underline-offset-4 hover:underline">
+          This morning's run
+        </Link>
+        {" · "}
         <Link to="/method" className="underline-offset-4 hover:underline">
           How the inputs were scored
         </Link>

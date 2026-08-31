@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArchiveRouteImport } from './routes/archive'
 import { Route as DeskRouteImport } from './routes/desk'
 import { Route as MethodRouteImport } from './routes/method'
+import { Route as OpsRouteImport } from './routes/ops'
 import { Route as PipelineRouteImport } from './routes/pipeline'
 import { Route as RosterRouteImport } from './routes/roster'
 import { Route as SearchRouteImport } from './routes/search'
@@ -39,6 +40,11 @@ const DeskRoute = DeskRouteImport.update({
 const MethodRoute = MethodRouteImport.update({
   id: '/method',
   path: '/method',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OpsRoute = OpsRouteImport.update({
+  id: '/ops',
+  path: '/ops',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PipelineRoute = PipelineRouteImport.update({
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/archive': typeof ArchiveRoute
   '/desk': typeof DeskRoute
   '/method': typeof MethodRoute
+  '/ops': typeof OpsRoute
   '/pipeline': typeof PipelineRoute
   '/roster': typeof RosterRoute
   '/search': typeof SearchRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/archive': typeof ArchiveRoute
   '/desk': typeof DeskRoute
   '/method': typeof MethodRoute
+  '/ops': typeof OpsRoute
   '/pipeline': typeof PipelineRoute
   '/roster': typeof RosterRoute
   '/search': typeof SearchRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/archive': typeof ArchiveRoute
   '/desk': typeof DeskRoute
   '/method': typeof MethodRoute
+  '/ops': typeof OpsRoute
   '/pipeline': typeof PipelineRoute
   '/roster': typeof RosterRoute
   '/search': typeof SearchRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/archive'
     | '/desk'
     | '/method'
+    | '/ops'
     | '/pipeline'
     | '/roster'
     | '/search'
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/archive'
     | '/desk'
     | '/method'
+    | '/ops'
     | '/pipeline'
     | '/roster'
     | '/search'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/archive'
     | '/desk'
     | '/method'
+    | '/ops'
     | '/pipeline'
     | '/roster'
     | '/search'
@@ -164,6 +176,7 @@ export interface RootRouteChildren {
   ArchiveRoute: typeof ArchiveRoute
   DeskRoute: typeof DeskRoute
   MethodRoute: typeof MethodRoute
+  OpsRoute: typeof OpsRoute
   PipelineRoute: typeof PipelineRoute
   RosterRoute: typeof RosterRoute
   SearchRoute: typeof SearchRoute
@@ -201,6 +214,13 @@ declare module '@tanstack/react-router' {
       path: '/method'
       fullPath: '/method'
       preLoaderRoute: typeof MethodRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ops': {
+      id: '/ops'
+      path: '/ops'
+      fullPath: '/ops'
+      preLoaderRoute: typeof OpsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pipeline': {
@@ -260,6 +280,7 @@ const rootRouteChildren: RootRouteChildren = {
   ArchiveRoute: ArchiveRoute,
   DeskRoute: DeskRoute,
   MethodRoute: MethodRoute,
+  OpsRoute: OpsRoute,
   PipelineRoute: PipelineRoute,
   RosterRoute: RosterRoute,
   SearchRoute: SearchRoute,

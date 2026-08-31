@@ -14,6 +14,7 @@ const NAV = [
   { to: "/roster", label: "Roster" },
   { to: "/sources", label: "Sources" },
   { to: "/pipeline", label: "Pipeline" },
+  { to: "/ops", label: "Ops" },
   { to: "/desk", label: "Desk" },
 ] as const;
 
@@ -228,6 +229,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             {" · "}
             <Link to="/specimen" className="hover:text-fg">
               Specimen
+            </Link>
+            {" · "}
+            <Link to="/ops" className="hover:text-fg">
+              Ops
             </Link>
             {" · "}
             Press <kbd className="rounded border border-border px-1 font-mono text-[10px]">?</kbd>{" "}
