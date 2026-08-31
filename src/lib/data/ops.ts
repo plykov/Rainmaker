@@ -48,7 +48,7 @@ export const jobs = [
     id: "ingest",
     time: "every :00 / :30",
     name: "Ingest",
-    detail: "n8n — RSS, HF, GitHub, EDGAR, RECAP, HTML diff. Seen-store write. Not hosted here.",
+    detail: "n8n — RSS, HF, GitHub, EDGAR, RECAP, HTML diff. Seen-store write. Not hosted here. Structural GitHub releases are a separate live event job.",
     state: "idle" as const,
   },
   {
@@ -57,6 +57,13 @@ export const jobs = [
     name: "X List",
     detail: "One timeline call, ~35 handles. No X connector on this plant. Daily Grok task searches public posts instead.",
     state: "idle" as const,
+  },
+  {
+    id: "gh",
+    time: "on release",
+    name: "Structural GitHub",
+    detail: "Live event job. Action watches vLLM, llama.cpp, transformers, sglang, DeepSeek kernels. Grok Stage 1 only when ingest/structural moves.",
+    state: "live" as const,
   },
   {
     id: "bsky",

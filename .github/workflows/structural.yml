@@ -1,0 +1,64 @@
+name: Structural ingest
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: structural-ingest
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Load seen-store from ingest/structural
+        run: |
+          mkdir -p ingest
+          git fetch origin ingest/structural:ingest/structural 2>/dev/null || true
+          if git show origin/ingest/structural:ingest/seen.json > ingest/seen.json 2>/dev/null; then
+            echo "loaded seen-store"
+          else
+            echo '{"bootstrapped":false,"ids":[]}' > ingest/seen.json
+            echo "empty seen-store"
+          fi
+
+      - name: Watch GitHub releases
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/watch-structural.mjs --seen ingest/seen.json --out ingest/latest.json
+
+      - name: Push ingest/structural if the pool moved
+        run: |
+          if [ ! -f ingest/latest.json ]; then
+            echo "quiet · skip push"
+            exit 0
+          fi
+          git config user.name "rainmaker-ingest"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          WORK=$(mktemp -d)
+          cp ingest/seen.json ingest/latest.json "$WORK/"
+          if git rev-parse --verify ingest/structural >/dev/null 2>&1; then
+            git checkout ingest/structural
+          else
+            git checkout --orphan ingest/structural
+            git rm -rf . --quiet || true
+          fi
+          mkdir -p ingest
+          cp "$WORK/seen.json" ingest/seen.json
+          cp "$WORK/latest.json" ingest/latest.json
+          git add ingest/seen.json ingest/latest.json
+          if git diff --cached --quiet; then
+            echo "no commit"
+            exit 0
+          fi
+          git commit -m "ingest: structural $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push origin ingest/structural

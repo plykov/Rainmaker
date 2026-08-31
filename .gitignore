@@ -14,4 +14,4 @@ dist/
 .output/
 coverage/
 .vite/
-attachments/
+ingest/
