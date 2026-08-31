@@ -1,0 +1,31 @@
+{
+  "bootstrapped": true,
+  "ids": [
+    "deepseek-ai/DeepEP@v1.2.1",
+    "deepseek-ai/DeepGEMM@nv_dev_4ff3f54",
+    "deepseek-ai/DeepGEMM@nv_dev_67fc648",
+    "deepseek-ai/DeepGEMM@nv_dev_950d31a",
+    "deepseek-ai/DeepGEMM@nv_dev_c491439",
+    "deepseek-ai/DeepGEMM@nv_dev_f8e8fb5",
+    "ggml-org/llama.cpp@b10712",
+    "ggml-org/llama.cpp@b10713",
+    "ggml-org/llama.cpp@b10714",
+    "ggml-org/llama.cpp@b10715",
+    "ggml-org/llama.cpp@b10717",
+    "huggingface/transformers@v5.14.1",
+    "huggingface/transformers@v5.15.0",
+    "huggingface/transformers@v5.15.1",
+    "huggingface/transformers@v5.16.0",
+    "huggingface/transformers@v5.16.1",
+    "sgl-project/sglang@v0.5.15",
+    "sgl-project/sglang@v0.5.15.post1",
+    "sgl-project/sglang@v0.5.16",
+    "sgl-project/sglang@v0.5.17",
+    "sgl-project/sglang@v0.5.18",
+    "vllm-project/vllm@v0.25.1",
+    "vllm-project/vllm@v0.26.0",
+    "vllm-project/vllm@v0.27.0",
+    "vllm-project/vllm@v0.27.1",
+    "vllm-project/vllm@v0.28.0"
+  ]
+}
