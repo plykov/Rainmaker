@@ -1,16 +1,26 @@
 {
-  "at": "2026-09-01T05:18:17.456Z",
+  "at": "2026-09-01T11:46:11.568Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b10730",
-      "name": "b10730",
+      "tag": "b10733",
+      "name": "b10733",
       "prerelease": true,
-      "published": "2026-09-01T05:08:54Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10730",
-      "body": "<details open>\n\nqwen4exp: sum the indexer heads by slices (#28023)\n\n* qwen4exp: sum the indexer heads by slices\n\nThe head reduction went through a transpose and a sum_rows over ne[1],\nwhich left sum_rows with ne0 = 4, one block per row for a four element\nreduction, and the transpose copied the whole block by token surface\ntwice on the way in.\n\nThe heads are adjacent on ne[1], so each one is a strided view and the\nsum is a short chain of adds.\n\nRTX PRO 6000, Qwen3.8-Flash-Next UD-Q4_K_XL, fa on, 55k context, warm\nruns on top of #28011:\n\n  prompt processing   2170 -> 2366 t/s\n\nGeneration is unaffected. The removed work scales with n_blocks by\nn_tokens, so the gain grows with context and with ubatch size.\n\n* qwen4exp: drop the redundant cont on the indexer query\n\nrope returns a freshly allocated, contiguous tensor, so the reshape that\nfeeds the matmul does not need a copy. ggml_reshape_3d asserts\ncontiguity, so a layout that would need the cont cannot slip through\nsilently.\n\nGreedy output is unchanged token for token.\n\nAddress review from @ggerganov\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/44321551>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10730/llama-b10730-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10730/llama-b10730-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10730/llama-b10730-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10730/llama-b10730-bin-ubu"
+      "published": "2026-09-01T10:00:12Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10733",
+      "body": "<details open>\n\nci: Bump ggml-org/ccache-action to v1.2.24 (#28083)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/44375174>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10733/llama-b10733-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10733/llama-b10733-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10733/llama-b10733-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10733/llama-b10733-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10733/llama-b10733-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10733/llama-b10733-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10733/llama-b10733-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10733/llama-b10733-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 7.14)](https://github.com/ggml-org/llama.cpp/releases/download/b10733/llama-b10733-bin-ubuntu-rocm-7.14-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10733/llama-b10733-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10733/llama-b10733-bin-ubuntu-sycl-fp32-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-o"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b10731",
+      "name": "b10731",
+      "prerelease": true,
+      "published": "2026-09-01T05:34:08Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10731",
+      "body": "<details open>\n\nqwen4exp: support recurrent state rollback (#28123)\n\nMTP speculative decoding needs the target state to move back by the\nnumber of rejected draft tokens. Without rollback support the context\nis classified as SEQ_RM_TYPE_FULL and the server serializes the whole\nrecurrent state to host memory on every round, which costs more than\nthe drafting saves.\n\nThe recurrent cache already holds n_rs_seq + 1 snapshot planes and the\ndelta net writes its SSM state into them, but build_conv_state_at wrote\na single plane, so a rollback restored a convolution history that was\nnever captured. It now writes one snapshot per slot, each ending one\ntoken earlier, for the delta net QKV convolution and for the PLE\nconvolution alike.\n\nMeasured on Qwen3.8-Flash-Next UD-Q4_K_XL with the standalone MTP\ndraft, n-max 3 and a single slot: decoding reaches 183 tok/s on code\nand 144 tok/s on prose. The same branch before this change, where the\nserver falls back to checkpointing the state to host memory, reaches\n123 and 83 tok/s, for 108 tok/s without a draft.\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/44325593>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10731/llama-b10731-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10731/llama-b10731-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10731/llama-b10731-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10731/llama-b10731-bin-ubuntu-x6"
     }
   ]
 }
