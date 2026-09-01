@@ -32,6 +32,7 @@
     "ggml-org/llama.cpp@b10743",
     "ggml-org/llama.cpp@b10749",
     "ggml-org/llama.cpp@b10750",
+    "ggml-org/llama.cpp@b10751",
     "huggingface/transformers@v5.14.1",
     "huggingface/transformers@v5.15.0",
     "huggingface/transformers@v5.15.1",
