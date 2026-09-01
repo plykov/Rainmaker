@@ -1,36 +1,16 @@
 {
-  "at": "2026-08-31T23:54:23.900Z",
+  "at": "2026-09-01T05:18:17.456Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b10729",
-      "name": "b10729",
+      "tag": "b10730",
+      "name": "b10730",
       "prerelease": true,
-      "published": "2026-08-31T22:22:28Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10729",
-      "body": "<details open>\n\nmetal : add fa-vec tunings for M1 Ultra (#28088)\n\n* metal : add fa-vec tunings for M1 Ultra\n\n* metal : move M1 Ultra tunings after M1 Max section\n\n* metal : remove duplicate blank line\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/44269196>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10729/llama-b10729-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10729/llama-b10729-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10729/llama-b10729-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10729/llama-b10729-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10729/llama-b10729-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10729/llama-b10729-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10729/llama-b10729-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10729/llama-b10729-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 7.14)](https://github.com/ggml-org/llama.cpp/releases/download/b10729/llama-b10729-bin-ubuntu-rocm-7.14-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10729/llama-b10729-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b10728",
-      "name": "b10728",
-      "prerelease": true,
-      "published": "2026-08-31T21:46:30Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10728",
-      "body": "<details open>\n\nCUDA: XOR swizzle flash attn  K,V smem fp16 tiles (#25635)\n\n* CUDA: XOR swizzle flash attn  K,V smem fp16 tiles\n\nSigned-off-by: ynankani <ynankani@nvidia.com>\n\n* Fix use 64bit generic pointer instead of 32bit shared pointer\n\nSigned-off-by: ynankani <ynankani@nvidia.com>\n\n* fix shared memory race in FA on DGX Spark\n\n* Handle corener case\n\nSigned-off-by: ynankani <ynankani@nvidia.com>\n\n* Add swizzle test cases and gate sync for swizzled path only\n\nSigned-off-by: ynankani <ynankani@nvidia.com>\n\n* gate CUDA PTX\n\nSigned-off-by: ynankani <ynankani@nvidia.com>\n\n* offset calculation specific for swizzle branch\n\nSigned-off-by: ynankani <ynankani@nvidia.com>\n\n* Reafctor code\n\nSigned-off-by: ynankani <ynankani@nvidia.com>\n\n* Refactor FA swizzle ldmatrix if/else into helpers (K row/col, V offset)\n\nSigned-off-by: ynankani <ynankani@nvidia.com>\n\n* rebase and update test case args\n\nSigned-off-by: ynankani <ynankani@nvidia.com>\n\n* Allow swizzle for non-pow2 shapes, for which nbatch_2%32==0\n\nSigned-off-by: ynankani <ynankani@nvidia.com>\n\n---------\n\nSigned-off-by: ynankani <ynankani@nvidia.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/44263040>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10728/llama-b10728-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10728/llama-b10728-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10728/llama-b10728-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cp"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b10727",
-      "name": "b10727",
-      "prerelease": true,
-      "published": "2026-08-31T20:54:49Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10727",
-      "body": "<details open>\n\nmetal : add concat support for quantized types (#28116)\n\nAssisted-by: pi:llama.cpp/DeepSeek-V4-Flash-0731\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/44252653>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10727/llama-b10727-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10727/llama-b10727-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10727/llama-b10727-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10727/llama-b10727-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10727/llama-b10727-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10727/llama-b10727-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10727/llama-b10727-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10727/llama-b10727-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 7.14)](https://github.com/ggml-org/llama.cpp/releases/download/b10727/llama-b10727-bin-ubuntu-rocm-7.14-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10727/llama-b10727-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10727/llama-b10727-bin-ubuntu-sycl-fp32-x64.tar.gz"
+      "published": "2026-09-01T05:08:54Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10730",
+      "body": "<details open>\n\nqwen4exp: sum the indexer heads by slices (#28023)\n\n* qwen4exp: sum the indexer heads by slices\n\nThe head reduction went through a transpose and a sum_rows over ne[1],\nwhich left sum_rows with ne0 = 4, one block per row for a four element\nreduction, and the transpose copied the whole block by token surface\ntwice on the way in.\n\nThe heads are adjacent on ne[1], so each one is a strided view and the\nsum is a short chain of adds.\n\nRTX PRO 6000, Qwen3.8-Flash-Next UD-Q4_K_XL, fa on, 55k context, warm\nruns on top of #28011:\n\n  prompt processing   2170 -> 2366 t/s\n\nGeneration is unaffected. The removed work scales with n_blocks by\nn_tokens, so the gain grows with context and with ubatch size.\n\n* qwen4exp: drop the redundant cont on the indexer query\n\nrope returns a freshly allocated, contiguous tensor, so the reshape that\nfeeds the matmul does not need a copy. ggml_reshape_3d asserts\ncontiguity, so a layout that would need the cont cannot slip through\nsilently.\n\nGreedy output is unchanged token for token.\n\nAddress review from @ggerganov\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/44321551>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10730/llama-b10730-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10730/llama-b10730-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10730/llama-b10730-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10730/llama-b10730-bin-ubu"
     }
   ]
 }
