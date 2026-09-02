@@ -18,6 +18,20 @@ Daily briefing at 07:00 CET (Grok automation: email + app). Multiplicative admis
 
 Design notes live in [`docs/design.md`](docs/design.md).
 
+## Hosted page (GitHub Pages)
+
+Public daily URL after the first Actions deploy:
+
+**https://plykov.github.io/Rainmaker/**
+
+This is the automatic host. `rainmaker.grok.me` is a separate Grok publish and does not rebuild when the digest changes.
+
+Loop: 07:00 job writes `public/briefing/YYYY-MM-DD.json` + `latest.json` → push to `main` → workflow `Pages` builds `site/` and deploys.
+
+One-time (repo admin): GitHub → Settings → Pages → Source **GitHub Actions**. Then run Actions → Pages → Run workflow.
+
+Local check: `node scripts/build-pages.mjs` writes `site/index.html`.
+
 ## Run
 
 ```bash
