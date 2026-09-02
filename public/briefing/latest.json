@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-02",
+  "weekdayNote": "Wednesday · 07:00 CET",
+  "scanned": 88,
+  "passedRules": 22,
+  "triaged": 11,
+  "admitted": 6,
+  "merged": 2,
+  "quoteBlocked": 0,
+  "lede": "OpenAI designates Astra Critical for cyber; Anthropic ships Fable 5.1 / Mythos 5.1 the same window",
+  "url": "https://github.com/plykov/Rainmaker/blob/main/src/lib/data/digest-2026-09-02.ts"
+}
