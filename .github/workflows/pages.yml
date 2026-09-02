@@ -8,12 +8,14 @@ on:
       - "src/lib/data/digest-*.ts"
       - "scripts/build-pages.mjs"
       - ".github/workflows/pages.yml"
+      - "docs/**"
   workflow_dispatch:
 
 permissions:
   contents: write
   pages: write
   id-token: write
+  actions: read
 
 concurrency:
   group: pages
@@ -29,6 +31,22 @@ jobs:
           node-version: "22"
       - name: Build static briefing
         run: node scripts/build-pages.mjs
+      - name: Enable GitHub Pages with Actions as source
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          echo "current Pages config:"
+          gh api repos/${{ github.repository }}/pages || true
+          gh api --method POST repos/${{ github.repository }}/pages \
+            -H "Accept: application/vnd.github+json" \
+            -f build_type=workflow && echo "created Pages site (workflow)"
+          gh api --method PUT repos/${{ github.repository }}/pages \
+            -H "Accept: application/vnd.github+json" \
+            -f build_type=workflow && echo "switched Pages source to workflow"
+          echo "Pages config after enable:"
+          gh api repos/${{ github.repository }}/pages || true
       - name: Publish gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -46,7 +64,6 @@ jobs:
     needs: build
     if: success()
     runs-on: ubuntu-latest
-    continue-on-error: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
