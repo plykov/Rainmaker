@@ -24,13 +24,11 @@ Public daily URL:
 
 **https://plykov.github.io/Rainmaker/**
 
-Loop: 07:00 job writes `public/briefing/YYYY-MM-DD.json` + `latest.json` → push to `main` → workflow `Pages` builds `site/` and deploys.
+Loop: 07:00 job writes `public/briefing/YYYY-MM-DD.json` + `latest.json` → push to `main` → workflow `Pages` builds `site/` and deploys with `actions/deploy-pages`.
 
-If that URL 404s, the digest is already in git; Pages itself was never given a publishing source. The Actions job now tries to create the Pages site with `build_type=workflow`. If GitHub still rejects `actions/deploy-pages` with “Ensure GitHub Pages has been enabled”, one repo-admin click remains:
+The workflow first ensures the repo Pages site exists with `build_type=workflow`. That is what was missing on 2 Sep: the 2026-09-02 digest was already in `public/briefing/`, `gh-pages` already had `index.html`, but `actions/deploy-pages` 404’d with “Ensure GitHub Pages has been enabled,” and `GITHUB_TOKEN` pushes to `gh-pages` do not trigger a branch Pages build.
 
-GitHub → Settings → Pages → Source **GitHub Actions**.
-
-Fallback already in the repo: built HTML for the current issue lives in `docs/` and on the `gh-pages` branch (`/` root). You can instead set Source to **Deploy from a branch** → `gh-pages` / root, or `main` / `/docs`. Commits from `GITHUB_TOKEN` do not trigger a branch Pages build; a user push or the Actions deploy path is required.
+If the public URL 404s again: Settings → Pages → Source **GitHub Actions**, then Actions → Pages → Run workflow.
 
 Local check: `node scripts/build-pages.mjs` writes `site/index.html`.
 
