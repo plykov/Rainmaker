@@ -4,7 +4,10 @@ import type { Digest, DigestItem, RadarEvent } from "@/lib/data/types";
 export const LIVE_BRANCH = "ingest/daily";
 export const LIVE_LATEST_URL =
   "https://raw.githubusercontent.com/plykov/Rainmaker/ingest/daily/latest.json";
+
+/** Same-origin first for grok.me; GitHub wins if its date is newer. */
 export const LIVE_MIRRORS = [
+  "/briefing/latest.json",
   LIVE_LATEST_URL,
   "https://cdn.jsdelivr.net/gh/plykov/Rainmaker@ingest/daily/latest.json",
 ];
@@ -15,6 +18,7 @@ export function liveDatedUrl(date: string) {
 
 export function liveDatedMirrors(date: string) {
   return [
+    `/briefing/${date}.json`,
     liveDatedUrl(date),
     `https://cdn.jsdelivr.net/gh/plykov/Rainmaker@ingest/daily/${date}.json`,
   ];
@@ -166,16 +170,27 @@ async function pull(url: string): Promise<LiveEnvelope | null> {
   }
 }
 
-async function pullFirst(urls: string[]): Promise<LiveEnvelope | null> {
-  for (const url of urls) {
-    const env = await pull(url);
-    if (env) return env;
-  }
-  return null;
+async function pullBest(urls: string[]): Promise<LiveEnvelope | null> {
+  const found = (
+    await Promise.all(
+      urls.map(async (url) => {
+        const abs =
+          url.startsWith("http") || typeof window === "undefined" ? url : new URL(url, window.location.origin).href;
+        if (!abs.startsWith("http")) return pull(url);
+        return pull(abs);
+      }),
+    )
+  ).filter((x): x is LiveEnvelope => Boolean(x));
+  if (found.length === 0) return null;
+  found.sort((a, b) => {
+    const d = b.digest.date.localeCompare(a.digest.date);
+    return d !== 0 ? d : b.publishedAt.localeCompare(a.publishedAt);
+  });
+  return found[0];
 }
 
 export const fetchLiveLatest = createServerFn({ method: "GET" }).handler(async () => {
-  return pullFirst(LIVE_MIRRORS);
+  return pullBest(LIVE_MIRRORS.filter((u) => u.startsWith("http")));
 });
 
 export const fetchLiveDated = createServerFn({ method: "POST" })
@@ -186,5 +201,5 @@ export const fetchLiveDated = createServerFn({ method: "POST" })
     return { date };
   })
   .handler(async ({ data }) => {
-    return pullFirst(liveDatedMirrors(data.date));
+    return pullBest(liveDatedMirrors(data.date).filter((u) => u.startsWith("http")));
   });

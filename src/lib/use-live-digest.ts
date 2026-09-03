@@ -11,17 +11,26 @@ import {
 } from "@/lib/live-edition";
 
 async function pullClient(urls: string[]): Promise<LiveEnvelope | null> {
-  for (const url of urls) {
-    try {
-      const res = await fetch(`${url}${url.includes("?") ? "&" : "?"}t=${Date.now()}`, { cache: "no-store" });
-      if (!res.ok) continue;
-      const env = parseLiveEnvelope(await res.json());
-      if (env) return env;
-    } catch {
-      /* next mirror */
-    }
-  }
-  return null;
+  const found: LiveEnvelope[] = [];
+  await Promise.all(
+    urls.map(async (url) => {
+      try {
+        const href = url.startsWith("http") ? url : new URL(url, window.location.origin).href;
+        const res = await fetch(`${href}${href.includes("?") ? "&" : "?"}t=${Date.now()}`, { cache: "no-store" });
+        if (!res.ok) return;
+        const env = parseLiveEnvelope(await res.json());
+        if (env) found.push(env);
+      } catch {
+        /* next mirror */
+      }
+    }),
+  );
+  if (found.length === 0) return null;
+  found.sort((a, b) => {
+    const d = b.digest.date.localeCompare(a.digest.date);
+    return d !== 0 ? d : b.publishedAt.localeCompare(a.publishedAt);
+  });
+  return found[0];
 }
 
 async function loadLatest(): Promise<LiveEnvelope | null> {
