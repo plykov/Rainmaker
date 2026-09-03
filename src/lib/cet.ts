@@ -66,6 +66,15 @@ export function secondsLabel(total: number): string {
   return `${m}m ${String(s).padStart(2, "0")}s`;
 }
 
+export function todayCetDate(d = new Date()): string {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: CET_TZ,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(d);
+}
+
 export function cetStamp(d: Date): string {
   return `${cetParts(d).hm} CET`;
 }

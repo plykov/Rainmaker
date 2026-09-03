@@ -5,12 +5,18 @@ import { SECTION_META } from "@/lib/data/catalog";
 import { digestWordCount, digests, LATEST_DATE } from "@/lib/data/digests";
 import { formatBriefingDate, readTimeLabel } from "@/lib/format";
 import { useReader } from "@/lib/store";
+import { useLiveLatest } from "@/lib/use-live-digest";
 
 export const Route = createFileRoute("/archive")({ component: ArchivePage });
 
 function ArchivePage() {
   const readDigests = useReader((s) => s.readDigests);
-  const sorted = [...digests].sort((a, b) => (a.date < b.date ? 1 : -1));
+  const { digest: live, live: isLive } = useLiveLatest();
+  const sorted = [...digests]
+    .filter((d) => d.date !== live.date)
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+  const rows = [live, ...sorted];
+  const latestDate = live.date;
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -37,7 +43,7 @@ function ArchivePage() {
       </aside>
 
       <ol className="mt-10 divide-y divide-border border-y border-border">
-        {sorted.map((d) => {
+        {rows.map((d) => {
           const words = digestWordCount(d);
           const lede = d.items.find((i) => i.section === "lede");
           const read = readDigests.includes(d.date);
@@ -56,7 +62,8 @@ function ArchivePage() {
                     {format(parseISO(d.date), "d MMM")}
                   </p>
                   <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-fg-subtle">
-                    {d.date === LATEST_DATE ? "Latest" : formatBriefingDate(d.date).slice(-4)}
+                    {d.date === latestDate ? "Latest" : formatBriefingDate(d.date).slice(-4)}
+                    {isLive && d.date === live.date ? " · Live" : ""}
                     {read ? " · Read" : ""}
                   </p>
                 </div>

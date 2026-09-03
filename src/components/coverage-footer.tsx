@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { todayCetDate } from "@/lib/cet";
 import { droppedToday } from "@/lib/data/dropped";
 import { AUDIT_DUE } from "@/lib/data/audit";
 import { LATEST_DATE } from "@/lib/data/digests";
@@ -6,7 +7,7 @@ import type { Digest } from "@/lib/data/types";
 import { useReader } from "@/lib/store";
 
 export function CoverageFooter({ digest }: { digest: Digest }) {
-  const isToday = digest.date === LATEST_DATE;
+  const isToday = digest.date === LATEST_DATE || digest.date === todayCetDate();
   const probe = useReader((s) => s.probe);
   const filing = useReader((s) => s.auditFilings[AUDIT_DUE]);
   const live = Boolean(isToday && probe && probe.date === digest.date);

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { LATEST_DATE } from "@/lib/data/digests";
+import { todayCetDate } from "@/lib/cet";
 import type { ProbeRun } from "@/lib/data/probes";
 import { pendingQueue, type QueueItem } from "@/lib/data/desk";
 import type { Digest, DigestItem, FetchFailure } from "@/lib/data/types";
@@ -52,7 +53,7 @@ export function hydrateDigest(
   probe: ProbeRun | null = null,
   edition: Edition | null = null,
 ): Digest {
-  if (digest.date !== LATEST_DATE) return digest;
+  if (digest.date !== LATEST_DATE && digest.date !== todayCetDate()) return digest;
   const extra = releasedItems(decisions).filter((i) => edition?.queueIds.includes(i.id));
   const live = liveFetchFailures(probe, digest.date);
   if (extra.length === 0 && live == null) return digest;

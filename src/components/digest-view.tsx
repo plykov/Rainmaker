@@ -16,7 +16,15 @@ import { formatBriefingDate, formatRadarDate, readTimeLabel } from "@/lib/format
 import { useReader } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
-export function DigestView({ digest, isToday }: { digest: Digest; isToday?: boolean }) {
+export function DigestView({
+  digest,
+  isToday,
+  live,
+}: {
+  digest: Digest;
+  isToday?: boolean;
+  live?: boolean;
+}) {
   const { prev, next } = adjacentDates(digest.date);
   const words = digestWordCount(digest);
   const readTime = readTimeLabel(words);
@@ -80,7 +88,11 @@ export function DigestView({ digest, isToday }: { digest: Digest; isToday?: bool
             07:00 CET · {digest.scanned.toLocaleString()} scanned → {digest.admitted} admitted ·{" "}
             {words} words · read {readTime}
           </p>
-          {edition ? (
+          {live ? (
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-confirmed">
+              Live edition · this morning’s 07:00 send
+            </p>
+          ) : edition ? (
             <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-confirmed">
               Published {edition.label} · updated in place
             </p>
