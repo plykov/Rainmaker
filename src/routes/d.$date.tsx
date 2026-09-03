@@ -2,8 +2,10 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { DigestView } from "@/components/digest-view";
 import { KeyboardNav } from "@/components/keyboard-nav";
 import { ReadingProgress } from "@/components/reading-progress";
-import { getDigest, getLatestDigest, LATEST_DATE } from "@/lib/data/digests";
+import { todayCetDate } from "@/lib/cet";
+import { getDigest, getLatestDigest } from "@/lib/data/digests";
 import { useHydratedDigest } from "@/lib/hydrate";
+import { useDatedDigest } from "@/lib/use-live-digest";
 
 export const Route = createFileRoute("/d/$date")({
   component: DigestPage,
@@ -11,14 +13,19 @@ export const Route = createFileRoute("/d/$date")({
 
 function DigestPage() {
   const { date } = Route.useParams();
-  const raw = getDigest(date);
+  const { digest: raw, ready } = useDatedDigest(date);
   const digest = useHydratedDigest(raw ?? getLatestDigest());
+  if (!ready) {
+    return (
+      <p className="font-mono text-xs uppercase tracking-[0.16em] text-fg-subtle">Loading edition…</p>
+    );
+  }
   if (!raw) throw notFound();
   return (
     <>
       <ReadingProgress />
       <KeyboardNav date={digest.date} itemIds={digest.items.map((i) => i.id)} />
-      <DigestView digest={digest} isToday={date === LATEST_DATE} />
+      <DigestView digest={digest} isToday={date === todayCetDate()} live={date === todayCetDate() && !getDigest(date)} />
     </>
   );
 }
