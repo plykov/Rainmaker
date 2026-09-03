@@ -1,36 +1,16 @@
 {
-  "at": "2026-09-03T16:31:45.926Z",
+  "at": "2026-09-03T19:55:42.401Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b10786",
-      "name": "b10786",
+      "tag": "b10790",
+      "name": "b10790",
       "prerelease": true,
-      "published": "2026-09-03T12:44:27Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10786",
-      "body": "<details open>\n\nmtmd: propagate const to preproc class (#28310)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/44990064>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10786/llama-b10786-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10786/llama-b10786-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10786/llama-b10786-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10786/llama-b10786-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10786/llama-b10786-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10786/llama-b10786-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10786/llama-b10786-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10786/llama-b10786-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10786/llama-b10786-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10786/llama-b10786-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10786/llama-b10786-bin-ubuntu-sycl-fp32-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/l"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b10785",
-      "name": "b10785",
-      "prerelease": true,
-      "published": "2026-09-03T12:19:45Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10785",
-      "body": "<details open>\n\nmetal : add sparse FA (#28098)\n\n* metal : support n_kv_max sparse mask hint in flash attention vec kernel\n\n- add kernel_flash_attn_ext_vec_idx: compacts finite mask entries into\n  a per-row index list (Hillis-Steele scan, one threadgroup per row)\n- extend vec FA kernel with optional sparse index gathering (FC slot 5)\n- add host-side gate: sparse path when n_kv_max > 0, mask present,\n  supported head sizes / KV types, n_kv_max <= 4096\n- new buffer region extra_idx for the index list\n- pipeline getter extended with has_sparse param\n- add test cases: head sizes, quant types, nb>1, nr23 variants,\n  sinks, ALiBi, softcap, permute, v_view_of_k, no-mask fallback\n\nNote: multi-row (nb*nr23[1] > 1) cases still failing - rid mapping\nin the store phase needs revisiting for the sparse path.\n\nAssisted-by: pi:llama.cpp/Qwen3.8-27B\n\n* metal : fix sparse flash attention row addressing\n\n- kernel_flash_attn_ext_vec_idx: mask param is half* but nb31 is a byte\n  stride, so the per-row mask offset was scaled by 2x; cast to char*\n  before applying the byte strides\n- kernel_flash_attn_ext_vec: sparse pidx param is char* so the per-row\n  element offset was under-scaled by sizeof(int); scale it by sizeof(int)\n  to get the correct byte offset\n- fixes the multi-row (nb*nr23[1] > 1) sparse flash attention failures\n\nAssisted-by: pi:llama.cpp/DeepSeek-v4-0731\n\n* cont : use sparse vec FA for prefill\n\n* metal : single-pass flash attention sparse index compaction\n\nThe idx kernel previously read the mask row twice: once to count the finite\nentries (for the prefix scan) and again to recover their positions. Since the\nkernel is memory-bound, this doubled the mask traffic.\n\nKeep the finite positions in a per-thread register array during the count\npass and write them out directly, avoiding th"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b10784",
-      "name": "b10784",
-      "prerelease": true,
-      "published": "2026-09-03T11:52:21Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10784",
-      "body": "<details open>\n\nmetal : fix glu dispatch with ne00 = 1 (#28306)\n\n* metal : fix glu dispatch with ne00 = 1\n\n* tests : disable ill-defined tests\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/44977647>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10784/llama-b10784-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10784/llama-b10784-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10784/llama-b10784-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10784/llama-b10784-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10784/llama-b10784-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10784/llama-b10784-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10784/llama-b10784-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10784/llama-b10784-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10784/llama-b10784-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10784/llama-b10784-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10784/llama-b10784-bin-ubuntu"
+      "published": "2026-09-03T19:52:20Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10790",
+      "body": "<details open>\n\ntune MMVQ to MMQ crossover for SM87 (#28285)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45087167>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10790/llama-b10790-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10790/llama-b10790-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10790/llama-b10790-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10790/llama-b10790-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10790/llama-b10790-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10790/llama-b10790-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10790/llama-b10790-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10790/llama-b10790-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10790/llama-b10790-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10790/llama-b10790-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10790/llama-b10790-bin-ubuntu-sycl-fp32-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/llam"
     }
   ]
 }
