@@ -1,36 +1,16 @@
 {
-  "at": "2026-09-04T05:59:17.631Z",
+  "at": "2026-09-04T11:26:59.512Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b10796",
-      "name": "b10796",
+      "tag": "b10797",
+      "name": "b10797",
       "prerelease": true,
-      "published": "2026-09-04T05:31:09Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10796",
-      "body": "<details open>\n\nsrc : add n_expert_used_max function (#28323)\n\n* src : add n_expert_used_max function\n\nWith Commit c61b98b875eaa5e654a3f5c73b34c310d2c6ab4c (\"model: add\nNVIDIA Nemotron-3-Puzzle-75B-A9B (NemotronHPuzzle) support (#25444)\") it\nis now possible for each layer to have a specific number of experts but\nthere are a few checks that need to be updated to handle this upon model\nloading. For example:\n```console\nllama_model_load: error loading model: model has expert layers but no expert layers are used\n```\nAnd later:\n```console\n/llama.cpp/src/llama-model-loader.cpp:955: GGML_ASSERT(n_ids_used > 0) failed\n```\n\nThis commit adds the n_expert_used_max function so that these checks\ncan use it.\n\nRefs: https://github.com/ggml-org/llama.cpp/pull/25444#issuecomment-5524976031\n\n* src : use hparams.n_expert_used_max in llama_model_base::load_hparams\n\n* src : use 0 as initial value for n_expert_used_max\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45169265>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10796/llama-b10796-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10796/llama-b10796-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10796/llama-b10796-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10796/llama-b10796-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10796/llama-b10796-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s39"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b10795",
-      "name": "b10795",
-      "prerelease": true,
-      "published": "2026-09-04T04:30:55Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10795",
-      "body": "<details open>\n\nsycl: fuse rms_norm+mul+add and add+add residual chains (#27610)\n\nFuse RMS_NORM+MUL+ADD and ADD+ADD under GGML_SYCL_ENABLE_FUSION.\n\nADD+ADD uses the same binbcast indexing and type matrix as standalone\nadd() (f32, f16, f16/f32, i32, i16, bf16, including broadcast and\nnon-contiguous). Unsupported combinations fall back to two add() launches.\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45161609>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10795/llama-b10795-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10795/llama-b10795-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10795/llama-b10795-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10795/llama-b10795-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10795/llama-b10795-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10795/llama-b10795-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10795/llama-b10795-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10795/llama-b10795-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10795/llama-b10795-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b10794",
-      "name": "b10794",
-      "prerelease": true,
-      "published": "2026-09-04T03:20:12Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10794",
-      "body": "<details open>\n\nSYCL: Refactor GGML_SYCL_ENABLE_MKL_FA to global var (#26863)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45153754>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10794/llama-b10794-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10794/llama-b10794-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10794/llama-b10794-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10794/llama-b10794-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10794/llama-b10794-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10794/llama-b10794-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10794/llama-b10794-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10794/llama-b10794-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10794/llama-b10794-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10794/llama-b10794-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10794/llama-b10794-bin-ubuntu-sycl-fp32-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP16)](https://github."
+      "published": "2026-09-04T08:36:28Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10797",
+      "body": "<details open>\n\nggml-cpu(s390x) : fix q5_1 uninitialized v_acc (#28332)\n\nSigned-off-by: Aaron Teo <aaron.teo1@ibm.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45199911>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10797/llama-b10797-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10797/llama-b10797-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10797/llama-b10797-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10797/llama-b10797-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10797/llama-b10797-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10797/llama-b10797-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10797/llama-b10797-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10797/llama-b10797-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10797/llama-b10797-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10797/llama-b10797-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10797/llama-b10797-bin-ubuntu-sycl-fp32-x64.tar.gz)\n-"
     }
   ]
 }
