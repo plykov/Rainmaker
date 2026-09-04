@@ -1,16 +1,36 @@
 {
-  "at": "2026-09-04T16:27:40.146Z",
+  "at": "2026-09-04T19:40:34.789Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b10798",
-      "name": "b10798",
+      "tag": "b10814",
+      "name": "b10814",
       "prerelease": true,
-      "published": "2026-09-04T15:03:27Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10798",
-      "body": "<details open>\n\ncommon : make build info output stream configurable (#28322)\n\nLet llama_print_build_info write to a caller-provided FILE* instead of\nhardcoding stderr. The parameter defaults to stderr so existing callers\nkeep their current behavior.\n\nThe version command in llama-app now passes stdout, so plain version\noutput goes to stdout where users expect it.\n\nSigned-off-by: Adrien Gallouët <angt@huggingface.co>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45278162>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10798/llama-b10798-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10798/llama-b10798-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10798/llama-b10798-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10798/llama-b10798-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10798/llama-b10798-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10798/llama-b10798-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10798/llama-b10798-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10798/llama-b10798-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10798/llama-b10798-bin-ubuntu-ro"
+      "published": "2026-09-04T19:30:32Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10814",
+      "body": "<details open>\n\nopencl: extend the elementwise and data‐movement op coverage (#27633)\n\n* opencl: add extended elementwise unary ops (sgn, step, elu, hardswish, hardsigmoid, floor, ceil, round, trunc)\n\nAdds nine GGML_UNARY_OP_* elementwise ops that were falling back to CPU on the\nOpenCL backend, following the same variant shape as the existing ABS op: f32,\nf32_4 (vec4), f16, f16_4 (vec4), and stride-addressed f32_nc / f16_nc for\nnon-contiguous inputs. New kernels/unary_ext.cl (macro-generated), a shared\nggml_cl_unary_ext dispatch helper mirroring ggml_cl_abs, the supports_op cases,\nand the compute-forward cases.\n\nValues are computed in float (the f16 variants read/write half and convert), so\nthe conditional ops (step, elu) match the CPU reference; the vec4 forms use\nselect() for the branch.\n\nValidated with test-backend-ops on Adreno 840 and 850 (E17): all nine ops pass\nevery case including the vec4 and non-contiguous variants (8/8 or 14/14).\n\n* opencl: dispatch a contiguous f32 copy over the whole device\n\nkernel_cpy_f32_f32 maps one workgroup to each (i01,i02,i03) row and strides the\nrow across that workgroup's lanes, and the host launches ne01*MIN(64,ne00) work\nitems. A tensor with few long rows therefore runs on a single workgroup. The\nmamba2 and gated-delta-net recurrent state cache is one row of 524288 floats,\ncopied once per layer per graph, and lands on 64 work items.\n\nWhen both sides are contiguous the copy is a linear move, so dispatch it over\nthe whole device: one work item per float4. Gated on ggml_is_contiguous for both\ntensors and equal element counts, so copies already spread over many rows keep\nthe existing path. The kernel is created optionally, so a driver that rejects it\nfalls back rather than aborting.\n\nvload4/vstore4 rather than a float4 cast: they req"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b10813",
+      "name": "b10813",
+      "prerelease": true,
+      "published": "2026-09-04T19:02:50Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10813",
+      "body": "<details open>\n\nopencl: add Adreno xmem SDPA path (#26331)\n\n* opencl: add Adreno xmem SDPA path\n\nAssisted-by: Codex\n\n* Removed the Adreno-specific queue profiling override\n\n* Clean up formatting\n\n* 修复数值误差优化gqa/mask attn\n\nAssisted-by: Codex\n\n* add env GGML_OPENCL_XMEM_SDPA\n\nAssisted-by: OpenAI Codex\n\n---------\n\nCo-authored-by: happyyzy <happyyzy@users.noreply.github.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45326308>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10813/llama-b10813-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10813/llama-b10813-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10813/llama-b10813-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10813/llama-b10813-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10813/llama-b10813-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10813/llama-b10813-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10813/llama-b10813-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10813/llama-b10813-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10813/llama-b10813-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)]("
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b10809",
+      "name": "b10809",
+      "prerelease": true,
+      "published": "2026-09-04T17:55:12Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10809",
+      "body": "<details open>\n\nllama.cpp : bump version to 0.4.0 (#28386)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45314398>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10809/llama-b10809-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10809/llama-b10809-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10809/llama-b10809-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10809/llama-b10809-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10809/llama-b10809-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10809/llama-b10809-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10809/llama-b10809-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10809/llama-b10809-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10809/llama-b10809-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10809/llama-b10809-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10809/llama-b10809-bin-ubuntu-sycl-fp32-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/llama."
     }
   ]
 }
