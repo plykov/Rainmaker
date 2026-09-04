@@ -20,7 +20,8 @@ function loadDigests() {
   const files = readdirSync(briefingDir).filter((f) => f.endsWith(".json"));
   const byDate = new Map();
   for (const file of files) {
-    const raw = JSON.parse(readFileSync(join(briefingDir, file), "utf8"));
+    const parsed = JSON.parse(readFileSync(join(briefingDir, file), "utf8"));
+    const raw = parsed?.digest && parsed.digest.date ? parsed.digest : parsed;
     if (!raw || !raw.date || !Array.isArray(raw.items)) continue;
     byDate.set(raw.date, raw);
   }

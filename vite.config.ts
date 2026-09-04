@@ -30,6 +30,53 @@ function hasGlobbedMigrations(root: string): boolean {
  * migrations — no schema to apply — skips it entirely rather than paying for a
  * PGLite instance it never queries.
  */
+function liveApiPlugin(): Plugin {
+  return {
+    name: "rainmaker:live-api",
+    apply: "serve",
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        const pathOnly = (req.url ?? "").split("?", 1)[0] ?? "";
+        if (pathOnly !== "/api/live" && pathOnly !== "/api/live.json") {
+          next();
+          return;
+        }
+        if ((req.method ?? "GET").toUpperCase() !== "GET") {
+          next();
+          return;
+        }
+        const upstreams = [
+          "https://raw.githubusercontent.com/plykov/Rainmaker/ingest/daily/latest.json",
+          "https://cdn.jsdelivr.net/gh/plykov/Rainmaker@ingest/daily/latest.json",
+          "https://plykov.github.io/Rainmaker/briefing/latest.json",
+        ];
+        for (const url of upstreams) {
+          try {
+            const r = await fetch(`${url}?t=${Date.now()}`, {
+              cache: "no-store",
+              signal: AbortSignal.timeout(6000),
+              headers: { Accept: "application/json", "User-Agent": "AI-Rainmaker-Watch/1.0" },
+            });
+            if (!r.ok) continue;
+            const body = await r.text();
+            if (!body.includes('"items"')) continue;
+            res.statusCode = 200;
+            res.setHeader("content-type", "application/json; charset=utf-8");
+            res.setHeader("cache-control", "no-store, max-age=0");
+            res.end(body);
+            return;
+          } catch {
+            /* next */
+          }
+        }
+        res.statusCode = 502;
+        res.setHeader("content-type", "application/json; charset=utf-8");
+        res.end(JSON.stringify({ error: "live edition unavailable" }));
+      });
+    },
+  };
+}
+
 function pgliteBootstrapPlugin(): Plugin {
   return {
     name: "app-builder:pglite-bootstrap",
@@ -158,6 +205,7 @@ export default defineConfig(({ command, isPreview }) => ({
   },
   resolve: { tsconfigPaths: true },
   plugins: [
+    liveApiPlugin(),
     pgliteBootstrapPlugin(),
     // Before tanstackStart so /auth/popup never falls through to the SPA.
     authPopupPlugin(),

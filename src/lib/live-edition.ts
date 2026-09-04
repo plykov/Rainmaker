@@ -5,11 +5,13 @@ export const LIVE_BRANCH = "ingest/daily";
 export const LIVE_LATEST_URL =
   "https://raw.githubusercontent.com/plykov/Rainmaker/ingest/daily/latest.json";
 
-/** Same-origin first for grok.me; GitHub wins if its date is newer. */
+/** Same-origin /api/live first (grok.me CSP). GitHub wins if its date is newer. */
 export const LIVE_MIRRORS = [
+  "/api/live",
   "/briefing/latest.json",
   LIVE_LATEST_URL,
   "https://cdn.jsdelivr.net/gh/plykov/Rainmaker@ingest/daily/latest.json",
+  "https://plykov.github.io/Rainmaker/briefing/latest.json",
 ];
 
 export function liveDatedUrl(date: string) {
@@ -68,7 +70,11 @@ function parseItem(raw: unknown, date: string, i: number): DigestItem | null {
     originalHeadline: asString(r.originalHeadline) || undefined,
     confidence: r.confidence === "reported" || r.confidence === "unverified" ? r.confidence : "confirmed",
     lane: r.lane === "analysis" ? "analysis" : "fact",
-    evidenceClass: (asString(r.evidenceClass) || "first-party") as DigestItem["evidenceClass"],
+    evidenceClass: (() => {
+      const raw = asString(r.evidenceClass);
+      if (raw === "named-outlet") return "named outlet";
+      return (raw || "first-party") as DigestItem["evidenceClass"];
+    })(),
     sourceLabel: asString(r.sourceLabel) || "live edition",
     sourceUrl,
     people,

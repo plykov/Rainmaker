@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { DigestView } from "@/components/digest-view";
+import { GrokMeHost } from "@/components/grok-me-host";
 import { KeyboardNav } from "@/components/keyboard-nav";
 import { ReadingProgress } from "@/components/reading-progress";
 import { useHydratedDigest } from "@/lib/hydrate";
@@ -12,9 +13,11 @@ function Home() {
   const digest = useHydratedDigest(raw);
   return (
     <>
-      <ReadingProgress />
-      <KeyboardNav date={digest.date} itemIds={digest.items.map((i) => i.id)} />
-      <DigestView digest={digest} isToday live={live} />
+      <GrokMeHost>
+        <ReadingProgress />
+        <KeyboardNav date={digest.date} itemIds={digest.items.map((i) => i.id)} />
+        <DigestView digest={digest} isToday live={live} />
+      </GrokMeHost>
     </>
   );
 }

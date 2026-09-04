@@ -32,7 +32,7 @@ If the public URL 404s again: Settings → Pages → Source **GitHub Actions**, 
 
 Local check: `node scripts/build-pages.mjs` writes `site/index.html`.
 
-This GitHub Pages host is the automatic public page. `rainmaker.grok.me` is a separate Grok publish and does not rebuild when the digest changes.
+This GitHub Pages host is the automatic public page. `rainmaker.grok.me` is a Grok/Vercel publish: after this snapshot it hydrates from `ingest/daily/latest.json` through same-origin `/api/live`, so the 07:00 job updates it without another republish.
 
 ## Run
 
