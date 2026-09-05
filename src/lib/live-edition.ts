@@ -199,6 +199,16 @@ export const fetchLiveLatest = createServerFn({ method: "GET" }).handler(async (
   return pullBest(LIVE_MIRRORS.filter((u) => u.startsWith("http")));
 });
 
+export async function importLatestEdition(): Promise<LiveEnvelope | null> {
+  try {
+    const env = await fetchLiveLatest();
+    if (env) return env;
+  } catch {
+    /* client mirrors */
+  }
+  return pullBest(LIVE_MIRRORS);
+}
+
 export const fetchLiveDated = createServerFn({ method: "POST" })
   .validator((d: unknown) => {
     const date =

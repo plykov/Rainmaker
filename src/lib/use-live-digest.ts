@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { getDigest, getLatestDigest, LATEST_DATE } from "@/lib/data/digests";
+import { getDigest, getLatestDigest } from "@/lib/data/digests";
 import type { Digest } from "@/lib/data/types";
 import {
   fetchLiveDated,
-  fetchLiveLatest,
-  LIVE_MIRRORS,
+  importLatestEdition,
   liveDatedMirrors,
   parseLiveEnvelope,
   type LiveEnvelope,
 } from "@/lib/live-edition";
+import { useReader } from "@/lib/store";
 
 async function pullClient(urls: string[]): Promise<LiveEnvelope | null> {
   const found: LiveEnvelope[] = [];
@@ -33,66 +33,73 @@ async function pullClient(urls: string[]): Promise<LiveEnvelope | null> {
   return found[0];
 }
 
-async function loadLatest(): Promise<LiveEnvelope | null> {
-  try {
-    const env = await fetchLiveLatest();
-    if (env) return env;
-  } catch {
-    /* client fallback */
-  }
-  return pullClient(LIVE_MIRRORS);
-}
-
-async function loadDated(date: string): Promise<LiveEnvelope | null> {
-  try {
-    const env = await fetchLiveDated({ data: { date } });
-    if (env) return env;
-  } catch {
-    /* client fallback */
-  }
-  return pullClient(liveDatedMirrors(date));
+function newer(a: LiveEnvelope | null, b: LiveEnvelope | null): LiveEnvelope | null {
+  if (!a) return b;
+  if (!b) return a;
+  const d = b.digest.date.localeCompare(a.digest.date);
+  if (d !== 0) return d > 0 ? b : a;
+  return b.publishedAt >= a.publishedAt ? b : a;
 }
 
 export function useLiveLatest(fallback: Digest = getLatestDigest()) {
+  const imported = useReader((s) => s.imported);
   const [env, setEnv] = useState<LiveEnvelope | null>(null);
   useEffect(() => {
     let cancelled = false;
-    void loadLatest().then((next) => {
+    void importLatestEdition().then((next) => {
       if (!cancelled) setEnv(next);
     });
     return () => {
       cancelled = true;
     };
   }, []);
-  const digest = env && env.digest.date >= fallback.date ? env.digest : fallback;
+  const stored: LiveEnvelope | null = imported
+    ? { schema: "rainmaker.digest.v1", publishedAt: imported.publishedAt, digest: imported.digest }
+    : null;
+  const best = newer(env, stored);
+  const digest = best && best.digest.date >= fallback.date ? best.digest : fallback;
   return {
     digest,
-    live: Boolean(env && env.digest.date >= fallback.date),
-    publishedAt: env?.publishedAt,
+    live: Boolean(best && best.digest.date >= fallback.date),
+    publishedAt: best?.publishedAt,
     latestDate: digest.date,
   };
 }
 
 export function useDatedDigest(date: string) {
   const baked = getDigest(date);
+  const imported = useReader((s) => s.imported);
+  const stored = imported?.date === date ? imported.digest : null;
   const [env, setEnv] = useState<LiveEnvelope | null>(null);
-  const [ready, setReady] = useState(Boolean(baked));
+  const [ready, setReady] = useState(Boolean(baked || stored));
   useEffect(() => {
-    if (baked) {
+    if (baked || stored) {
       setReady(true);
       return;
     }
     let cancelled = false;
     setReady(false);
-    void loadDated(date).then((next) => {
-      if (!cancelled) {
-        setEnv(next);
-        setReady(true);
-      }
-    });
+    void fetchLiveDated({ data: { date } })
+      .then((next) => next ?? pullClient(liveDatedMirrors(date)))
+      .then((next) => {
+        if (!cancelled) {
+          setEnv(next);
+          setReady(true);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          void pullClient(liveDatedMirrors(date)).then((next) => {
+            if (!cancelled) {
+              setEnv(next);
+              setReady(true);
+            }
+          });
+        }
+      });
     return () => {
       cancelled = true;
     };
-  }, [date, baked]);
-  return { digest: env?.digest ?? baked, ready };
+  }, [date, baked, stored]);
+  return { digest: env?.digest ?? stored ?? baked, ready };
 }

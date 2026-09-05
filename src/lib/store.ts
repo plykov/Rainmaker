@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { ProbeRun } from "@/lib/data/probes";
-import type { AuditVerdict } from "@/lib/data/types";
+import type { AuditVerdict, Digest } from "@/lib/data/types";
 
 type FontScale = "sm" | "md" | "lg";
 export type QueueDecision = "released" | "held" | "killed";
@@ -31,6 +31,13 @@ export interface AuditFiling {
   verdicts: Record<string, AuditVerdict>;
 }
 
+export interface ImportedEdition {
+  date: string;
+  publishedAt: string;
+  importedAt: string;
+  digest: Digest;
+}
+
 export interface RumorResolution {
   status: "confirmed" | "killed" | "open";
   trust: "up" | "down" | "flat";
@@ -52,6 +59,7 @@ interface ReaderState {
   auditFilings: Record<string, AuditFiling>;
   auditVerdicts: Record<string, AuditVerdict>;
   rumorResolutions: Record<string, RumorResolution>;
+  imported: ImportedEdition | null;
   toggleRead: (id: string) => void;
   toggleBookmark: (id: string) => void;
   markDigestRead: (date: string) => void;
@@ -67,6 +75,7 @@ interface ReaderState {
   setAuditVerdict: (id: string, verdict: AuditVerdict) => void;
   fileAudit: (filing: AuditFiling) => void;
   resolveRumor: (id: string, row: RumorResolution) => void;
+  importLive: (row: ImportedEdition) => void;
 }
 
 export const useReader = create<ReaderState>()(
@@ -85,6 +94,7 @@ export const useReader = create<ReaderState>()(
       auditFilings: {},
       auditVerdicts: {},
       rumorResolutions: {},
+      imported: null,
       toggleRead: (id) =>
         set((s) => ({
           readItems: s.readItems.includes(id)
@@ -152,6 +162,7 @@ export const useReader = create<ReaderState>()(
         set((s) => ({
           rumorResolutions: { ...s.rumorResolutions, [id]: row },
         })),
+      importLive: (row) => set({ imported: row }),
     }),
     { name: "rainmaker-reader", skipHydration: true },
   ),

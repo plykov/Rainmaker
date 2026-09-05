@@ -3,6 +3,7 @@ import { Bookmark, Menu, Search, Type, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { RainmakerMark } from "@/components/mark";
 import { Button } from "@/components/ui/button";
+import { UpdateIssueButton } from "@/components/update-issue";
 import { pendingQueue } from "@/lib/data/desk";
 import { AUDIT_DUE } from "@/lib/data/audit";
 import { useReader } from "@/lib/store";
@@ -85,6 +86,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </Link>
 
           <div className="flex items-center gap-0.5">
+            <UpdateIssueButton compact />
             <Button
               variant="ghost"
               size="icon-sm"

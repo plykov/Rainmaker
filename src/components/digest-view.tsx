@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CoverageFooter } from "@/components/coverage-footer";
 import { DigestItemCard } from "@/components/digest-item";
 import { EmailSend } from "@/components/email-send";
+import { UpdateIssueButton } from "@/components/update-issue";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { toBriefingMarkdown } from "@/lib/briefing-md";
@@ -99,6 +100,7 @@ export function DigestView({
           ) : null}
           <WordBudget words={words} />
           <div className="mt-5 flex flex-wrap items-center gap-2">
+            {isToday ? <UpdateIssueButton /> : null}
             {digest.specimen ? (
               <Button variant="outline" size="sm" asChild>
                 <Link to="/archive">

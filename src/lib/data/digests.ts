@@ -30,7 +30,7 @@ export function getLatestDigest(): Digest {
 }
 
 export function adjacentDates(date: string): { prev?: string; next?: string } {
-  const sorted = [...digestDates].sort();
+  const sorted = [...new Set([...digestDates, date])].sort();
   const i = sorted.indexOf(date);
   if (i < 0) return {};
   return {
