@@ -1,16 +1,36 @@
 {
-  "at": "2026-09-05T05:50:22.310Z",
+  "at": "2026-09-05T10:43:14.769Z",
   "bootstrapped": true,
   "items": [
     {
-      "repo": "sgl-project/sglang",
+      "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "v0.5.19",
-      "name": "v0.5.19",
-      "prerelease": false,
-      "published": "2026-09-05T02:27:42Z",
-      "url": "https://github.com/sgl-project/sglang/releases/tag/v0.5.19",
-      "body": "# Highlights\n\n*786 PRs from 214 contributors.*\n\n**New models in this release** (see the [cookbook](https://docs.sglang.io/cookbook) for all supported models):\n\n| Model | Type | PRs | Cookbook |\n|---|---|---|---|\n| Qwen3.8 (2.4T-A95B) | Autoregressive | [#35758](https://github.com/sgl-project/sglang/pull/35758) ⭐ | [link](https://docs.sglang.io/cookbook/autoregressive/Qwen/Qwen3.8) |\n| Qwen3.8-27B | Autoregressive | [#34859](https://github.com/sgl-project/sglang/pull/34859) | [link](https://docs.sglang.io/cookbook/autoregressive/Qwen/Qwen3.8-27B) |\n| dots3.note | Autoregressive | [#33829](https://github.com/sgl-project/sglang/pull/33829) ⭐ | [link](https://docs.sglang.io/cookbook/autoregressive/RedNote/Dots3-Note) |\n| Ling-3.0-flash | Autoregressive | [#33561](https://github.com/sgl-project/sglang/pull/33561) | [link](https://docs.sglang.io/cookbook/autoregressive/InclusionAI/Ling-3.0-flash) |\n| Ling-3.0-tiny | Autoregressive | [#33561](https://github.com/sgl-project/sglang/pull/33561) | [link](https://docs.sglang.io/cookbook/autoregressive/InclusionAI/Ling-3.0-tiny) |\n| Spark2.5 | Autoregressive | [#35963](https://github.com/sgl-project/sglang/pull/35963) ⭐ | |\n| MiniCPM-SALA | Autoregressive | [#30360](https://github.com/sgl-project/sglang/pull/30360) | |\n| Granite 4.2 | Autoregressive | [#36286](https://github.com/sgl-project/sglang/pull/36286) | [link](https://docs.sglang.io/cookbook/autoregressive/IBM/Granite-4.2) |\n| LongCat-Image-Edit & Edit-Turbo | Diffusion | [#35829](https://github.com/sgl-project/sglang/pull/35829) | |\n\n**Cookbook updates:**\n\n* GLM-5.3 deployment guide: [link](https://docs.sglang.io/cookbook/autoregressive/GLM/GLM-5.3)\n* PaddleOCR-VL deployment guide: [link](https://docs.sglang.io/cookbook/autoregressive/Baidu/PaddleOCR-VL)\n* Kimi-K3 on Ascend"
+      "tag": "b10819",
+      "name": "b10819",
+      "prerelease": true,
+      "published": "2026-09-05T10:36:39Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10819",
+      "body": "<details open>\n\nmetal : fix memory leak in early return (#28399)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45438612>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10819/llama-b10819-bin-ubuntu-sycl-fp32-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b10818",
+      "name": "b10818",
+      "prerelease": true,
+      "published": "2026-09-05T09:56:20Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10818",
+      "body": "<details open>\n\nsycl : fix test-backend-ops CI break && restore Kronecker product FWHT support (#28016) (#28254)\n\n* Reapply \"sycl : add Kronecker product FWHT support for sizes 384, 640, 768, 12…\" (#28184)\n\nThis reverts commit c845263f8b7d60113e213a3bd2d5cc6472ccf204.\n\n* tests : fix unused variable M in test-backend-ops\n\n* tests: fix trailing space error and isolate kronecker tests for sycl backend only\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45435395>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10818/llama-b10818-bin-ubuntu-rocm-10.0-x64."
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b10817",
+      "name": "b10817",
+      "prerelease": true,
+      "published": "2026-09-05T09:27:03Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10817",
+      "body": "<details open>\n\nsycl: attribute device allocations by site (GGML_SYCL_MEMTRACE) (#27631)\n\ndefine two new environment variables to better understand how much\nmemory is being allocated, and when. This has been invaluable in\ninproving the --fit algorithm, and is likely to be useful when debugging\nother memory-related issues.\n\n`-lv 4` will be required to enable the following:\n\nGGML_SYCL_MEMTRACE=1 will show per-site memory usage, updated whenever\nit increases by more than 64MiB.\nGGML_SYCL_MEMTRACE=2 will show every allocation and deallocation.\n\nTo change the default 64MiB threshold for reporting memory usage increases, use\nGGML_SYCL_MEMTRACE_STEP.\n\nA sample log line:\n[SYCL-MEMTRACE] device memory query (dev): total 59493 MiB, free  4494, in use 54998; allocated     0 (buffers     0 + scratch     0), peak     0 MiB\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45432787>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10817/llama-b10817-bi"
     }
   ]
 }
