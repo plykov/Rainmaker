@@ -1,26 +1,16 @@
 {
-  "at": "2026-09-04T22:24:08.997Z",
+  "at": "2026-09-05T05:50:22.310Z",
   "bootstrapped": true,
   "items": [
     {
-      "repo": "ggml-org/llama.cpp",
+      "repo": "sgl-project/sglang",
       "class": "serving",
-      "tag": "v0.4.0",
-      "name": "v0.4.0",
+      "tag": "v0.5.19",
+      "name": "v0.5.19",
       "prerelease": false,
-      "published": "2026-09-04T19:56:47Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/v0.4.0",
-      "body": "## Overview\n\nllama.cpp 0.4.0 adds initial Qwen3.8-Flash-Next and Nemotron-3-Puzzle support, on-demand tensor reading, per-slot server context limits, video input options, and a ggml update to 0.23.0 with major sparse flash attention and RDMA work.\n\n### API changes\n\n- Added `llama_lazy_mode` and `lazy_mode` ([#27794](https://github.com/ggml-org/llama.cpp/pull/27794)).\n- Added `max_buf_size` to quantize params ([#27795](https://github.com/ggml-org/llama.cpp/pull/27795)).\n- Bumped session/state versions for KV-cell token tracking ([#27762](https://github.com/ggml-org/llama.cpp/pull/27762)).\n- Added `mtmd_input_part` and `mtmd_tokenize_from_parts()` ([#28250](https://github.com/ggml-org/llama.cpp/pull/28250)).\n- Made `mtmd_tokenize` const-correct ([#28310](https://github.com/ggml-org/llama.cpp/pull/28310)).\n- Made `mtmd_bitmap_init_lazy` const-correct ([#28307](https://github.com/ggml-org/llama.cpp/pull/28307)).\n- Added mtmd helper video/init options ([#24318](https://github.com/ggml-org/llama.cpp/pull/24318)).\n- Server multimodal helpers accept `mtmd_helper_init_opt` ([#24318](https://github.com/ggml-org/llama.cpp/pull/24318)).\n\n### New models\n\n- Added initial Qwen3.8-Flash-Next (`qwen4exp`) architecture support; optimization improvements are still pending ([#27742](https://github.com/ggml-org/llama.cpp/pull/27742)).\n- Added NVIDIA Nemotron-3-Puzzle-75B-A9B support ([#25444](https://github.com/ggml-org/llama.cpp/pull/25444)).\n- Added DSpark support for Nemotron 3.5 ([#27804](https://github.com/ggml-org/llama.cpp/pull/27804)).\n- Added support for nanbeige4.2-3B ([#27730](https://github.com/ggml-org/llama.cpp/pull/27730)).\n\n### Core changes\n\n- Added lazy tensor reading ([#27794](https://github.com/ggml-org/llama.cpp/pull/27794)).\n- Renamed option to `--lazy-mode` ([#27969](h"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b10816",
-      "name": "b10816",
-      "prerelease": true,
-      "published": "2026-09-04T19:57:56Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10816",
-      "body": "<details open>\n\nmetal : add remaining fa-vec tunings for M3 (#28396)\n\n* addition of m3 in fa_vec_tuned_table\n\n* adding q4_0,q4_1,q5_0,q5_1 in ggml-metal-tuning\n\n* Fix formatting in ggml-metal-tuning.cpp\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45337508>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10816/llama-b10816-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10816/llama-b10816-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10816/llama-b10816-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10816/llama-b10816-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10816/llama-b10816-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10816/llama-b10816-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10816/llama-b10816-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10816/llama-b10816-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10816/llama-b10816-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10816/llama-b10816-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-or"
+      "published": "2026-09-05T02:27:42Z",
+      "url": "https://github.com/sgl-project/sglang/releases/tag/v0.5.19",
+      "body": "# Highlights\n\n*786 PRs from 214 contributors.*\n\n**New models in this release** (see the [cookbook](https://docs.sglang.io/cookbook) for all supported models):\n\n| Model | Type | PRs | Cookbook |\n|---|---|---|---|\n| Qwen3.8 (2.4T-A95B) | Autoregressive | [#35758](https://github.com/sgl-project/sglang/pull/35758) ⭐ | [link](https://docs.sglang.io/cookbook/autoregressive/Qwen/Qwen3.8) |\n| Qwen3.8-27B | Autoregressive | [#34859](https://github.com/sgl-project/sglang/pull/34859) | [link](https://docs.sglang.io/cookbook/autoregressive/Qwen/Qwen3.8-27B) |\n| dots3.note | Autoregressive | [#33829](https://github.com/sgl-project/sglang/pull/33829) ⭐ | [link](https://docs.sglang.io/cookbook/autoregressive/RedNote/Dots3-Note) |\n| Ling-3.0-flash | Autoregressive | [#33561](https://github.com/sgl-project/sglang/pull/33561) | [link](https://docs.sglang.io/cookbook/autoregressive/InclusionAI/Ling-3.0-flash) |\n| Ling-3.0-tiny | Autoregressive | [#33561](https://github.com/sgl-project/sglang/pull/33561) | [link](https://docs.sglang.io/cookbook/autoregressive/InclusionAI/Ling-3.0-tiny) |\n| Spark2.5 | Autoregressive | [#35963](https://github.com/sgl-project/sglang/pull/35963) ⭐ | |\n| MiniCPM-SALA | Autoregressive | [#30360](https://github.com/sgl-project/sglang/pull/30360) | |\n| Granite 4.2 | Autoregressive | [#36286](https://github.com/sgl-project/sglang/pull/36286) | [link](https://docs.sglang.io/cookbook/autoregressive/IBM/Granite-4.2) |\n| LongCat-Image-Edit & Edit-Turbo | Diffusion | [#35829](https://github.com/sgl-project/sglang/pull/35829) | |\n\n**Cookbook updates:**\n\n* GLM-5.3 deployment guide: [link](https://docs.sglang.io/cookbook/autoregressive/GLM/GLM-5.3)\n* PaddleOCR-VL deployment guide: [link](https://docs.sglang.io/cookbook/autoregressive/Baidu/PaddleOCR-VL)\n* Kimi-K3 on Ascend"
     }
   ]
 }
