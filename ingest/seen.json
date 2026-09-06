@@ -79,6 +79,7 @@
     "ggml-org/llama.cpp@b10822",
     "ggml-org/llama.cpp@b10823",
     "ggml-org/llama.cpp@b10825",
+    "ggml-org/llama.cpp@b10826",
     "ggml-org/llama.cpp@v0.4.0",
     "huggingface/transformers@v5.14.1",
     "huggingface/transformers@v5.15.0",
