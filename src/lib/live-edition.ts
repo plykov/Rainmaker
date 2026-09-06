@@ -114,7 +114,7 @@ export function parseLiveEnvelope(raw: unknown): LiveEnvelope | null {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return null;
   const itemsIn = Array.isArray(digestRaw.items) ? digestRaw.items : [];
   const items = itemsIn.map((it, i) => parseItem(it, date, i)).filter((x): x is DigestItem => Boolean(x));
-  if (items.length === 0) return null;
+  const quiet = items.length === 0;
   const radar: RadarEvent[] = Array.isArray(digestRaw.radar)
     ? digestRaw.radar
         .filter((x): x is RadarEvent => Boolean(x && typeof x === "object" && "date" in x && "label" in x))
@@ -136,7 +136,7 @@ export function parseLiveEnvelope(raw: unknown): LiveEnvelope | null {
     admitted: asNumber(digestRaw.admitted) || items.length,
     merged: asNumber(digestRaw.merged),
     quoteBlocked: asNumber(digestRaw.quoteBlocked),
-    ledeAbsent: Boolean(digestRaw.ledeAbsent),
+    ledeAbsent: Boolean(digestRaw.ledeAbsent) || quiet,
     humanHeld: {
       leak: asNumber(human.leak),
       regulation: asNumber(human.regulation),

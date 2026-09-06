@@ -1,0 +1,37 @@
+import type { Digest } from "./types";
+
+export const digest20260906: Digest = {
+  "date": "2026-09-06",
+  "weekdayNote": "Sunday · 07:00 send · quiet",
+  "scanned": 42,
+  "passedRules": 0,
+  "triaged": 0,
+  "admitted": 0,
+  "merged": 0,
+  "quoteBlocked": 0,
+  "ledeAbsent": true,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [],
+  "nextAudit": "Mon 07 Sep",
+  "radar": [
+    {
+      "date": "2026-09-07",
+      "label": "Weekly recall audit vs Import AI and Don't Worry About the Vase",
+      "kind": "audit"
+    },
+    {
+      "date": "2026-09-15",
+      "label": "HKEX 2513 — expected interim window",
+      "kind": "filing"
+    },
+    {
+      "date": "2026-10-01",
+      "label": "Monthly rumor-vs-outcome scorecard",
+      "kind": "qa"
+    }
+  ],
+  "items": []
+};

@@ -346,7 +346,7 @@ function SectionBlock({
           No single dominant story today.
         </p>
       ) : null}
-      {id === "china" && items.length === 0 ? (
+      {id === "china" && items.length === 0 && !ledeAbsent ? (
         <p className="mt-5 text-sm text-unverified">
           China desk is empty — treat as a broken feed, not a quiet day.
         </p>

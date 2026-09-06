@@ -2,8 +2,10 @@ import type { Digest } from "./types";
 import { digest20260902 } from "./digest-2026-09-02";
 import { digest20260903 } from "./digest-2026-09-03";
 import { digest20260904 } from "./digest-2026-09-04";
+import { digest20260905 } from "./digest-2026-09-05";
+import { digest20260906 } from "./digest-2026-09-06";
 
-export const LATEST_DATE = "2026-09-04";
+export const LATEST_DATE = "2026-09-06";
 
 const radarShared = [
   { date: "2026-09-07", label: "Weekly recall audit vs Import AI and Don't Worry About the Vase", kind: "audit" },
@@ -13,7 +15,13 @@ const radarShared = [
 
 export { radarShared };
 
-export const digests: Digest[] = [digest20260904, digest20260903, digest20260902];
+export const digests: Digest[] = [
+  digest20260906,
+  digest20260905,
+  digest20260904,
+  digest20260903,
+  digest20260902,
+];
 
 export const digestByDate: Record<string, Digest> = Object.fromEntries(
   digests.map((d) => [d.date, d]),
