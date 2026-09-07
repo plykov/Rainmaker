@@ -1,16 +1,36 @@
 {
-  "at": "2026-09-06T21:28:03.385Z",
+  "at": "2026-09-07T00:00:28.698Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b10827",
-      "name": "b10827",
+      "tag": "b10830",
+      "name": "b10830",
       "prerelease": true,
-      "published": "2026-09-06T20:50:00Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10827",
-      "body": "<details open>\n\nopencl: properly choose weights pack for q4_K, q5_K mul_mat (#28402)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45608946>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10827/llama-b10827-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10827/llama-b10827-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10827/llama-b10827-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10827/llama-b10827-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10827/llama-b10827-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10827/llama-b10827-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10827/llama-b10827-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10827/llama-b10827-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10827/llama-b10827-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10827/llama-b10827-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10827/llama-b10827-bin-ubuntu-sycl-fp32-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP16)](https://"
+      "published": "2026-09-06T23:29:00Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10830",
+      "body": "<details open>\n\nconvert : add `--fuse-qkv` flag to fuse Q/K/V into QKV during HF-to-GGUF conversion (#22780)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45621954>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10830/llama-b10830-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10830/llama-b10830-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10830/llama-b10830-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10830/llama-b10830-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10830/llama-b10830-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10830/llama-b10830-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10830/llama-b10830-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10830/llama-b10830-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10830/llama-b10830-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10830/llama-b10830-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10830/llama-b10830-bin-ubuntu-sycl-fp32-x64.tar.gz)\n- [Ubuntu x"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b10829",
+      "name": "b10829",
+      "prerelease": true,
+      "published": "2026-09-06T23:04:50Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10829",
+      "body": "<details open>\n\nmodels : fix GDN normalization from `max` to `rsqrt` (#28068)\n\n* models: use flash-linear-attention's l2norm for gated delta net q/k\n\nThe GDN q/k normalization is defined by flash-linear-attention as\n\n    l2norm(x) = x * rsqrt(sum(x*x) + eps)\n\nwith eps inside the root. Every GDN call site in the tree uses ggml_l2_norm\ninstead, which is x / max(sqrt(sum(x*x)), eps), i.e.\ntorch.nn.functional.normalize - its CUDA kernel cites that page.\n\nThe clamp never engages at these magnitudes, so in practice llama.cpp\nnormalizes with no epsilon at all where the reference has one inside the\nroot.\n\ntransformers made the same substitution when it first added Qwen3-Next and\ncorrected it three days later in huggingface/transformers#40842, 'Fix the\nmisalignment between the l2norm in GDN of Qwen3-Next and the implementation\nin the FLA library'. vLLM and SGLang vendor FLA rather than reimplementing\nit, so neither ever had the clamp.\n\neps keeps coming from the checkpoint, exactly as every call site already\npassed it. The references hardcode 1e-6 for this norm; that is a separate\nquestion and the two agree on every GDN checkpoint in the wild.\n\nggml_l2_norm itself is correct and unchanged, as is rwkv7-base, its original\ncaller, which passes normalize's own default eps of 1e-12.\n\nNo new ggml op: rms_norm already carries eps inside the root, so\nrms_norm(x, eps/n) * (1/sqrt(n)) is exactly x * rsqrt(sum(x*x) + eps).\n\n* Update src/models/models.h\n\nCo-authored-by: Georgi Gerganov <ggerganov@gmail.com>\n\n---------\n\nCo-authored-by: Georgi Gerganov <ggerganov@gmail.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45619829>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releas"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b10828",
+      "name": "b10828",
+      "prerelease": true,
+      "published": "2026-09-06T22:08:43Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10828",
+      "body": "<details open>\n\n[Model] Support for Spark2_5ForCausalLM  implementation (#27868)\n\n* Add Spark3 Model\n* rename spark3 -> spark2_5\n\nCo-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>\nCo-authored-by: dongjiang <dongjiang2010@gmail.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/45615765>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10828/llama-b10828-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10828/llama-b10828-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10828/llama-b10828-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10828/llama-b10828-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10828/llama-b10828-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10828/llama-b10828-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10828/llama-b10828-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10828/llama-b10828-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10828/llama-b10828-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10828/llama-b10828-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubu"
     }
   ]
 }
