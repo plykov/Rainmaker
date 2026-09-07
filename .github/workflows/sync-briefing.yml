@@ -1,0 +1,41 @@
+name: Sync live briefing
+
+# Backup if the 07:00 Grok job writes ingest/daily but skips main.
+# 05:25 UTC = 07:25 CET. Pages then rebuilds from public/briefing.
+on:
+  schedule:
+    - cron: "25 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-briefing
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Copy ingest/daily latest onto main
+        run: |
+          set -euo pipefail
+          curl -fsS -o /tmp/live.json \
+            "https://raw.githubusercontent.com/plykov/Rainmaker/ingest/daily/latest.json"
+          DATE=$(node -e "const j=require('/tmp/live.json'); if(!j.digest?.date) process.exit(1); console.log(j.digest.date)")
+          mkdir -p public/briefing
+          cp /tmp/live.json "public/briefing/latest.json"
+          cp /tmp/live.json "public/briefing/${DATE}.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/briefing
+          if git diff --cached --quiet; then
+            echo "briefing already at ${DATE}"
+          else
+            git commit -m "briefing: sync ${DATE} from ingest/daily"
+            git push
+          fi

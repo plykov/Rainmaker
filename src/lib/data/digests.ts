@@ -4,8 +4,9 @@ import { digest20260903 } from "./digest-2026-09-03";
 import { digest20260904 } from "./digest-2026-09-04";
 import { digest20260905 } from "./digest-2026-09-05";
 import { digest20260906 } from "./digest-2026-09-06";
+import { digest20260907 } from "./digest-2026-09-07";
 
-export const LATEST_DATE = "2026-09-06";
+export const LATEST_DATE = "2026-09-07";
 
 const radarShared = [
   { date: "2026-09-07", label: "Weekly recall audit vs Import AI and Don't Worry About the Vase", kind: "audit" },
@@ -16,6 +17,7 @@ const radarShared = [
 export { radarShared };
 
 export const digests: Digest[] = [
+  digest20260907,
   digest20260906,
   digest20260905,
   digest20260904,

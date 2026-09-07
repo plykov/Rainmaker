@@ -1,5 +1,6 @@
 import { type ReactNode, useEffect, useState } from "react";
-import { LIVE_MIRRORS } from "@/lib/live-edition";
+import { todayCetDate } from "@/lib/cet";
+import { LIVE_MIRRORS, parseLiveEnvelope } from "@/lib/live-edition";
 
 const PAGES = "https://plykov.github.io/Rainmaker/";
 
@@ -11,14 +12,17 @@ function isPublishedGrokMe(hostname: string) {
   return true;
 }
 
-async function anyLive(): Promise<boolean> {
+async function liveIsToday(): Promise<boolean> {
+  const today = todayCetDate();
   const urls = ["/api/live", ...LIVE_MIRRORS.filter((u) => u.startsWith("http"))];
   const hits = await Promise.all(
     urls.map(async (url) => {
       try {
         const href = url.startsWith("http") ? url : new URL(url, window.location.origin).href;
         const res = await fetch(`${href}?t=${Date.now()}`, { cache: "no-store" });
-        return res.ok;
+        if (!res.ok) return false;
+        const env = parseLiveEnvelope(await res.json());
+        return Boolean(env && env.digest.date >= today);
       } catch {
         return false;
       }
@@ -29,8 +33,8 @@ async function anyLive(): Promise<boolean> {
 
 /**
  * rainmaker.grok.me is a frozen Vercel snapshot. After this publish, /api/live
- * proxies GitHub (CSP-safe). If that snapshot still cannot reach a live JSON,
- * show the GitHub Pages issue the 07:00 job does rebuild.
+ * hydrates from GitHub. If that snapshot cannot reach today's JSON, fall through
+ * to GitHub Pages — the 07:00 job + daily Action rebuild that host.
  */
 export function GrokMeHost({ children }: { children: ReactNode }) {
   const [frame, setFrame] = useState(false);
@@ -39,7 +43,7 @@ export function GrokMeHost({ children }: { children: ReactNode }) {
     if (typeof window === "undefined") return;
     if (!isPublishedGrokMe(window.location.hostname)) return;
     let cancelled = false;
-    void anyLive().then((ok) => {
+    void liveIsToday().then((ok) => {
       if (!cancelled && !ok) setFrame(true);
     });
     return () => {

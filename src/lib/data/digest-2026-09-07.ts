@@ -1,0 +1,112 @@
+import type { Digest } from "./types";
+
+export const digest20260907: Digest = {
+  "date": "2026-09-07",
+  "weekdayNote": "Monday",
+  "scanned": 44,
+  "passedRules": 8,
+  "triaged": 5,
+  "admitted": 4,
+  "merged": 1,
+  "quoteBlocked": 0,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [],
+  "nextAudit": "Mon 14 Sep",
+  "radar": [
+    {
+      "date": "2026-09-07",
+      "label": "Monday recall audit vs Import AI and Don't Worry About the Vase — 08:00 CET",
+      "kind": "audit"
+    },
+    {
+      "date": "2026-09-15",
+      "label": "HKEX 2513 — expected interim window",
+      "kind": "filing"
+    },
+    {
+      "date": "2026-10-01",
+      "label": "Monthly rumor-vs-outcome scorecard",
+      "kind": "qa"
+    }
+  ],
+  "items": [
+    {
+      "id": "2026-09-07-lede",
+      "date": "2026-09-07",
+      "section": "lede",
+      "title": "OpenAI flags RSI risks — Pachocki says no lab should keep scaling at max speed",
+      "body": "OpenAI chief scientist Jakub Pachocki published An Alien Mind on 6 Sep: internal results give him a strong expectation that current progress sustains into recursive self-improvement (RSI), and that no lab has solved alignment and monitoring well enough to keep scaling at maximum speed. Watch next: whether OpenAI or peers convert that into a visible slowdown, or treat it as an essay beside Astra’s rollout.",
+      "watchNext": "A first-party pause, RSP rewrite, or a peer lab matching the slowdown call.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI — An Alien Mind",
+      "sourceUrl": "https://openai.com/index/an-alien-mind/",
+      "people": [
+        "sam-altman"
+      ],
+      "lab": "OpenAI",
+      "model": "GPT-6 Astra",
+      "quote": {
+        "text": "Currently I believe that no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer.",
+        "attribution": "Jakub Pachocki, OpenAI",
+        "check": "pass"
+      }
+    },
+    {
+      "id": "2026-09-07-critical-1",
+      "date": "2026-09-07",
+      "section": "critical",
+      "title": "OpenAI research now runs 3.1 agent-workdays per human day",
+      "body": "A companion first-party note, also 6 Sep, says the research org uses 3.1 agent-workdays for every human workday (mid-August), the median researcher spends >$600/day of inference, and OpenAI has hit its September 2026 automated-research-intern target. The 2028 automated-researcher target is unchanged. The slowdown essay and the acceleration numbers shipped together.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI — Research acceleration",
+      "sourceUrl": "https://openai.com/index/research-acceleration-view-inside-openai/",
+      "people": [
+        "sam-altman"
+      ],
+      "lab": "OpenAI"
+    },
+    {
+      "id": "2026-09-07-words-1",
+      "date": "2026-09-07",
+      "section": "words",
+      "title": "Pachocki: RSI will sit at the core of future scientific discovery",
+      "body": "Same essay: if progress continues, machine recursive self-improvement will be at the very core of future scientific discovery, and scaling has to be constrained by confidence in safety — Preparedness / RSP evolved into widely mandated bars.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI — An Alien Mind",
+      "sourceUrl": "https://openai.com/index/an-alien-mind/",
+      "people": [],
+      "lab": "OpenAI",
+      "quote": {
+        "text": "Based on internal results, I have a strong expectation that this speed of progress could be sustained into recursive self-improvement.",
+        "attribution": "Jakub Pachocki, OpenAI",
+        "check": "pass"
+      }
+    },
+    {
+      "id": "2026-09-07-trend-1",
+      "date": "2026-09-07",
+      "section": "trend",
+      "title": "The intern is here; the slowdown is a blog post",
+      "body": "Three days after Astra, OpenAI published both the intern-target hit and a chief-scientist warning that nobody is prepared for a continued rapid rise in machine intelligence. Treat the pair as one event: capability is compounding inside the lab; the constraint is still voluntary.",
+      "confidence": "reported",
+      "lane": "analysis",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI",
+      "sourceUrl": "https://openai.com/index/an-alien-mind/",
+      "people": [
+        "sam-altman"
+      ],
+      "lab": "OpenAI",
+      "model": "GPT-6 Astra"
+    }
+  ]
+};

@@ -9,6 +9,8 @@ on:
       - "scripts/build-pages.mjs"
       - ".github/workflows/pages.yml"
       - "docs/**"
+  schedule:
+    - cron: "30 5 * * *"
   workflow_dispatch:
 
 permissions:
