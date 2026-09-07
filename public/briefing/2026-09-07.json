@@ -11,28 +11,13 @@
     "admitted": 4,
     "merged": 1,
     "quoteBlocked": 0,
-    "humanHeld": {
-      "leak": 0,
-      "regulation": 0
-    },
+    "humanHeld": {"leak": 0, "regulation": 0},
     "fetchFailures": [],
     "nextAudit": "Mon 14 Sep",
     "radar": [
-      {
-        "date": "2026-09-07",
-        "label": "Monday recall audit vs Import AI and Don't Worry About the Vase — 08:00 CET",
-        "kind": "audit"
-      },
-      {
-        "date": "2026-09-15",
-        "label": "HKEX 2513 — expected interim window",
-        "kind": "filing"
-      },
-      {
-        "date": "2026-10-01",
-        "label": "Monthly rumor-vs-outcome scorecard",
-        "kind": "qa"
-      }
+      {"date": "2026-09-07", "label": "Monday recall audit vs Import AI and Don't Worry About the Vase — 08:00 CET", "kind": "audit"},
+      {"date": "2026-09-15", "label": "HKEX 2513 — expected interim window", "kind": "filing"},
+      {"date": "2026-10-01", "label": "Monthly rumor-vs-outcome scorecard", "kind": "qa"}
     ],
     "items": [
       {
@@ -47,9 +32,7 @@
         "evidenceClass": "first-party",
         "sourceLabel": "OpenAI — An Alien Mind",
         "sourceUrl": "https://openai.com/index/an-alien-mind/",
-        "people": [
-          "sam-altman"
-        ],
+        "people": ["sam-altman"],
         "lab": "OpenAI",
         "model": "GPT-6 Astra",
         "quote": {
@@ -69,9 +52,7 @@
         "evidenceClass": "first-party",
         "sourceLabel": "OpenAI — Research acceleration",
         "sourceUrl": "https://openai.com/index/research-acceleration-view-inside-openai/",
-        "people": [
-          "sam-altman"
-        ],
+        "people": ["sam-altman"],
         "lab": "OpenAI"
       },
       {
@@ -104,9 +85,7 @@
         "evidenceClass": "first-party",
         "sourceLabel": "OpenAI",
         "sourceUrl": "https://openai.com/index/an-alien-mind/",
-        "people": [
-          "sam-altman"
-        ],
+        "people": ["sam-altman"],
         "lab": "OpenAI",
         "model": "GPT-6 Astra"
       }
