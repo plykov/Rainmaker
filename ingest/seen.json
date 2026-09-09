@@ -105,6 +105,11 @@
     "ggml-org/llama.cpp@b10867",
     "ggml-org/llama.cpp@b10868",
     "ggml-org/llama.cpp@b10869",
+    "ggml-org/llama.cpp@b10871",
+    "ggml-org/llama.cpp@b10872",
+    "ggml-org/llama.cpp@b10873",
+    "ggml-org/llama.cpp@b10874",
+    "ggml-org/llama.cpp@b10875",
     "ggml-org/llama.cpp@v0.4.0",
     "huggingface/transformers@v5.14.1",
     "huggingface/transformers@v5.15.0",
@@ -121,6 +126,7 @@
     "vllm-project/vllm@v0.26.0",
     "vllm-project/vllm@v0.27.0",
     "vllm-project/vllm@v0.27.1",
-    "vllm-project/vllm@v0.28.0"
+    "vllm-project/vllm@v0.28.0",
+    "vllm-project/vllm@v0.29.0"
   ]
 }
