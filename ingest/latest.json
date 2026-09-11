@@ -1,26 +1,16 @@
 {
-  "at": "2026-09-11T16:35:11.100Z",
+  "at": "2026-09-11T22:39:18.248Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b10909",
-      "name": "b10909",
+      "tag": "b10917",
+      "name": "b10917",
       "prerelease": true,
-      "published": "2026-09-11T12:13:16Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10909",
-      "body": "<details open>\n\nmetal : single-source fusion table + fusion debug rework (#28164)\n\n* metal : rework fusion patterns into a single table\n\nAll fusable op patterns for the Metal backend are now declared once in a\nfusion table (ggml-metal-fuse.cpp) and consumed by both the graph optimizer\n(ggml_metal_fuse_max, packing) and the op encoders (ggml_metal_fuse_next,\ncompute). The two phases share the same pattern table plus ggml_can_fuse_subgraph_ext\nfor the structural checks, and differ only in the mode used for the pattern\ncheck (STRUCTURAL at optimize time, since tensors are not allocated yet, and\nFULL at compute time, including Metal buffer placement). This also protects the\nsnake activation (MUL + SIN + SQR + MUL + ADD) from being reordered during graph\noptimization, which was previously unprotected.\n\nAssisted-by: pi:llama.cpp/DeepSeek-V4-Flash-0731\n\n* metal : fix absolute output indices in fusion patterns\n\nggml_can_fuse_subgraph_ext expects the outputs array to contain absolute graph\nnode indices (it indexes cgraph->nodes[outputs[i]]), but the fusion table query\nwas passing a relative index (n_ops - 1). As a result the last node of every\npattern was not recognized as an output and was subjected to the elidable\nuse-count check, which failed for essentially all fusions. This silently\ndisabled the norm/MUL fusion and caused a ~5% token-generation regression.\n\nPass the absolute graph index of the last node instead.\n\nAssisted-by: pi:llama.cpp/DeepSeek-V4-Flash-0731\n\n* metal : fuse gated_delta_net with cache cpy\n\nAdd GGML_METAL_FUSE_GDN_CACHE to the fusion table: when the gated_delta_net\nkernel is followed by a cpy that scatters its recurrent state snapshots into\nthe KV cache, the kernel writes the snapshots straight into the cache buffer\nand the trailing cpy is elided.\n\nThe gdn"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b10908",
-      "name": "b10908",
-      "prerelease": true,
-      "published": "2026-09-11T11:44:19Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10908",
-      "body": "<details open>\n\nmetal : fix idle threads in the remaining iq mul_mv kernels for ne00 < 1024 (#28692)\n\n* metal : fix idle threads in the remaining iq mul_mv kernels for ne00 < 1024\n\nGeneralize the row split from #28086 to the six other kernels that use the\nsame lane-to-block mapping: iq1_s, iq1_m, iq2_xxs, iq2_xs, iq2_s and iq3_s.\n\nEach of them assigns one 32-element chunk per thread, so when a row has\nfewer than 32 chunks the rest of the simdgroup is idle. When nb32 < 32 and\nnb32 divides 32, 32/nb32 threads now share each chunk and each takes a\nslice of the rows, reusing the FC_mul_mv_split function constant and the\ndispatch wrapper introduced for iq3_xxs.\n\nThe plain path is untouched: wide matrices keep one thread per chunk and\nN_R0_<TYPE> = 4. Only the split path uses N_R0_<TYPE>_SPLIT = 8. The\nK-quants have the same idle-thread issue but a different lane mapping, so\nthey are left for a separate change.\n\n* metal : offset the src0 row pointer once in the iq mul_mv kernels\n\nq2, dh, sc, qh and signs are all derived from xr, so the row slice\noffset only has to be applied to xr.\n\n* metal : fold iq mul_mv row split into offset0\n\nCompute row0 and row1 before initializing the source pointers and apply\nthe row slice directly to offset0.\n\nThis keeps x and its derived pointers on the existing path while applying\nthe split row offset once.\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/46839299>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10908/llama-b10908-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/"
+      "published": "2026-09-11T20:30:32Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10917",
+      "body": "<details open>\n\ncmake : skip PCH for llama-server PCH when using MSVC (#28763)\n\nThis commit fixes an issue that I introduced when adding PCH\n(precompiled headers) in Commit 3bcfeb700fce9ff38a050dcd3f6a856319e948ba\n(\"cmake : add PCH and unity build to improve build times (#28091)\".\n\nSee linked issue for details.\n\nCo-authored-by: mjungnickel18\nCo-authored-by: Pascal <admin@serveurperso.com>\n\nResolves: https://github.com/ggml-org/llama.cpp/issues/28758\nRefs: https://github.com/ggml-org/llama.cpp/actions/runs/34592933983/job/103262608990#step:9:1284\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/46958058>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-ubuntu-vulk"
     }
   ]
 }
