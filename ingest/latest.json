@@ -1,16 +1,16 @@
 {
-  "at": "2026-09-11T01:10:34.020Z",
+  "at": "2026-09-11T06:05:46.854Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b10901",
-      "name": "b10901",
+      "tag": "b10902",
+      "name": "b10902",
       "prerelease": true,
-      "published": "2026-09-10T22:41:01Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10901",
-      "body": "<details open>\n\nvulkan: use CPU writes in ggml_backend_vk_cpy_tensor_async if the context is idle (#28618)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/46709648>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10901/llama-b10901-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10901/llama-b10901-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10901/llama-b10901-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10901/llama-b10901-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10901/llama-b10901-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10901/llama-b10901-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10901/llama-b10901-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10901/llama-b10901-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10901/llama-b10901-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10901/llama-b10901-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10901/llama-b10901-bin-ubuntu-sycl-fp32-x64.tar.gz)\n- [Ubuntu x64"
+      "published": "2026-09-11T05:53:49Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10902",
+      "body": "<details open>\n\nopencl: add A8 Q4_0 mm binary kernel support (#28268)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/46774832>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10902/llama-b10902-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10902/llama-b10902-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10902/llama-b10902-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10902/llama-b10902-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10902/llama-b10902-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10902/llama-b10902-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10902/llama-b10902-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10902/llama-b10902-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10902/llama-b10902-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10902/llama-b10902-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10902/llama-b10902-bin-ubuntu-sycl-fp32-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP16)](https://github.com/ggml"
     }
   ]
 }
