@@ -1,16 +1,16 @@
 {
-  "at": "2026-09-11T22:39:18.248Z",
+  "at": "2026-09-12T05:54:06.659Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b10917",
-      "name": "b10917",
+      "tag": "b10919",
+      "name": "b10919",
       "prerelease": true,
-      "published": "2026-09-11T20:30:32Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10917",
-      "body": "<details open>\n\ncmake : skip PCH for llama-server PCH when using MSVC (#28763)\n\nThis commit fixes an issue that I introduced when adding PCH\n(precompiled headers) in Commit 3bcfeb700fce9ff38a050dcd3f6a856319e948ba\n(\"cmake : add PCH and unity build to improve build times (#28091)\".\n\nSee linked issue for details.\n\nCo-authored-by: mjungnickel18\nCo-authored-by: Pascal <admin@serveurperso.com>\n\nResolves: https://github.com/ggml-org/llama.cpp/issues/28758\nRefs: https://github.com/ggml-org/llama.cpp/actions/runs/34592933983/job/103262608990#step:9:1284\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/46958058>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10917/llama-b10917-bin-ubuntu-vulk"
+      "published": "2026-09-12T02:18:40Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10919",
+      "body": "<details open>\n\nggml-webgpu: Update to a recent version of Dawn (#28683)\n\n* ggml-webgpu: Update to a recent version of Dawn\n\n* No module scanning\n\n* Accept review suggestion to update comment\n\nCo-authored-by: Masashi Yoshimura <yoshimura.masashi.frbs@gmail.com>\n\n---------\n\nCo-authored-by: Masashi Yoshimura <yoshimura.masashi.frbs@gmail.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/47005667>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10919/llama-b10919-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10919/llama-b10919-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10919/llama-b10919-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10919/llama-b10919-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10919/llama-b10919-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10919/llama-b10919-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10919/llama-b10919-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10919/llama-b10919-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10919/llama-b10919-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/ll"
     }
   ]
 }
