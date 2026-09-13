@@ -1,26 +1,16 @@
 {
-  "at": "2026-09-13T12:45:42.946Z",
+  "at": "2026-09-13T16:58:44.723Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b10941",
-      "name": "b10941",
+      "tag": "b10944",
+      "name": "b10944",
       "prerelease": true,
-      "published": "2026-09-13T10:34:11Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10941",
-      "body": "<details open>\n\ntests : reduce FA test sizes (#28842)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/47152933>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10941/llama-b10941-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10941/llama-b10941-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10941/llama-b10941-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10941/llama-b10941-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10941/llama-b10941-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10941/llama-b10941-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10941/llama-b10941-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10941/llama-b10941-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10941/llama-b10941-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10941/llama-b10941-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP32)](https://github.com/ggml-org/llama.cpp/releases/download/b10941/llama-b10941-bin-ubuntu-sycl-fp32-x64.tar.gz)\n- [Ubuntu x64 (SYCL FP16)](https://github.com/ggml-org/llama.cpp/r"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b10938",
-      "name": "b10938",
-      "prerelease": true,
-      "published": "2026-09-13T06:45:18Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10938",
-      "body": "<details open>\n\nvulkan: workaround NV queuesubmit driver bug (#28830)\n\nThere is a driver bug where two queues on the same VkDevice simultaneously\nsubmitting can break some internal synchronization. Until it's fixed, add a\nmutex around queuesubmit.\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/47138635>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10938/llama-b10938-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10938/llama-b10938-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10938/llama-b10938-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10938/llama-b10938-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10938/llama-b10938-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10938/llama-b10938-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10938/llama-b10938-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10938/llama-b10938-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (ROCm 10.0)](https://github.com/ggml-org/llama.cpp/releases/download/b10938/llama-b10938-bin-ubuntu-rocm-10.0-x64.tar.gz)\n- [Ubuntu x64 (OpenVINO)](https://github.com/ggml-org/llama.cpp/releases/download/b10938/llama-b10938-bin-ubuntu-openvino-2026.3.1-x64.tar.gz)\n- [Ubunt"
+      "published": "2026-09-13T16:12:26Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10944",
+      "body": "<details open>\n\nsycl : Fix get mem error (#28227)\n\n* fix for unsupport zes API\n\n* optimize the code\n\n* adjust the log level\n\n* rm unused head files\n\n* Update docs/backend/SYCL.md\n\nCo-authored-by: Titaniumtown <titaniumtown@proton.me>\n\n* fix the error to detect level zero SDK/dev package, stop build after detect the error\n\n* update the message\n\n* fix the build error when missed to install level zero dev package\n\n* rm GGML_SYCL_DEV_DEBUG, mv read env vars in all entry functions\n\n---------\n\nCo-authored-by: Neo Zhang Jianyu <jianyu.zhang@intel.com>\nCo-authored-by: Titaniumtown <titaniumtown@proton.me>\nCo-authored-by: Neo Zhang <NA>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/47180445>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10944/llama-b10944-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10944/llama-b10944-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10944/llama-b10944-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10944/llama-b10944-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10944/llama-b10944-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10944/llama-b10944-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10944/llama-b10944-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https:/"
     }
   ]
 }
