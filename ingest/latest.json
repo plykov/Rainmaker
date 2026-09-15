@@ -1,26 +1,16 @@
 {
-  "at": "2026-09-15T18:16:29.381Z",
+  "at": "2026-09-15T21:31:27.719Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b10985",
-      "name": "b10985",
+      "tag": "b10988",
+      "name": "b10988",
       "prerelease": true,
-      "published": "2026-09-15T14:19:41Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10985",
-      "body": "<details open>\n\nrpc : hash-cache only weights (#28789)\n\n* rpc : hash-cache only weights\n\nggml_backend_rpc_buffer_set_tensor and ggml_backend_rpc_set_tensor_async\nhashed every transfer above HASH_THRESHOLD and let `rpc-server -c` serve it\nfrom its file cache. The cache is meant for weights, but the activations\nggml_backend_sched copies between backends took the same path: with a\ntwo-node split of Qwen3.8-Flash-Next every prefill ubatch above 10 MB was\nhashed, written to the worker's cache directory (1.4 TB after a day) and\nlater served from there. Use the hash path only for tensors in buffers\nmarked GGML_BACKEND_BUFFER_USAGE_WEIGHTS.\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>\n\n* rpc : save a cache entry only for the tensor that missed the hash check\n\nWith the client hashing weights only, the server still wrote every\nSET_TENSOR above HASH_THRESHOLD to the cache directory, so the compute\ndata the scheduler sends kept filling the disk. Remember the hash of the\nlast SET_TENSOR_HASH that missed and save only the SET_TENSOR that\nfollows it with that hash - the weight the client is re-sending.\n\n* rpc : signal the cache decision in the SET_TENSOR payload\n\nReplace the server-side `pending_cache` state with a `cache_flag` byte\nin the SET_TENSOR message: the client sets it when SET_TENSOR_HASH\nreported a miss, the server saves a cache entry only when it is set.\nBump RPC_PROTO_MAJOR_VERSION since the wire format changes.\n\n---------\n\nCo-authored-by: Patrick Hoffmann <patrickhoffmann@MacBook-Pro-14-HOP.local>\nCo-authored-by: Claude Opus 5 <noreply@anthropic.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/47642250>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.c"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b10984",
-      "name": "b10984",
-      "prerelease": true,
-      "published": "2026-09-15T13:41:51Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10984",
-      "body": "<details open>\n\ncuda: support row-contiguous SUM_ROWS (#26308)\n\n* cuda: support row-contiguous SUM_ROWS\n\n* organize the code and add GGML_OP_MEAN to support row-contiguous tensors using the same shared kernel, and add a test to MEAN permute/slice\n\n* Keep original comments and add if/else branch\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/47632927>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10984/llama-b10984-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10984/llama-b10984-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10984/llama-b10984-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10984/llama-b10984-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10984/llama-b10984-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10984/llama-b10984-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10984/llama-b10984-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10984/llama-b10984-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10984/llama-b10984-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b10984/cudart-llama-b1098"
+      "published": "2026-09-15T18:50:59Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10988",
+      "body": "<details open>\n\nopencl: choose the MoE expert matmul by batch size for speculative decoding/MTP (#27637)\n\n* opencl: gate the prebuilt q4_0 MoE GEMM on routing count\n\n* opencl: stop writing zeros into the padded MoE activation slots\n\n* opencl: rephrase claude's comments\n\n---------\n\nCo-authored-by: Li He <lih@qti.qualcomm.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/47713087>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10988/llama-b10988-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10988/llama-b10988-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10988/llama-b10988-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10988/llama-b10988-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10988/llama-b10988-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10988/llama-b10988-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10988/llama-b10988-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10988/llama-b10988-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10988/llama-b10988-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/dow"
     }
   ]
 }
