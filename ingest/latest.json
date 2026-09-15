@@ -1,26 +1,16 @@
 {
-  "at": "2026-09-14T23:12:05.453Z",
+  "at": "2026-09-15T07:51:14.765Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b10970",
-      "name": "b10970",
+      "tag": "b10976",
+      "name": "b10976",
       "prerelease": true,
-      "published": "2026-09-14T20:53:17Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10970",
-      "body": "<details open>\n\nHIP: fattn-mma: use fp32 accumulation on MFMA devices (#28576)\n\nuse fp32 accumulators in fattn-mma on CDNA\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/47450174>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10970/llama-b10970-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10970/llama-b10970-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10970/llama-b10970-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10970/llama-b10970-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10970/llama-b10970-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10970/llama-b10970-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10970/llama-b10970-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10970/llama-b10970-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10970/llama-b10970-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b10970/cudart-llama-b10970-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b10970/llama-b10970-bin-ubuntu-cuda-13.3-x64.tar.gz) - [C"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b10969",
-      "name": "b10969",
-      "prerelease": true,
-      "published": "2026-09-14T19:50:18Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10969",
-      "body": "<details open>\n\nci : add ubuntu-cuda builds to release (#28186)\n\n* release : add ubuntu-cuda build job (12.8/13.3, x64+arm64)\n\n* Add GCC 14 for CUDA arm64 builds in CI\n\n* Eplicit bash\n\n* Install git for CCCL fetch\n\n* Install git before we clone/checkout\n\n* Match CI names for WIndows\n\n* Whitelist llama.cpp repo to git\n\n* Use $GITHUB_WORKSPACE\n\n* Also ship dependent libs on Ubuntu\n\nNeed NCCL additionally as it's pre-built available on Linux\n\n* Avoid duplicate files in packaged cudart\n\n* Copy NCCL license\n\n* Install CURL to fetch NCCL license\n\n* Update .github/workflows/release.yml\n\nCo-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>\n\n* Remove NCCL until licensing has been confirmed\n\n---------\n\nCo-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/47437122>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10969/llama-b10969-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10969/llama-b10969-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10969/llama-b10969-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10969/llama-b10969-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10969/llama-b10969-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10969/llama-b10969-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 "
+      "published": "2026-09-15T07:23:42Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b10976",
+      "body": "<details open>\n\nci : fix android release (#28936)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/47548995>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b10976/llama-b10976-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b10976/llama-b10976-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b10976/llama-b10976-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10976/llama-b10976-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10976/llama-b10976-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b10976/llama-b10976-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10976/llama-b10976-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b10976/llama-b10976-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b10976/llama-b10976-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b10976/cudart-llama-b10976-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b10976/llama-b10976-bin-ubuntu-cuda-13.3-x64.tar.gz) - [CUDA 13.3 libraries](https://github.com/ggml-org/llama.cpp/releases/downlo"
     }
   ]
 }
