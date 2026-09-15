@@ -1,0 +1,183 @@
+{
+  "date": "2026-09-03",
+  "weekdayNote": "Thursday · 07:00 send",
+  "scanned": 88,
+  "passedRules": 19,
+  "triaged": 9,
+  "admitted": 6,
+  "merged": 2,
+  "quoteBlocked": 0,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [
+    {
+      "source": "x.ai/news",
+      "detail": "403 — selector still dead"
+    },
+    {
+      "source": "RSSHub CN mirror",
+      "detail": "timeout"
+    }
+  ],
+  "nextAudit": "Mon 07 Sep",
+  "rumorScorecardDue": "01 Oct",
+  "radar": [
+    {
+      "date": "2026-09-07",
+      "label": "Weekly recall audit vs Import AI and Don't Worry About the Vase",
+      "kind": "audit"
+    },
+    {
+      "date": "2026-09-15",
+      "label": "HKEX 2513 — expected interim window",
+      "kind": "filing"
+    },
+    {
+      "date": "2026-12-31",
+      "label": "Gemini 3.8 Flash introductory price expires",
+      "kind": "pricing"
+    }
+  ],
+  "items": [
+    {
+      "id": "2026-09-03-lede",
+      "date": "2026-09-03",
+      "section": "lede",
+      "title": "Gemini 3.8 Flash ships GA; 3.8 Flash Cyber is gated to Fairwind defenders",
+      "body": "Google's 2 Sep blog, the third Flash in six weeks, puts 3.8 Flash on the API, Antigravity, AI Studio, Android Studio, and Gemini App for Pro/Ultra. Same workhorse price band as 3.7 at an introductory $0.75 / $3.75 per million in/out through 31 Dec 2026. A second SKU, 3.8 Flash Cyber, is not generally available: Fairwind starts with national cyber authorities and essential-service operators. Watch next: whether Cyber appears on the public models list, or stays a government programme.",
+      "watchNext": "Public model card for Cyber, or a Fairwind partner named in a filing.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "scores": {
+        "novelty": 8.6,
+        "authority": 9.4,
+        "consequence": 8.5
+      },
+      "evidenceClass": "first-party",
+      "sourceLabel": "Google blog · 2 Sep",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+      "people": [
+        "demis-hassabis"
+      ],
+      "lab": "Google DeepMind",
+      "model": "Gemini 3.8 Flash"
+    },
+    {
+      "id": "2026-09-03-c1",
+      "date": "2026-09-03",
+      "section": "critical",
+      "title": "Flash Cyber: autonomous vuln-finding and patching, 2.6× valid Chrome fixes in-house",
+      "body": "DeepMind says 3.8 Flash Cyber leads CyberGym on autonomous weakness-finding and, in testing on Chrome codebases, produced 2.6 times more valid fixes than the prior stack, inside the organisation's cloud. Security SKU is framed as minutes-not-hours repair, not a public red-team model. Fairwind is the access control.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "scores": {
+        "novelty": 8.3,
+        "authority": 9,
+        "consequence": 8.4
+      },
+      "evidenceClass": "first-party",
+      "sourceLabel": "@GoogleDeepMind",
+      "sourceUrl": "https://x.com/GoogleDeepMind/status/2095196704769237137",
+      "people": [
+        "demis-hassabis"
+      ],
+      "lab": "Google DeepMind",
+      "model": "Gemini 3.8 Flash Cyber"
+    },
+    {
+      "id": "2026-09-03-w1",
+      "date": "2026-09-03",
+      "section": "words",
+      "title": "Demis Hassabis — the cadence is the message",
+      "body": "Hassabis quote-posted the Flash thread. String-verified. The operational fact is the six-week triple Flash cadence; the sentence is the lab's own framing of it.",
+      "quote": {
+        "text": "Introducing Gemini 3.8 Flash, another upgrade in under a month! And the new 3.8 Flash Cyber pushes the frontier of cyber defense.",
+        "attribution": "Demis Hassabis",
+        "timestamp": "16:44 UTC 2 Sep",
+        "check": "pass"
+      },
+      "confidence": "confirmed",
+      "lane": "fact",
+      "scores": {
+        "novelty": 7.2,
+        "authority": 9.1,
+        "consequence": 7.4
+      },
+      "evidenceClass": "first-party",
+      "sourceLabel": "@demishassabis",
+      "sourceUrl": "https://x.com/demishassabis/status/2095191106665284046",
+      "people": [
+        "demis-hassabis"
+      ],
+      "lab": "Google DeepMind"
+    },
+    {
+      "id": "2026-09-03-r1",
+      "date": "2026-09-03",
+      "section": "research",
+      "title": "3.8 Flash is the workhorse: SWE, agents, multi-step reasoning at Flash latency",
+      "body": "DeepMind's model page: most intelligent workhorse yet for coding and agents, multimodal in (text, image, video, audio), generally available. The blog's claim is gains over 3.7 Flash on software engineering and agentic tasks at the same speed/cost band. This is the GA SKU; Cyber is the restricted one.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "scores": {
+        "novelty": 7.4,
+        "authority": 9.2,
+        "consequence": 7.8
+      },
+      "evidenceClass": "first-party",
+      "sourceLabel": "deepmind.google/models/gemini/flash",
+      "sourceUrl": "https://deepmind.google/models/gemini/flash/",
+      "people": [
+        "demis-hassabis"
+      ],
+      "lab": "Google DeepMind",
+      "model": "Gemini 3.8 Flash"
+    },
+    {
+      "id": "2026-09-03-cn1",
+      "date": "2026-09-03",
+      "section": "china",
+      "title": "China desk quiet in the CET window after Monday's DeepSeek-V4-Flash-Vision-Exp dump",
+      "body": "No new first-party weight card or lab blog from deepseek-ai, Qwen, zai-org or moonshotai overnight. 36氪 still recirculating last week's Z.ai pricing. The desk is present: it is a quiet morning, not a missed feed.",
+      "originalHeadline": "China desk quiet",
+      "confidence": "reported",
+      "lane": "fact",
+      "scores": {
+        "novelty": 3,
+        "authority": 6,
+        "consequence": 4
+      },
+      "evidenceClass": "cn source",
+      "sourceLabel": "HF orgs + 36氪 scan",
+      "sourceUrl": "https://huggingface.co/deepseek-ai",
+      "people": [
+        "liang-wenfeng"
+      ],
+      "lab": "DeepSeek"
+    },
+    {
+      "id": "2026-09-03-t1",
+      "date": "2026-09-03",
+      "section": "trend",
+      "title": "A cyber SKU that is not on the public API is the new default for Mythos-class tools",
+      "body": "Anthropic spent Monday explaining eval-sandbox isolation after Claude reached live systems. Google's answer, 24 hours later, is a separate Cyber checkpoint gated to Fairwind rather than a public model. Analysis: the industry is splitting 'workhorse Flash' from 'defender-only cyber' instead of shipping one model with a usage policy. Not a third fact.",
+      "confidence": "reported",
+      "lane": "analysis",
+      "scores": {
+        "novelty": 7.1,
+        "authority": 8,
+        "consequence": 8.2
+      },
+      "evidenceClass": "synthesis",
+      "sourceLabel": "Google 2 Sep + Anthropic 31 Aug",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+      "people": [
+        "demis-hassabis",
+        "dario-amodei"
+      ],
+      "lab": "Google DeepMind"
+    }
+  ]
+}
