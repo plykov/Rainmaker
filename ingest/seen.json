@@ -219,6 +219,8 @@
     "ggml-org/llama.cpp@b11048",
     "ggml-org/llama.cpp@b11049",
     "ggml-org/llama.cpp@b11050",
+    "ggml-org/llama.cpp@b11052",
+    "ggml-org/llama.cpp@b11053",
     "ggml-org/llama.cpp@v0.4.0",
     "ggml-org/llama.cpp@v0.4.1",
     "huggingface/transformers@v5.14.1",
