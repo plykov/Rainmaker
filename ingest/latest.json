@@ -1,16 +1,26 @@
 {
-  "at": "2026-09-20T01:17:01.287Z",
+  "at": "2026-09-20T06:27:17.549Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b11057",
-      "name": "b11057",
+      "tag": "b11060",
+      "name": "b11060",
       "prerelease": true,
-      "published": "2026-09-19T23:58:52Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11057",
-      "body": "<details open>\n\nchat : add dedicated Ling 3.0 (Bailing V3) parser (#28682)\n\n* chat: add dedicated Ling 3.0 (Bailing V3) parser\n\nLing 3.0 Flash templates pre-open the think block in the generation\nprompt, so the model never emits an opening <think>, and a tool call can\narrive before any </think>. The generated autoparser terminated reasoning\nonly at the close tag, which classified such tool calls entirely as\nreasoning_content: clients received content=\"\" with no tool_calls and\nagent loops died as reasoning-only turns.\n\nAdds a specialized parser that terminates reasoning at the think close\ntag or at a <tool_call> start, mirroring the hand-written Qwen3-Coder and\nKimi K3 parsers and the reference vLLM/SGLang Ling3 parser (which treats\n<tool_call> as an implicit reasoning terminator). Detection is gated on\nthe <role>...</role> section markers, unique to this family among the\ntagged-argument templates.\n\nAdds the Ling 3.0 Flash chat template and tests covering the\nunclosed-think tool call (full parse and streaming), healthy closed-think\npaths, trailing prose, parallel calls, marker-like strings in argument\nvalues, string-union and non-string argument types, and\nreasoning_format=none.\n\nAssisted-by: Kimi Code\n\n* tests : move Ling 3.0 test\n\n---------\n\nCo-authored-by: aetherbird <aetherbird@users.noreply.github.com>\nCo-authored-by: Alde Rojas <hello@alde.dev>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/48695438>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11057/llama-b11057-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com"
+      "published": "2026-09-20T06:07:14Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11060",
+      "body": "<details open>\n\nfix(mamba) : make time-step projection input contiguous (#28832)\n\n* mamba : make time-step projection input contiguous\n\nAssisted-by: ChatGPT\n\n* mamba : skip contiguous copy after normalization\n\nAssisted-by: ChatGPT\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/48722326>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11060/llama-b11060-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11060/llama-b11060-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11060/llama-b11060-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11060/llama-b11060-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11060/llama-b11060-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11060/llama-b11060-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11060/llama-b11060-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11060/llama-b11060-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11060/llama-b11060-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11060/cudart-llama-b11060-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b11059",
+      "name": "b11059",
+      "prerelease": true,
+      "published": "2026-09-20T05:39:58Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11059",
+      "body": "<details open>\n\nmetal: add F16 input to the FWHT (#29094)\n\n* metal: add F16 input to the FWHT\n\nThe Metal FWHT kernel accepts F32 input only. This change makes the source\ntype a template parameter, so the kernel reads an F16 source directly instead\nof requiring a converted copy. The F32 instantiations are unchanged.\n\nThe pipeline name now carries the source type, and supports_op accepts an F16\nsrc1 for the Hadamard hint at the four sizes the kernels cover. Every other\nF16 src1 path still goes through ggml_metal_supports_mul_mat_op.\n\nThese are the test cases mentioned in #27779.\n\ntest-backend-ops on M5 Pro: MUL_MAT_HADAMARD 16/16, MUL_MAT 1265/1265.\n\n* metal: ask the same FWHT question in supports_op and the dispatch\n\nsupports_op admitted an F16 src1 on the type, the hint and the width alone, but the\ndispatch also requires src1 and dst to be contiguous and the same shape. A Hadamard\nhinted MUL_MAT that passed the first and failed the second reached the generic path,\nwhich has no F32 src0 by F16 src1 kernel, and aborted on a nil pipeline:\n\n  kernel not found in any metal library: base = 'kernel_mul_mv_f32_f16_4'\n  ggml_metal_encoder_set_pipeline: nil Metal pipeline\n\nggml_metal_use_fwht now holds the whole condition and both callers use it, so they\ncannot drift apart again. The added test case has src1 and dst of different shapes,\nwhich aborted before this change and is declined by the Metal backend after it.\n\n* metal: branchless butterfly select in the FWHT simdgroup kernel\n\nReview suggestion. Replaces the ternary in the shuffle stages with\nval2 - val + 2*((lane & i) == 0)*val, which is the same value without the\nselect.\n\nMeasured on M5 Pro, interleaved A/B, five rounds, first discarded, on a\nHadamard matmul with block 512 and 65536 rows so the kernel rather than the\nlaunc"
     }
   ]
 }
