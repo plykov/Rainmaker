@@ -1,36 +1,16 @@
 {
-  "at": "2026-09-19T18:05:50.644Z",
+  "at": "2026-09-20T01:17:01.287Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b11056",
-      "name": "b11056",
+      "tag": "b11057",
+      "name": "b11057",
       "prerelease": true,
-      "published": "2026-09-19T17:52:02Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11056",
-      "body": "<details open>\n\nhexagon: enable I32 GET_ROWS (#29116)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/48662388>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11056/llama-b11056-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11056/llama-b11056-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11056/llama-b11056-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11056/llama-b11056-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11056/llama-b11056-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11056/llama-b11056-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11056/llama-b11056-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11056/llama-b11056-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11056/llama-b11056-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11056/cudart-llama-b11056-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b11056/llama-b11056-bin-ubuntu-cuda-13.3-x64.tar.gz) - [CUDA 13.3 libraries](https://github.com/ggml-org/llama.cpp/releases/do"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b11055",
-      "name": "b11055",
-      "prerelease": true,
-      "published": "2026-09-19T17:22:22Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11055",
-      "body": "<details open>\n\nhexagon: add support for GEGLU_QUICK (#29114)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/48660160>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11055/llama-b11055-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11055/llama-b11055-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11055/llama-b11055-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11055/llama-b11055-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11055/llama-b11055-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11055/llama-b11055-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11055/llama-b11055-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11055/llama-b11055-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11055/llama-b11055-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11055/cudart-llama-b11055-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b11055/llama-b11055-bin-ubuntu-cuda-13.3-x64.tar.gz) - [CUDA 13.3 libraries](https://github.com/ggml-org/llama.cpp/rel"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b11054",
-      "name": "b11054",
-      "prerelease": true,
-      "published": "2026-09-19T16:47:12Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11054",
-      "body": "<details open>\n\nhexagon: enable support for TOP_K op (#29113)\n\n* hexagon: enable support for TOP_K op\n\n* hex-topk: thread single-row TOP_K, raise VTCM-based size cap\n\n* hex-topk: fix TOP_K mdev row partitioning\n\n* hex-topk: optimize TOP_K large-row selection\n\n* hexagon: clean up comment formatting\n\n* hex-docs: update TOP_K support listings\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/48657197>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11054/llama-b11054-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11054/llama-b11054-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11054/llama-b11054-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11054/llama-b11054-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11054/llama-b11054-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11054/llama-b11054-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11054/llama-b11054-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11054/llama-b11054-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11054/llama-b11054-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.c"
+      "published": "2026-09-19T23:58:52Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11057",
+      "body": "<details open>\n\nchat : add dedicated Ling 3.0 (Bailing V3) parser (#28682)\n\n* chat: add dedicated Ling 3.0 (Bailing V3) parser\n\nLing 3.0 Flash templates pre-open the think block in the generation\nprompt, so the model never emits an opening <think>, and a tool call can\narrive before any </think>. The generated autoparser terminated reasoning\nonly at the close tag, which classified such tool calls entirely as\nreasoning_content: clients received content=\"\" with no tool_calls and\nagent loops died as reasoning-only turns.\n\nAdds a specialized parser that terminates reasoning at the think close\ntag or at a <tool_call> start, mirroring the hand-written Qwen3-Coder and\nKimi K3 parsers and the reference vLLM/SGLang Ling3 parser (which treats\n<tool_call> as an implicit reasoning terminator). Detection is gated on\nthe <role>...</role> section markers, unique to this family among the\ntagged-argument templates.\n\nAdds the Ling 3.0 Flash chat template and tests covering the\nunclosed-think tool call (full parse and streaming), healthy closed-think\npaths, trailing prose, parallel calls, marker-like strings in argument\nvalues, string-union and non-string argument types, and\nreasoning_format=none.\n\nAssisted-by: Kimi Code\n\n* tests : move Ling 3.0 test\n\n---------\n\nCo-authored-by: aetherbird <aetherbird@users.noreply.github.com>\nCo-authored-by: Alde Rojas <hello@alde.dev>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/48695438>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11057/llama-b11057-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com"
     }
   ]
 }
