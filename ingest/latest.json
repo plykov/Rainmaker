@@ -1,36 +1,16 @@
 {
-  "at": "2026-09-26T13:11:45.783Z",
+  "at": "2026-09-26T17:16:15.535Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b11200",
-      "name": "b11200",
+      "tag": "b11201",
+      "name": "b11201",
       "prerelease": true,
-      "published": "2026-09-26T10:24:41Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11200",
-      "body": "<details open>\n\njinja : implement sameas test (#29448)\n\n* implement sameas test\n\n* add tests\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/50397675>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11200/llama-b11200-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11200/llama-b11200-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11200/llama-b11200-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11200/llama-b11200-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11200/llama-b11200-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11200/llama-b11200-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11200/llama-b11200-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11200/llama-b11200-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11200/llama-b11200-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11200/cudart-llama-b11200-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b11200/llama-b11200-bin-ubuntu-cuda-13.4-x64.tar.gz) - [CUDA 13.4 libraries](https://gi"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b11199",
-      "name": "b11199",
-      "prerelease": true,
-      "published": "2026-09-26T10:00:00Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11199",
-      "body": "<details open>\n\njinja : fix compile error (#29468)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/50395469>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11199/llama-b11199-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11199/llama-b11199-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11199/llama-b11199-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11199/llama-b11199-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11199/llama-b11199-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11199/llama-b11199-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11199/llama-b11199-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11199/llama-b11199-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11199/llama-b11199-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11199/cudart-llama-b11199-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b11199/llama-b11199-bin-ubuntu-cuda-13.4-x64.tar.gz) - [CUDA 13.4 libraries](https://github.com/ggml-org/llama.cpp/releases/downl"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b11195",
-      "name": "b11195",
-      "prerelease": true,
-      "published": "2026-09-26T08:27:10Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11195",
-      "body": "<details open>\n\nggml-cpu:  tiled mul_mat for k-quants (#27851)\n\n* Added tiled mul_mat.\n\nFor each mul_mat_one_chunk, quants are unpacked into (max) 256x256 tiles of int8,\none routine per quent.  Then microkernel computes 16x16 tiles before writing out\n256x256 float reults to main memory.\n\nTests/benches in tests/test-tiled-mulmat.cpp.  3-6x speed improvement\nfor large matmul, break even at 4096x64 * 64x4096, 80% performance (net\nloss) for GEMV.  Error rates trivial (order of 1-e04 max, 1-e05 rmse).\n\n* Fixes for ARM/windows builds\n\n* more windows fixes, ggml-cpu.h isn't visible in MSVC for some reason\n\n* unified iqp + tiled on the Q5_K, IQ4_XS set for benchmarking, updated benchmark\n\n* Fixed accidental removal of llama_build_and_test(test-backend-ops.cpp)\n\n* First integration of iqp code\n\nCo-authored-by Bartowski <3266127+bartowski1182@users.noreply.github.com>\n\n* Cleaning up declaration of iq unpacking helpers to align with the bit unpackers\n\n* Removed iqp path\n\n* Fix cross-platform warnings\n\n* Disabling benchmarks unless explicitly enabled\n\n* Fix backend_init for DLL-based builds, add self and bartowski to CODEOWNERS for tiled\n\n* Put benchmarks behind a flag\n\n* kernel fix for AVX2, iq quants\n\n* Fix for asan, leaking memory in test-tiled-mulmat and avoid stack use after return\n\n* guarding env flags with std::call_once\n\n* Simplified repacking for VNNI to a single call per macrotile\n\n* No threadlocals anymore, aligned wdata access\n\n* Doing aligned reads since we ensure alignment with padding in wdata\n\n* Eliminated per-thread gather of Q8_K rows in mul_mat_id, we now gather/repack in a single pass.  Repack method now takes pointer array to support both dense/normal and mmid paths.  Interface with ggml-cpu.c simplified as a result\n\n* Unified/simplified dispatch and support ch"
+      "published": "2026-09-26T16:39:56Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11201",
+      "body": "<details open>\n\nRevert \"Change max context length for auto-fitting with unified KV (#28849)\" (#29437)\n\nThis reverts commit b04d4e567cd2fb8d2ded6e17d38dbbcfafe29063.\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/50433369>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11201/llama-b11201-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11201/llama-b11201-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11201/llama-b11201-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11201/llama-b11201-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11201/llama-b11201-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11201/llama-b11201-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11201/llama-b11201-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11201/llama-b11201-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11201/llama-b11201-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11201/cudart-llama-b11201-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b11201/llama-b1"
     }
   ]
 }
