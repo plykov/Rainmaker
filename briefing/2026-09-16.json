@@ -1,0 +1,71 @@
+{
+  "date": "2026-09-16",
+  "weekdayNote": "Wednesday",
+  "scanned": 28,
+  "passedRules": 5,
+  "triaged": 4,
+  "admitted": 3,
+  "merged": 0,
+  "quoteBlocked": 0,
+  "ledeAbsent": true,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [],
+  "nextAudit": "Thu 17 Sep",
+  "radar": [],
+  "items": [
+    {
+      "id": "2026-09-16-critical-1",
+      "date": "2026-09-16",
+      "section": "critical",
+      "title": "Google DeepMind releases Gemini 3.8 Live and 3.8 Live Extended Thinking",
+      "body": "Native speech-to-speech models with upgraded reasoning, near real-time visual understanding, automatic detection for 97 languages, and background tool calling. Extended Thinking adds deeper performance for complex tasks. Available in Gemini Live and API.\nWhy it matters: advances low-latency conversational agents with interleaved reasoning and visual grounding.\nWatch next: developer adoption metrics and comparative speech-to-speech benchmarks.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Google DeepMind",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
+      "people": [
+        "demis-hassabis"
+      ],
+      "lab": "Google DeepMind",
+      "model": "Gemini 3.8 Live"
+    },
+    {
+      "id": "2026-09-16-words-1",
+      "date": "2026-09-16",
+      "section": "words",
+      "title": "Sam Altman teases heavy shipping week and DevDay",
+      "body": "big 🚢 this week and then for devday 🚢🚢🚢🚢🚢🚢",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "@sama",
+      "sourceUrl": "https://x.com/sama/status/2099872600977760451",
+      "people": [
+        "sam-altman"
+      ],
+      "lab": "OpenAI",
+      "model": ""
+    },
+    {
+      "id": "2026-09-16-critical-2",
+      "date": "2026-09-16",
+      "section": "critical",
+      "title": "xAI Grok Build receives substantial upgrade",
+      "body": "MCP tools now return structured JSON; memory management improved; long-running sessions retain compaction checkpoints; multiple edge-case fixes for agents.\nConfidence: confirmed via Elon Musk post linking release notes v1.0.33.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "@elonmusk",
+      "sourceUrl": "https://x.com/elonmusk/status/2100083283757584858",
+      "people": [
+        "elon-musk"
+      ],
+      "lab": "xAI",
+      "model": "Grok"
+    }
+  ]
+}

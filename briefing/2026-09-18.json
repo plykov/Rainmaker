@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-18",
+  "weekdayNote": "Friday",
+  "scanned": 12,
+  "passedRules": 5,
+  "triaged": 5,
+  "admitted": 4,
+  "merged": 0,
+  "quoteBlocked": 0,
+  "ledeAbsent": false,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [],
+  "nextAudit": "Mon 21 Sep",
+  "radar": [],
+  "items": [
+    {
+      "id": "2026-09-18-lede",
+      "date": "2026-09-18",
+      "section": "lede",
+      "title": "Anthropic publishes first R&D Automation Index: Claude leads 26% of internal AI research",
+      "body": "Anthropic released three public metrics tracking AI self-improvement inside frontier labs. Claude leads 26% of Anthropic AI R&D work as of August 2026 (up from under 1% in February), with over 90% at or above collaboration level and zero fully autonomous subsets. Approximately 30,000 agents run concurrently; ~6% of R&D compute goes to safety. The post invites other labs to publish identical measures and supports third-party verification for pacing proposals.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Anthropic Institute",
+      "sourceUrl": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+      "people": [
+        "dario-amodei"
+      ],
+      "lab": "Anthropic",
+      "model": "Claude"
+    },
+    {
+      "id": "2026-09-18-critical-1",
+      "date": "2026-09-18",
+      "section": "critical",
+      "title": "Anthropic opens Life Sciences Verification Program for Mythos access",
+      "body": "New LSVP grants life-science teams verified access to Mythos, Opus and Sonnet with relaxed biology safeguards under shared-responsibility monitoring. Standard Use for most research; High-risk Use for dual-use projects. Applications open; aims to enable drug discovery while retaining offline misuse detection and 30-day data retention.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Anthropic",
+      "sourceUrl": "https://www.anthropic.com/news/life-sciences-verification-program",
+      "people": [],
+      "lab": "Anthropic",
+      "model": "Mythos"
+    },
+    {
+      "id": "2026-09-18-research-1",
+      "date": "2026-09-18",
+      "section": "research",
+      "title": "Claude optimizes 30+ open-source biomolecular models 4× faster; protein design competition launched",
+      "body": "Anthropic Science Blog details Claude-written custom GPU software that cut inference latency for open-source molecular models by average 4×. Code open-sourced. Partnership with Adaptyv Bio validates >5,000 designs; Anthropic supplies up to $1 M Claude credits plus funding, Modal compute, Twist DNA.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Anthropic",
+      "sourceUrl": "https://www.anthropic.com/news",
+      "people": [],
+      "lab": "Anthropic",
+      "model": "Claude"
+    },
+    {
+      "id": "2026-09-18-critical-2",
+      "date": "2026-09-18",
+      "section": "critical",
+      "title": "OpenAI launches Astra for Law",
+      "body": "OpenAI introduced Astra for Law, combining its Astra model with a US case-law index, statutes and specialized legal instructions. Initially available to selected firms via Trusted Access in ChatGPT and Codex; API access forthcoming.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI",
+      "sourceUrl": "https://openai.com/news/",
+      "people": [],
+      "lab": "OpenAI",
+      "model": "Astra"
+    }
+  ]
+}
