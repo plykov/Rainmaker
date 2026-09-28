@@ -1,16 +1,36 @@
 {
-  "at": "2026-09-27T22:18:10.952Z",
+  "at": "2026-09-28T08:46:27.279Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b11223",
-      "name": "b11223",
+      "tag": "b11226",
+      "name": "b11226",
       "prerelease": true,
-      "published": "2026-09-27T22:03:23Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11223",
-      "body": "<details open>\n\nserver : allow RANK pooling batch splitting for causal LLM rerankers (ie. Qwen3 and Qwen3-VL) (#28876)\n\n* server : allow splitting RANK pooling for causal LLM rerankers\n\nRerank models fall into two categories: bidirectional cross-encoders\n(BERT, etc.) that require all tokens in a single physical batch, and\ncausal LLMs repurposed as rerankers (Qwen3, Qwen3-VL) that can use\nchunked prefill like any other decoder.\n\nPreviously the server rejected all RANK-pooling inputs larger than\nn_ubatch, and the graph builder hardcoded QWEN3/QWEN3VL arch checks to\ndetermine last-token pooling. This broke long-document and multimodal\nreranking for causal models.\n\nFix: expose llama_get_causal_attn(ctx) so the server can check the\neffective runtime attention type (reflecting any --attention override\nor set_causal_attn call). Also expose llama_model_is_causal(model)\nfor querying the static architectural property from GGUF metadata.\n\ncan_split() now permits chunked prefill for RANK pooling when the\ncontext is causal. The graph builder's inline arch check is replaced\nwith the same cparams.causal_attn predicate, removing the duplication.\n\nAssisted-by: Opencode/Qwen3.8-27B\n\n* remove unused llama_model_is_causal, fix whitespace\n\nAssisted-by: opencode\n\n---------\n\nCo-authored-by: timothywang21 <timothywang21@users.noreply.github.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/50611983>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11223/llama-b11223-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases"
+      "published": "2026-09-28T08:45:12Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11226",
+      "body": "<details open>\n\nEnables Windows ARM64 build with MSVC cl.exe (#28362)\n\n* can reproduce the issue vlad sees\n\n* fix fma issue\n\n* drop volatile\n\n* fix volatile runtime task\n\n* add arm flag if needed\n\n* fix hsum compile error\n\n* fix syntax in quants\n\n* strengthen sve probing\n\n* make the syntax fixes one liners\n\n* remove debug code\n\n* formatting\n\n* remove macro for float\n\n* drive down gcc instruction count\n\n* support armec\n\n* fix CI comments\n\naddress CI comments\n\nfix cross compile issue\n\nremove warning\n\nfix style and fix fma probing\n\nfix style\n\n* add documentation\n\n* update documentation\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/50708604>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11226/llama-b11226-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11226/llama-b11226-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11226/llama-b11226-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11226/llama-b11226-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11226/llama-b11226-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11226/llama-b11226-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11226/llama-b11226-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/downlo"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b11225",
+      "name": "b11225",
+      "prerelease": true,
+      "published": "2026-09-28T08:11:09Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11225",
+      "body": "<details open>\n\ntests : fix ggml init (#29554)\n\n* tests : init ggml for test-recurrent-state-rollback\n\n* cont : same for test-save-load-state\n\n* cont : add to test-state-restore-fragmented + add TODOs\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/50700507>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11225/llama-b11225-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11225/llama-b11225-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11225/llama-b11225-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11225/llama-b11225-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11225/llama-b11225-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11225/llama-b11225-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11225/llama-b11225-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11225/llama-b11225-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11225/llama-b11225-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11225/cudart-llama-b11225-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.c"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b11224",
+      "name": "b11224",
+      "prerelease": true,
+      "published": "2026-09-28T07:06:08Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11224",
+      "body": "<details open>\n\nvulkan: fix wrong results when a mul_mat reads a slice of a larger cache (#28956)\n\n* vulkan: read the batch stride of an in place src0 from nb[2]\n\nA dim01 contiguous tensor can still be a view whose batches are\nstrided by more than ne[1] rows, the first rows of a KV cache for\nexample. Both the mat-vec and the matrix paths read such a tensor in\nplace but passed ne00*ne01 as the batch stride, so every head past\nthe first read the wrong rows. The same applies to src1. The stride\nnow comes from nb[2] whenever the tensor is used in place; the value\nis unchanged for a contiguous tensor.\n\ntest-backend-ops gets an m_v parameter on test_mul_mat, the number of\nrows of a in memory, and two cases at the shapes of a decoder self\nattention over a cache.\n\n* vulkan: size the in place A and B ranges by their strided extent\n\nThe matrix path bound src0 and src1 to the shader with a range of\nelements times type size, which ends before the batches of a strided\nview. Pipelines with bounded access read zero past that range, so the\nsame view that the mat-vec path already handles gave wrong results\non Intel and on NVIDIA without coopmat2. The range now comes from\nggml_nbytes when the tensor is read in place.\n\n* vulkan: address review from jeffbolznv\n\nBind the in place A and B of the matrix path with ggml_vk_subbuffer,\nwhich spans to the end of the buffer, so a strided view is in range\nwithout computing its extent.\n\nmul_mat_id reads the batch stride of an in place src0 and src1 with\nthe same helper as mul_mat. test_mul_mat_id gets an m_v parameter,\nthe number of rows of as in memory, and a case whose experts are\nstrided by more rows than it uses.\n\n* vulkan: read the batch stride of an in place src0 in mul_mat_vec_id\n\nThe single token path of mul_mat_id passed ne00*ne01 as the bat"
     }
   ]
 }
