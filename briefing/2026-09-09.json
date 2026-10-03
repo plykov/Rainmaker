@@ -1,0 +1,89 @@
+{
+  "date": "2026-09-09",
+  "weekdayNote": "Wednesday",
+  "scanned": 18,
+  "passedRules": 6,
+  "triaged": 5,
+  "admitted": 4,
+  "merged": 1,
+  "quoteBlocked": 0,
+  "ledeAbsent": false,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [
+    {
+      "source": "openai.com/index/an-openai-model-proposes-a-solution-to-the-navier-stokes-problem/",
+      "detail": "404"
+    }
+  ],
+  "nextAudit": "Mon 14 Sep",
+  "radar": [],
+  "items": [
+    {
+      "id": "2026-09-09-lede",
+      "date": "2026-09-09",
+      "section": "lede",
+      "title": "OpenAI agents claim Navier–Stokes Millennium Prize solution",
+      "body": "OpenAI agents using a next-generation internal model produced a claimed analytical proof and Lean formalization of a Navier–Stokes singularity. The result used ~10k coordinating agents over 88 hours and immediately drew priority and data-contamination questions from mathematicians who had been iterating on related work with OpenAI tools while affiliated with Anthropic. Watch next for independent verification of the Lean proofs.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI X + secondary",
+      "sourceUrl": "https://x.com/OpenAI/status/2097374640582668336",
+      "people": [
+        "sam-altman"
+      ],
+      "lab": "OpenAI",
+      "model": ""
+    },
+    {
+      "id": "2026-09-09-critical-1",
+      "date": "2026-09-09",
+      "section": "critical",
+      "title": "ChatGPT Images 2.5 and GPT-Image-2.5 Flare/Sunburst launch",
+      "body": "ChatGPT Images 2.5 launched 8 Sep with up to 50 % lower latency, sharper detail, multi-turn editing fidelity, and new Sketch/templates. API variants GPT-Image-2.5 Flare (default, faster) and Sunburst (higher precision) available; Arena rankings place Sunburst #1 across text-to-image and edit arenas.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI",
+      "sourceUrl": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "people": [],
+      "lab": "OpenAI",
+      "model": "GPT-Image-2.5"
+    },
+    {
+      "id": "2026-09-09-words-1",
+      "date": "2026-09-09",
+      "section": "words",
+      "title": "OpenAI on the Navier–Stokes claim",
+      "body": "We’re sharing a solution to the Navier-Stokes Millennium Prize Problem… The proof was produced by a group of agents, using an OpenAI next-generation model significantly more capable than GPT-6 Astra.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI",
+      "sourceUrl": "https://x.com/OpenAI/status/2097374640582668336",
+      "people": [],
+      "lab": "OpenAI",
+      "model": ""
+    },
+    {
+      "id": "2026-09-09-china-1",
+      "date": "2026-09-09",
+      "section": "china",
+      "title": "美控DeepSeek等陆6大AI开发商「恶意蒸馏」窃关键技术",
+      "body": "US NSA/FBI/CISA joint advisory of 8 Sep accuses DeepSeek, Moonshot AI, Alibaba, MiniMax, StepFun and Z.AI of industrial-scale distillation of Anthropic, OpenAI, Google and xAI models since 2024, likely with Chinese government awareness.",
+      "confidence": "reported",
+      "lane": "fact",
+      "evidenceClass": "named-outlet",
+      "sourceLabel": "Reuters / NSA-FBI-CISA",
+      "sourceUrl": "https://www.reuters.com/technology/us-accuses-chinese-ai-firms-industrial-scale-theft-ai-technology-2026-09-08/",
+      "people": [
+        "liang-wenfeng"
+      ],
+      "lab": "DeepSeek",
+      "model": ""
+    }
+  ]
+}
