@@ -1,26 +1,16 @@
 {
-  "at": "2026-10-06T00:51:41.937Z",
+  "at": "2026-10-06T07:37:55.545Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b11433",
-      "name": "b11433",
+      "tag": "b11435",
+      "name": "b11435",
       "prerelease": true,
-      "published": "2026-10-05T23:10:22Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11433",
-      "body": "<details open>\n\nhexagon: add pool op support (#29995)\n\n* hexagon: add pool_2d support\n\n* hexagon: add pool_1d support\n\n* hex-pool: dma changes\n\n* hex-pool: Optimize HTP pooling boundaries and DMA pipelining\n\n* hex-pool: code cleanup and correctness fixes\n\n* hex-pool: re-write the DMA pipeline\n\n* hex-pool: pool chunking support\n\n* hex-pool: remove/vectorize all scalar paths\n\n* hex-pool: simplify chunk solver (no need for a loop)\n\n* hex-pool: remove redundant checks\n\n---------\n\nCo-authored-by: Max Krasnyansky <maxk@qti.qualcomm.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/52990527>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11433/llama-b11433-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11433/llama-b11433-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11433/llama-b11433-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11433/llama-b11433-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11433/llama-b11433-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11433/llama-b11433-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11433/llama-b11433-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11433/llama-b11433-bin-ubuntu-vulkan-arm64.tar.gz"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b11430",
-      "name": "b11430",
-      "prerelease": true,
-      "published": "2026-10-05T20:38:39Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11430",
-      "body": "<details open>\n\nhexagon: matmul and flash-atten scalability updates (#29974)\n\n* hexagon: head-parallel flash_attn partitioning for row-split multicore\n\nIn row-split mode each core computes its output row shard of every\nMUL_MAT, but flash_attn was previously partitioning by Q tokens\n(flat qrow split) instead of by heads. This forced every core to\nread the full KV cache (all n_kv_heads), negating the memory\nbandwidth benefit of multicore on flash_attn.\n\nChange both HMX and HVX flash_attn kernels to partition by KV heads\nwhen n_kv_heads is divisible by n_cores: core i processes heads\n[i*n_kv_heads/N, (i+1)*n_kv_heads/N) exclusively, reading only its\nhead shard of the KV cache. Falls back to the original token-block\nsplit when n_kv_heads % n_cores != 0 (e.g. Gemma-4 with 2 KV heads\non 4 cores).\n\nControlled by GGML_HEXAGON_FA_HEAD_SPLIT (default 1 = on).\nThe flag is packed into bit 1 of the existing is_dst_fp32 kparams\nbyte to stay within the 128-byte kernel_params blob limit.\n\nMeasured gains at 4c row-split (PP t/s, ubatch=1024):\n  Qwen3-0.6B:    6977 -> 11026  (+58%)\n  llama-3.2-3B:  3717 ->  5522  (+49%)\n  Qwen3.5-4B:    2739 ->  2855   (+4%)\n  Gemma-4 MoE:   no change (MoE FFN dominates, fallback path)\n\nTG is unchanged (flash_attn is a small fraction of decode time\nrelative to the matmul+barrier cost per layer).\n\n* hex-fa: cleanup kern_params and head-split selection\n\n* hex-fa: add -fa-head-split option to run.py\n\n* hex-mdev: update matmul solver to account for reduced work in row-split scenarios\n\n* hex-mmid: better work splitting by expers in multi-dev scenarios\n\n* hex-fa: update HMX gating based on the model/n-hvx/ctx-len sweep\n\n* hex-fa: precompute softcap/scale on the host\n\n* hexagon: flatten matmul into 2d to use HMX in multi-sequence\n\n* hex-mm: cleanup kparams and "
+      "published": "2026-10-06T06:16:04Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11435",
+      "body": "<details open>\n\nllama: fix k-pool scatter data race on shared sequences (#29994)\n\n* llama: re-pool each shared k-pool rep once\n\nWith shared cells every pool is re-pooled, and since the pooled keys\nare always scattered, the pools a seq_cp shares between sequences\nwrote the same rep row from several scatter entries, a data race on\nthe CPU backend. Mark each rep once: the sharing sequences read the\nsame row through pool_cells.\n\n* llama: assert whole-sequence seq_cp in the hybrid idx memory\n\nThe recurrent state is always copied whole whatever the range, and a\nk-pool cell shared by a partial copy could carry two pool groupings\nwith a single pooled row. Every caller copies whole sequences, so\nreject partial ranges instead of supporting them.\n\n* llama: drop the k-pool cache_safe mode\n\nWith whole-sequence seq_cp, sequences sharing cells share their pools\ntoo, so the pooled row of a shared rep is valid for all of them. Mark\neach rep once in every ubatch instead of re-pooling everything while\ncells are shared, which removes the sharing scan and the stale-all\nworkarounds in seq_rm, state_read and state_drop. seq_cp now only\nstales the destination.\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/53070668>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11435/llama-b11435-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11435/llama-b11435-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11435/llama-b11435-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x6"
     }
   ]
 }
