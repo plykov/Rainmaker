@@ -1,0 +1,89 @@
+{
+  "date": "2026-09-22",
+  "weekdayNote": "Tuesday",
+  "scanned": 28,
+  "passedRules": 9,
+  "triaged": 6,
+  "admitted": 4,
+  "merged": 1,
+  "quoteBlocked": 0,
+  "ledeAbsent": false,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [],
+  "nextAudit": "Mon 28 Sep",
+  "radar": [],
+  "items": [
+    {
+      "id": "2026-09-22-lede",
+      "date": "2026-09-22",
+      "section": "lede",
+      "title": "OpenAI forms independent mathematics advisory group",
+      "body": "OpenAI formed an independent mathematics advisory group hosted at the Institute for Advanced Study. The group (Gowers, Hairer, Witten, Wood and others) will advise on assessing and communicating AI-generated mathematical results and on tools for research. Watch next: whether the group issues public guidance on the August–September internal model results already shared by OpenAI.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI",
+      "sourceUrl": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+      "people": [
+        "mark-chen"
+      ],
+      "lab": "OpenAI",
+      "model": ""
+    },
+    {
+      "id": "2026-09-22-critical-1",
+      "date": "2026-09-22",
+      "section": "critical",
+      "title": "OpenAI independent Advisory Group on Mathematics and Artificial Intelligence",
+      "body": "Confirmed first-party. Members include Timothy Gowers, Martin Hairer, Edward Witten, Melanie Matchett Wood; group operates independently and may publish advice.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI",
+      "sourceUrl": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+      "people": [
+        "mark-chen"
+      ],
+      "lab": "OpenAI",
+      "model": ""
+    },
+    {
+      "id": "2026-09-22-words-1",
+      "date": "2026-09-22",
+      "section": "words",
+      "title": "Simon Willison on Jev decision models",
+      "body": "Jev is an interesting variant on the usual LLM format: it still accepts text inputs, but instead of text output it returns floating point numbers corresponding to categories, yes/no questions, ratings, and associated confidence scores.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "simonwillison.net",
+      "sourceUrl": "https://simonwillison.net/2026/Sep/21/jev/",
+      "people": [
+        "simon-willison"
+      ],
+      "lab": "",
+      "model": "Jev"
+    },
+    {
+      "id": "2026-09-22-china-1",
+      "date": "2026-09-22",
+      "section": "china",
+      "title": "智谱被指未经用户允许上传数据 随后致歉并开源ZCode",
+      "body": "Z.ai / Zhipu open-sourced ZCode client (zai-org/ZCode) after community discovery of silent repo-snapshot upload to Alibaba OSS; third-party audits (CAICT, NSFocus) confirm cloud zero-data and removal of the Repo Wiki path.",
+      "confidence": "reported",
+      "lane": "fact",
+      "evidenceClass": "named-outlet",
+      "sourceLabel": "Caixin",
+      "sourceUrl": "https://www.caixin.com/2026-09-22/102487297.html",
+      "people": [
+        "tang-jie",
+        "zhang-peng"
+      ],
+      "lab": "zai-org",
+      "model": ""
+    }
+  ]
+}
