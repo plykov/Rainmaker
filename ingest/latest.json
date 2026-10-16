@@ -1,16 +1,16 @@
 {
-  "at": "2026-10-16T18:08:47.496Z",
+  "at": "2026-10-16T21:20:10.484Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b11699",
-      "name": "b11699",
+      "tag": "b11700",
+      "name": "b11700",
       "prerelease": true,
-      "published": "2026-10-16T17:57:12Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11699",
-      "body": "<details open>\n\ncommon: honor HTTP_PROXY/HTTPS_PROXY env vars in http client (#21752)\n\n* common: honor HTTP_PROXY/HTTPS_PROXY env vars in http client\n\ncommon_http_client() was ignoring standard proxy env vars, causing\ndownloads via -hf and similar flags to fail silently in environments\nbehind an HTTP proxy (corporate networks, air-gapped infra, etc.).\n\nChecks HTTPS_PROXY/https_proxy for https:// URLs and HTTP_PROXY/http_proxy\nfor http:// URLs, in that order. If a proxy URL is set and parseable,\npasses it to httplib's set_proxy() and set_proxy_basic_auth() as\nappropriate. Malformed proxy URLs are silently ignored so existing\ncallers aren't affected.\n\nFixes #21694\n\n* common: drop misleading comment about generic proxy fallback\n\nThe comment referenced a 'generic one' that doesn't exist in the code — both\nHTTP_PROXY and HTTPS_PROXY are scheme-specific. Reviewer noted the mismatch.\n\nAddresses review feedback from @ServeurpersoCom.\n\n* common : warn when the proxy URL from the environment is malformed\n\n* common : honor NO_PROXY when selecting the http proxy\n\n* ci : retrigger checks (test-thread-safety flake)\n\n* common : bypass the proxy for loopback destinations\n\nllama cli talks to its spawned server on 127.0.0.1 through common_http_client, so with HTTP_PROXY set and no NO_PROXY the health polling went to the corporate proxy, which rejects loopback targets, and the wait loop never exits (\"Loading model...\" hangs forever).\n\nA remote proxy can never reach the client machine's own loopback, so these destinations are now always contacted directly, before NO_PROXY is consulted: localhost, *.localhost, 127.0.0.0/8, ::1 and 0.0.0.0. Similar to Go's net/http. Proxy handling for downloads and remote --server-base endpoints is unchanged.\n\nSigned-off-by: texasich <101962694+texasich@user"
+      "published": "2026-10-16T18:33:07Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11700",
+      "body": "<details open>\n\nmodel : Granite Switch Decision (#30676)\n\n* feat(convert): Add decision.chat to support decision models that can also chat\n\nBranch: GraniteSwitchDecision\nAI-usage: full (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* feat(convert): Add conversion for Granite Switch as decision model\n\nThe template follows from the usage sample:\nhttps://huggingface.co/ibm-granite/granite-switch-4.1-8b#guardian-and-decision-side-by-side\n\nBranch: GraniteSwitchDecision\nAI-usage: draft (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* feat(common): Add support for chat+decision models in common\n\nBranch: GraniteSwitchDecision\nAI-usage: full (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* feat(common): Add granite switch decision model enum\n\nBranch: GraniteSwitchDecision\nAI-usage: full (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* feat(server): Plumb through decision_chat bool to support decision+chat models\n\nBranch: GraniteSwitchDecision\nAI-usage: full (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* feat(server): Add Granite Switch decision support\n\nBranch: GraniteSwitchDecision\nAI-usage: draft (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* docs: Update server README for granite switch decisions / chat+decisions\n\nBranch: GraniteSwitchDecision\nAI-usage: draft (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* Revert \"feat(convert): Add decision.chat to support decision models that can also chat\"\n\nThis reverts commit 952ef567647e53ac9beda7a1f79d6927240d068d.\n\n* Revert \"feat(common): Add support for chat+decision models in common\"\n\nThis reverts commit 93ed782e3a8b2fd5968732c6525c7ad29ad4bea2.\n\n* Revert \"feat(se"
     }
   ]
 }
