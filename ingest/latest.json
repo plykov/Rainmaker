@@ -1,26 +1,16 @@
 {
-  "at": "2026-10-17T17:19:55.676Z",
+  "at": "2026-10-17T20:42:50.114Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b11714",
-      "name": "b11714",
+      "tag": "b11715",
+      "name": "b11715",
       "prerelease": true,
-      "published": "2026-10-17T16:17:08Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11714",
-      "body": "<details open>\n\nui : Discover & Download Models from HF Hub (#29584)\n\n* common : resolve <quant>-<sidecar> download tags and list cached sidecars\n\nA Q4_0-mtp style tag now resolves the sidecar file when no model file matches it, so a solo draft or mmproj download actually pulls the file. Cached sidecar files list as their own entries so the state survives a restart, and removing such a tag deletes only the sidecar.\n\nAssisted-by: pi:zai-org/GLM-5.3\n\n* ui : optional sanitized raw HTML in markdown\n\nAdd an allowHtml prop to MarkdownContent: raw HTML found in the markdown is\nrendered after DOMPurify sanitization instead of being escaped as literal\ntext. Default stays escaped.\n\nAssisted-by: pi:GLM-5.3-Flash\n\n* ui : add the discover models components\n\nThe Discover surface: the curated-catalog list with its search and\nskeletons, the details pane with its readme, metadata, Hub stats and\ndownload options, and the standalone download progress bar that replaces\nthe plain one. The quant download button sizes its select with a new xs\ntrigger, so the select gains that size and the muted box look. The store\nstays incomplete when a repo fails, so the next mount retries it.\n\nAssisted-by: pi:llama.cpp/DeepSeek-V4.1-Flash\n\n* ui : put the discover view in the models manager\n\nThe manager dialog gains its second view: the Discover Models call to\naction fades the table out, slides the title with its compass mark, and\nfades the discover surface in; the arrow button returns to the table.\n\nAssisted-by: pi:llama.cpp/DeepSeek-V4.1-Flash\n\n# Conflicts:\n#\ttools/ui/src/lib/components/ui/button/button.svelte\n\n* ui : add the Enable Discover Models setting\n\nThe flag gates browsing and downloading HuggingFace GGUF models, so it is\ndeclared on the discover layer; the repo-tree lookup in the manager layer\nab"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b11713",
-      "name": "b11713",
-      "prerelease": true,
-      "published": "2026-10-17T16:00:52Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11713",
-      "body": "<details open>\n\nCUDA: faster MMVQ for low-bit types (#30517)\n\n* CUDA: faster MMVQ for low-bit types\n\n* ggml-cuda: hip: small nwarps GCN fix on Q3_K(ncols=2,3), Q6_K(ncols=4)\n\n---------\n\nCo-authored-by: thelittlefireman <thelittlefireman3@gmail.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/56972972>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11713/llama-b11713-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11713/llama-b11713-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11713/llama-b11713-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11713/llama-b11713-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11713/llama-b11713-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11713/llama-b11713-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11713/llama-b11713-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11713/llama-b11713-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11713/llama-b11713-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11713/cudart-llama-b11713-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x6"
+      "published": "2026-10-17T19:34:47Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11715",
+      "body": "<details open>\n\nggml-cuda: HIP: use __builtin_amdgcn_perm for q1_0 unpacking (#29927)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/57002849>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11715/llama-b11715-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11715/llama-b11715-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11715/llama-b11715-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11715/llama-b11715-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11715/llama-b11715-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11715/llama-b11715-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11715/llama-b11715-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11715/llama-b11715-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11715/llama-b11715-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11715/cudart-llama-b11715-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b11715/llama-b11715-bin-ubuntu-cuda-13.4-x64.tar.gz) - [CUDA 13.4 libraries](https://github.co"
     }
   ]
 }
