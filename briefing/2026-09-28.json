@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-28",
+  "weekdayNote": "Monday",
+  "scanned": 18,
+  "passedRules": 2,
+  "triaged": 2,
+  "admitted": 0,
+  "merged": 0,
+  "quoteBlocked": 0,
+  "ledeAbsent": true,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [],
+  "nextAudit": "Mon 5 Oct",
+  "radar": [],
+  "items": []
+}
