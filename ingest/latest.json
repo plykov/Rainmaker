@@ -1,26 +1,16 @@
 {
-  "at": "2026-10-17T05:39:53.538Z",
+  "at": "2026-10-17T10:54:08.711Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b11706",
-      "name": "b11706",
+      "tag": "b11707",
+      "name": "b11707",
       "prerelease": true,
-      "published": "2026-10-17T02:29:58Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11706",
-      "body": "<details open>\n\nsycl: fix prompt-processing regression after Q4_0/Q8_0 weight reorder (#30374)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/56871404>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11706/llama-b11706-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11706/llama-b11706-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11706/llama-b11706-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11706/llama-b11706-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11706/llama-b11706-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11706/llama-b11706-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11706/llama-b11706-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11706/llama-b11706-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11706/llama-b11706-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11706/cudart-llama-b11706-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b11706/llama-b11706-bin-ubuntu-cuda-13.4-x64.tar.gz) - [CUDA 13.4 libraries](https://"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b11703",
-      "name": "b11703",
-      "prerelease": true,
-      "published": "2026-10-17T01:02:07Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11703",
-      "body": "<details open>\n\nhexagon: vectorize softplus with HVX (#30435)\n\nsoftplus_f32 and tile_softplus_f32 ran a scalar logf(1.0f + expf(x)) loop.\nReplace both with a shared hvx_softplus_f32_aa() helper built from the\nbackend's existing hvx_vec_exp_f32 / hvx_vec_log_f32 primitives, so no new\nnumerical approximation is introduced.\n\nhvx_vec_exp_f32 clamps its input to (-88, 88) before exponentiating, so a\nnaive log(1 + exp(x)) composition would saturate to ~88.72 for large x\ninstead of returning x. The Q6_V_vmux_QVV select keeps the scalar\nreference's x > 20 guard (ggml_compute_softplus_f32 in ggml-impl.h),\nwhich is what makes the vector path match the CPU result.\n\nAssisted-by: Claude\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/56858411>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11703/llama-b11703-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11703/llama-b11703-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11703/llama-b11703-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11703/llama-b11703-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11703/llama-b11703-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11703/llama-b11703-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11703/llama-b11703-bin-ubuntu-vulka"
+      "published": "2026-10-17T07:50:33Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11707",
+      "body": "<details open>\n\nmodel : Granite switch decision 256 options (#30693)\n\n* feat(convert): Attempt to come up with 256 single-token, semantic option markers\n\nEach switch model needs to identify a collection of single-token option\nmarkers that can be mapped to their respective logits for the output\nprobability distribution. The simple upper/lower/numbers set only yields 66\nunique markers, but the model can support up to 255. The challenge is that\nwhich combinations of characters result in single-token markers is model-\nspecific, so we do a discovery exercise at conversion time by looking\nthrough the specific model's vocab for single-token sequences of 1+ plain\nletter strings (eg `A`, `AA`, `BB`, etc).\n\nBranch: GraniteSwitchDecisionFullOptions\nAI-usage: none\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* docs: Note granite-switch with 256 option markers\n\nBranch: GraniteSwitchDecisionFullOptions\nAI-usage: none\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* style: Remove extra newline\n\nBranch: GraniteSwitchDecisionFullOptions\nAI-usage: none\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* feat(convert): Use the computed labels in the template so c++ side is source of truth\n\nBranch: GraniteSwitchDecisionFullOptions\nAI-usage: full (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* feat: Use LEV case for GRANITE_SWITCH w/ computed labels\n\nBranch: GraniteSwitchDecisionFullOptions\nAI-usage: full (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* docs: Consolidate g-s into 255 bucket\n\nBranch: GraniteSwitchDecisionFullOptions\nAI-usage: full (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/569"
     }
   ]
 }
