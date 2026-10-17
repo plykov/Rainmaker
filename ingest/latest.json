@@ -1,16 +1,26 @@
 {
-  "at": "2026-10-16T21:20:10.484Z",
+  "at": "2026-10-17T00:34:07.755Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b11700",
-      "name": "b11700",
+      "tag": "b11702",
+      "name": "b11702",
       "prerelease": true,
-      "published": "2026-10-16T18:33:07Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11700",
-      "body": "<details open>\n\nmodel : Granite Switch Decision (#30676)\n\n* feat(convert): Add decision.chat to support decision models that can also chat\n\nBranch: GraniteSwitchDecision\nAI-usage: full (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* feat(convert): Add conversion for Granite Switch as decision model\n\nThe template follows from the usage sample:\nhttps://huggingface.co/ibm-granite/granite-switch-4.1-8b#guardian-and-decision-side-by-side\n\nBranch: GraniteSwitchDecision\nAI-usage: draft (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* feat(common): Add support for chat+decision models in common\n\nBranch: GraniteSwitchDecision\nAI-usage: full (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* feat(common): Add granite switch decision model enum\n\nBranch: GraniteSwitchDecision\nAI-usage: full (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* feat(server): Plumb through decision_chat bool to support decision+chat models\n\nBranch: GraniteSwitchDecision\nAI-usage: full (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* feat(server): Add Granite Switch decision support\n\nBranch: GraniteSwitchDecision\nAI-usage: draft (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* docs: Update server README for granite switch decisions / chat+decisions\n\nBranch: GraniteSwitchDecision\nAI-usage: draft (Claude + Sonnet 5.5)\nSigned-off-by: Gabe Goodhart <ghart@us.ibm.com>\n\n* Revert \"feat(convert): Add decision.chat to support decision models that can also chat\"\n\nThis reverts commit 952ef567647e53ac9beda7a1f79d6927240d068d.\n\n* Revert \"feat(common): Add support for chat+decision models in common\"\n\nThis reverts commit 93ed782e3a8b2fd5968732c6525c7ad29ad4bea2.\n\n* Revert \"feat(se"
+      "published": "2026-10-17T00:21:45Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11702",
+      "body": "<details open>\n\nopencl: Add MxFP4 MoE bin kernel for Adreno X1 devices  (#30691)\n\n* opencl: add bin kernel `gemm_moe_mxfp4_q8_1_dp4a_ila_ldck` for X1\n\n* opencl: fix whitespace\n\n* opencl: undo unnecessary change\n\n* opencl: enable dp4a clc for X1E\n\n---------\n\nCo-authored-by: Li He <lih@qti.qualcomm.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/56851713>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11702/llama-b11702-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11702/llama-b11702-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11702/llama-b11702-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11702/llama-b11702-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11702/llama-b11702-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11702/llama-b11702-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11702/llama-b11702-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11702/llama-b11702-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11702/llama-b11702-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11702/cudart-llam"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b11701",
+      "name": "b11701",
+      "prerelease": true,
+      "published": "2026-10-16T23:20:45Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11701",
+      "body": "<details open>\n\nmodel: add Beam (Reflection) (#30670)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/56841237>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11701/llama-b11701-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11701/llama-b11701-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11701/llama-b11701-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11701/llama-b11701-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11701/llama-b11701-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11701/llama-b11701-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11701/llama-b11701-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11701/llama-b11701-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11701/llama-b11701-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11701/cudart-llama-b11701-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b11701/llama-b11701-bin-ubuntu-cuda-13.4-x64.tar.gz) - [CUDA 13.4 libraries](https://github.com/ggml-org/llama.cpp/releases/do"
     }
   ]
 }
