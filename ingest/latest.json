@@ -1,16 +1,26 @@
 {
-  "at": "2026-10-17T23:11:43.575Z",
+  "at": "2026-10-18T06:01:20.038Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b11716",
-      "name": "b11716",
+      "tag": "b11718",
+      "name": "b11718",
       "prerelease": true,
-      "published": "2026-10-17T21:11:34Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11716",
-      "body": "<details open>\n\nhexagon: add support for Q1_0 and Q2_0 (#30122)\n\n* hexagon: add support for q1_0 quant\n\n* hexagon: enable Q1_0 weights in the 2D HMX MUL_MAT path\n\n* hex-q1: cleanup gates, generalize tiling and remove in-loop divs\n\n* hex-tiling: document tiled formats in developer.md and update htp-tensor.h\n\n* hex-q2: add support for Q2_0\n\n* hex-q2: remove stale asserts and speacial cases\n\n* hex-mm: fix MUL_MAT_NX assumption about square tiling, Q1/Q2 have non-square tiles\n\n* hex-q1/2: minor optimizations (unrolls/un-unrolls/...)\n\n* hex-q1: optimize Q1_0 layout to reduce unpack/vrmpy overhead\n\n* hex-q1/q2_0: further optimize vec_dots\n\n---------\n\nCo-authored-by: Max Krasnyansky <maxk@qti.qualcomm.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/57016509>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11716/llama-b11716-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11716/llama-b11716-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11716/llama-b11716-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11716/llama-b11716-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11716/llama-b11716-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11716/llama-b11716-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11716/lla"
+      "published": "2026-10-18T04:42:47Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11718",
+      "body": "<details open>\n\nRestore ESIMD kernels on FFN path (#30239)\n\n* Reenable ESIMD on the FFN path\n\nSigned-off-by: Todd Malsbary <todd.malsbary@intel.com>\n\n* Extend ESIMD fusion on FFN path to include Q8_0\n\nSigned-off-by: Todd Malsbary <todd.malsbary@intel.com>\n\n* Remove comment explicitly referencing ESIMD in test-backend-ops\n\nSigned-off-by: Todd Malsbary <todd.malsbary@intel.com>\n\n---------\n\nSigned-off-by: Todd Malsbary <todd.malsbary@intel.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/57072547>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11718/llama-b11718-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11718/llama-b11718-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11718/llama-b11718-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11718/llama-b11718-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11718/llama-b11718-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11718/llama-b11718-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11718/llama-b11718-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11718/llama-b11718-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11718/l"
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b11717",
+      "name": "b11717",
+      "prerelease": true,
+      "published": "2026-10-18T02:50:12Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11717",
+      "body": "<details open>\n\nhexagon: add support for hadamard MUL_MAT and GET_ROW for flat and tiled Q1_0 and Q2_0 (#30627)\n\n* hex-hadamard: add support for hadamard ops\n\n* hex-mm: reduce pkt counts in the q8_1 quantizer and vec_dot_q1\n\n* hex-q1/q2: add support for flat and tiled GET_ROWS for Q1_0 and Q2_0\n\n---------\n\nCo-authored-by: Max Krasnyansky <maxk@qti.qualcomm.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/57059545>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11717/llama-b11717-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11717/llama-b11717-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11717/llama-b11717-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11717/llama-b11717-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11717/llama-b11717-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11717/llama-b11717-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11717/llama-b11717-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11717/llama-b11717-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11717/llama-b11717-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://githu"
     }
   ]
 }
