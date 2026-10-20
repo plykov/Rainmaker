@@ -1,36 +1,16 @@
 {
-  "at": "2026-10-20T13:38:45.411Z",
+  "at": "2026-10-20T18:31:27.473Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b11755",
-      "name": "b11755",
+      "tag": "b11756",
+      "name": "b11756",
       "prerelease": true,
-      "published": "2026-10-20T11:18:44Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11755",
-      "body": "<details open>\n\nmetal : fix missing MoE kernel variant for 9 experts per token (#30610) (#30699)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/57761738>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11755/llama-b11755-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11755/llama-b11755-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11755/llama-b11755-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11755/llama-b11755-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11755/llama-b11755-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11755/llama-b11755-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11755/llama-b11755-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11755/llama-b11755-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11755/llama-b11755-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11755/cudart-llama-b11755-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b11755/llama-b11755-bin-ubuntu-cuda-13.4-x64.tar.gz) - [CUDA 13.4 libraries](https:"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b11753",
-      "name": "b11753",
-      "prerelease": true,
-      "published": "2026-10-20T09:06:38Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11753",
-      "body": "<details open>\n\nvocab : add \\p{M} to lookaheads in Tekken and GPT-4o pre-tokenizer regexes (#30845)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/57723477>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11753/llama-b11753-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11753/llama-b11753-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11753/llama-b11753-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11753/llama-b11753-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11753/llama-b11753-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11753/llama-b11753-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11753/llama-b11753-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11753/llama-b11753-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11753/llama-b11753-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11753/cudart-llama-b11753-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b11753/llama-b11753-bin-ubuntu-cuda-13.4-x64.tar.gz) - [CUDA 13.4 libraries](htt"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b11752",
-      "name": "b11752",
-      "prerelease": true,
-      "published": "2026-10-20T08:18:15Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11752",
-      "body": "<details open>\n\ntests : make MoE router selection independent of the backend noise (#30818)\n\n* tests : make MoE router selection independent of the backend noise\n\nThe router scores are in the range [0, 1), so a random draw can leave the\nlast expert (or expert group) still selected and the first one dropped tied\nwithin the noise between the backends. They then route a token to different\nexperts and the logits differ by 4e-3 instead of the usual 5e-7.\n\nBeam is the only arch here with a real top-k (8 experts, 2 used) and a group\ntop-k (4 groups, 2 used), so it is the only one that hits this: 2 of 20 seeds\nfailed on an M2 Ultra, the other MoE archs select 2 of 2 and cannot tie.\n\nFill the selection bias with a ramp of step 2 to give every expert a score\nrange of its own, which turns the top-k into a function of the expert index\nalone. The bias affects only the selection, the weights still come from the\nunbiased probs, so the MoE output keeps its magnitude. Beam now matches the\nCPU reference within 4e-7 for all of 160 seeds.\n\nAssisted-by: pi:llama.cpp/ggml-org/Qwen3.8-Flash-Next-GGUF (MacBook, M5 Max, 128GB)\n\n* tests : tell the CPU and the GPU of an Apple SoC apart in the device table\n\nBoth devices report the same description (\"Apple M2 Ultra\" here), so the\ndevice column of the test table had two indistinguishable rows and a failing\nrow did not say whether the Metal device or the host CPU produced it.\n\nAdd the device name, which is also what -b takes, unless the description\nalready is the name.\n\nAssisted-by: pi:llama.cpp/ggml-org/Qwen3.8-Flash-Next-GGUF (MacBook, M5 Max, 128GB)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/57707819>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggm"
+      "published": "2026-10-20T13:48:11Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11756",
+      "body": "<details open>\n\nserver : pass id_slot through the Anthropic /v1/messages conversion (#28554)\n\n* server : pass id_slot through the Anthropic /v1/messages conversion\n\nserver_chat_convert_anthropic_to_oai copies a small whitelist of common\nparams from the Anthropic request into the internal OAI-style body and\nleft id_slot out. Every other completion endpoint honours id_slot; a\nproxy that pins a session to the slot holding its KV cache needs the\nsame on /v1/messages, or it silently falls back to automatic slot\nselection and, on hybrid/recurrent models, pays a full re-prefill.\n\nAdds a test asserting a request with id_slot set is served by that\nslot, observed via GET /slots.\n\n* server : shorten comments\n\n* rm test\n\n---------\n\nCo-authored-by: Xuan Son Nguyen <son@huggingface.co>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/57810098>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11756/llama-b11756-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11756/llama-b11756-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11756/llama-b11756-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11756/llama-b11756-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11756/llama-b11756-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11756/llama-b11756-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (V"
     }
   ]
 }
