@@ -1,26 +1,16 @@
 {
-  "at": "2026-10-23T01:36:49.925Z",
+  "at": "2026-10-23T07:40:10.240Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b11829",
-      "name": "b11829",
+      "tag": "b11835",
+      "name": "b11835",
       "prerelease": true,
-      "published": "2026-10-22T23:43:43Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11829",
-      "body": "<details open>\n\nserver: Substitute rerank placeholder from the original template only. (#30864)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/58867720>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11829/llama-b11829-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11829/llama-b11829-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11829/llama-b11829-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11829/llama-b11829-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11829/llama-b11829-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11829/llama-b11829-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11829/llama-b11829-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11829/llama-b11829-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11829/llama-b11829-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11829/cudart-llama-b11829-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b11829/llama-b11829-bin-ubuntu-cuda-13.4-x64.tar.gz) - [CUDA 13.4 libraries](https:/"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b11828",
-      "name": "b11828",
-      "prerelease": true,
-      "published": "2026-10-22T23:25:53Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11828",
-      "body": "<details open>\n\nserver: realtime API: send complete after committed audio drains (#30994)\n\n* server: realtime API: send complete after committed audio drains\n\n* server: realtime API: complete a commit at its end row\n\nCompletion is triggered when the stream runs dry, which is a timing\nproxy: audio appended while the tail drains leaks into the committed\nitem, a final commit before the drain merges both items, and back to\nback commits collapse into one.\n\nmtmd_audio_stream_flush() records the row count at the end of the\nflushed audio (mtmd_audio_stream_get_n_rows_flushed), next to the rows\nproduced so far (mtmd_audio_stream_get_n_rows). The slot keeps a FIFO\nof these end rows and completes each commit once every row up to it is\ndecoded.\n\n---------\n\nCo-authored-by: Pascal <admin@serveurperso.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/58863355>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11828/llama-b11828-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11828/llama-b11828-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11828/llama-b11828-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11828/llama-b11828-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11828/llama-b11828-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11828/llama-b11828-bin-ubuntu-s390x.tar."
+      "published": "2026-10-23T07:29:18Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11835",
+      "body": "<details open>\n\nsycl : pass device into mul_mat_uses_onednn (#31014)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/58974916>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11835/llama-b11835-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11835/llama-b11835-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11835/llama-b11835-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11835/llama-b11835-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11835/llama-b11835-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11835/llama-b11835-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11835/llama-b11835-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11835/llama-b11835-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11835/llama-b11835-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llama.cpp/releases/download/b11835/cudart-llama-b11835-bin-ubuntu-cuda-12.8-x64.tar.gz)\n- [Ubuntu x64 (CUDA 13)](https://github.com/ggml-org/llama.cpp/releases/download/b11835/llama-b11835-bin-ubuntu-cuda-13.4-x64.tar.gz) - [CUDA 13.4 libraries](https://github.com/ggml-org/llama."
     }
   ]
 }
