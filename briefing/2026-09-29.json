@@ -1,0 +1,73 @@
+{
+  "date": "2026-09-29",
+  "weekdayNote": "Tuesday",
+  "scanned": 40,
+  "passedRules": 8,
+  "triaged": 5,
+  "admitted": 3,
+  "merged": 1,
+  "quoteBlocked": 0,
+  "ledeAbsent": false,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [],
+  "nextAudit": "Mon 5 Oct",
+  "radar": [
+    {
+      "date": "2026-09-29",
+      "label": "Possible OpenAI model or product drop (Get ready teaser)",
+      "kind": "teaser"
+    }
+  ],
+  "items": [
+    {
+      "id": "2026-09-29-lede",
+      "date": "2026-09-29",
+      "section": "lede",
+      "title": "Anthropic ships Claude Sonnet 5.5",
+      "body": "Anthropic released Claude Sonnet 5.5 on 28 Sep, the second model in the Claude 5.5 family. It scores 70.6% on Terminal-Bench 4.0 (vs Sonnet 5 at 10.3% and Opus 5.5 at 66.4%), runs 30%+ faster, and costs up to 30% less per task at the same $2/$10 per MTok pricing through lower token use. It is now the free-tier default on claude.ai and carries cyber safeguards previously reserved for Opus-class models. Watch Haiku 5.5 in coming weeks and real-world agentic coding uptake.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Anthropic",
+      "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5",
+      "people": [],
+      "lab": "Anthropic",
+      "model": "Claude Sonnet 5.5"
+    },
+    {
+      "id": "2026-09-29-critical-1",
+      "date": "2026-09-29",
+      "section": "critical",
+      "title": "Claude Sonnet 5.5 performance and safety details",
+      "body": "Sonnet 5.5 reaches near-parity with Opus 5.5 on GDPval-AA (1844 vs 1846) and CursorBench 4.0 (55.5% vs 57.8%) while using fewer tokens. It is the first Sonnet with cyber safeguards and distillation classifiers. Simon Willison notes it is now the free-tier model, stronger than OpenAI's free offering. Early enterprise testers (Epic, Slack, Zendesk, Atlassian) report faster iteration and lower cost on coding and knowledge work.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Anthropic + Simon Willison",
+      "sourceUrl": "https://simonwillison.net/2026/Sep/28/claude-sonnet-5-5/",
+      "people": [
+        "simon-willison"
+      ],
+      "lab": "Anthropic",
+      "model": "Claude Sonnet 5.5"
+    },
+    {
+      "id": "2026-09-29-china",
+      "date": "2026-09-29",
+      "section": "china",
+      "title": "China desk quiet",
+      "body": "No high-novelty first-party or desk items from 36氪, 量子位, 机器之心 or related feeds in the last 24 hours Europe/Berlin. Prior Z.ai / DeepSeek coverage remains outside the window.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "structural",
+      "sourceLabel": "China desk scan",
+      "sourceUrl": "https://36kr.com",
+      "people": [],
+      "lab": "",
+      "model": ""
+    }
+  ]
+}
