@@ -1,16 +1,26 @@
 {
-  "at": "2026-10-25T06:18:06.342Z",
+  "at": "2026-10-25T12:37:12.511Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b11870",
-      "name": "b11870",
+      "tag": "b11873",
+      "name": "b11873",
       "prerelease": true,
-      "published": "2026-10-25T02:15:14Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11870",
-      "body": "<details open>\n\nmodel: DSV4.1 flash (#31086)\n\n* model : add DeepSeek-V4.1-Flash (deepseek41)\n\n* deepseek41 : remove MXFP8, convert the Engram table to BF16\n\n* deepseek41 : compute the compressed-KV read layers once in the cache\n\n* deepseek41 : use get_cells() for the shared-history check, drop llama_kv_cache::seq_pos_tok_le\n\n* deepseek41 : gather the Engram rows in-graph like qwen4exp, drop the host gather\n\n* deepseek41 : keep the Engram hash constants in hparams.ple_*, one module per Engram layer\n\n* deepseek41 : drop the LLAMA_DSV41_KV_MIRROR toggle\n\n* deepseek41 : keep il last in build_hc_mixes\n\n* deepseek41 : sort the top-k rows before the sparse gather\n\n* tests : add deepseek41 to the Metal fusion baseline\n\n---------\n\nCo-authored-by: Daniel Han <danielhanchen@gmail.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/59523050>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11870/llama-b11870-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11870/llama-b11870-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11870/llama-b11870-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11870/llama-b11870-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11870/llama-b11870-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11870/llama-b11870-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 "
+      "published": "2026-10-25T12:24:22Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11873",
+      "body": "<details open>\n\nopencl: add initial q2_k support (#30999)\n\n* opencl: add `mul_mv_q2_k_f32`\n\n* opencl: add q2_k SOA mv and tiled mm\n\n* opencl: add q2_k noshuffle gemm/gemv for adreno\n\n* opencl: add q2_k dp4a gemm for adreno\n\nCo-authored-by: Hongqiang Wang <wangh@qti.qualcomm.com>\n\n* opencl: tune q2_k kernels for adreno\n\n---------\n\nCo-authored-by: Hongqiang Wang <wangh@qti.qualcomm.com>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/59612922>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11873/llama-b11873-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11873/llama-b11873-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11873/llama-b11873-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11873/llama-b11873-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11873/llama-b11873-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11873/llama-b11873-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11873/llama-b11873-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b11873/llama-b11873-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b11873/llama-b11873-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 "
+    },
+    {
+      "repo": "ggml-org/llama.cpp",
+      "class": "serving",
+      "tag": "b11871",
+      "name": "b11871",
+      "prerelease": true,
+      "published": "2026-10-25T06:28:47Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b11871",
+      "body": "<details open>\n\nchat : reject JSON nested more than 128 levels before walking it (#30242)\n\n* chat : reject JSON nested more than 128 levels before walking it\n\nThe schema builder, the jinja engine and the decision code walk request\nJSON with recursion. A request nested deep enough overflows the stack of\nthe HTTP thread and llama-server dies (SIGBUS on macOS, SIGSEGV on Linux):\nfor a tool schema from a few hundred levels on macOS and about 10000 on\nLinux.\n\nCheck the depth first and answer 400 past 128 levels: the chat inputs in\ncommon_chat_templates_apply (tools, tool-call arguments,\nchat_template_kwargs, json_schema), the json_schema of /completion, and the\nwhole /v1/systemone body. A gemma4 tool result that is too deep stays text.\n\n* fix the root, not the call side\n\n---------\n\nCo-authored-by: Xuan Son Nguyen <son@huggingface.co>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/59557647>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b11871/llama-b11871-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b11871/llama-b11871-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b11871/llama-b11871-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11871/llama-b11871-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11871/llama-b11871-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b11"
     }
   ]
 }
