@@ -1,0 +1,55 @@
+{
+  "date": "2026-09-08",
+  "weekdayNote": "Tuesday",
+  "scanned": 42,
+  "passedRules": 8,
+  "triaged": 5,
+  "admitted": 2,
+  "merged": 0,
+  "quoteBlocked": 0,
+  "ledeAbsent": true,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [],
+  "nextAudit": "Mon 14 Sep",
+  "radar": [],
+  "items": [
+    {
+      "id": "2026-09-08-critical-1",
+      "date": "2026-09-08",
+      "section": "critical",
+      "title": "SemiAnalysis publishes first open TPU inference benchmarks",
+      "body": "Dylan Patel and SemiAnalysis team release InferenceX Official Preview results for Google TPUv7 Ironwood. Up to 50% better performance per dollar versus B200/B300 in aggregated FP8 serving on open-weight models. TorchTPU stack progressing toward day-0 support in vLLM/SGLang; expected open-source around October. Reduces CUDA moat narrative for external inference customers.",
+      "confidence": "reported",
+      "lane": "fact",
+      "evidenceClass": "named-outlet",
+      "sourceLabel": "SemiAnalysis",
+      "sourceUrl": "https://newsletter.semianalysis.com/p/tpu-inferencex-full-steam",
+      "people": [
+        "dylan-patel"
+      ],
+      "lab": "Google",
+      "model": ""
+    },
+    {
+      "id": "2026-09-08-china-1",
+      "date": "2026-09-08",
+      "section": "china",
+      "title": "China’s Moonshot and Z.ai bring AI model subscription race to Tmall’s retail shelves",
+      "body": "Z.ai (Zhipu) opened Tmall storefront for GLM Coding Plan last week; Tmall launched AI Space Station marketplace selling subscriptions and tokens from Alibaba Cloud, Z.ai, MiniMax and DeepSeek. Transactions jumped >160% in 48 hours. Moonshot and MiniMax in talks for flagship stores. Consumer packaging of AI plans as retail goods to drive recurring revenue.",
+      "confidence": "reported",
+      "lane": "fact",
+      "evidenceClass": "named-outlet",
+      "sourceLabel": "SCMP",
+      "sourceUrl": "https://www.scmp.com/tech/tech-trends/article/3366617/chinas-moonshot-and-zai-bring-ai-model-subscription-race-tmalls-retail-shelves",
+      "people": [
+        "zhang-peng",
+        "tang-jie"
+      ],
+      "lab": "Z.ai",
+      "model": "GLM"
+    }
+  ]
+}
