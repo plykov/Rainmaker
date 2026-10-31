@@ -1,16 +1,16 @@
 {
-  "at": "2026-10-30T23:01:33.498Z",
+  "at": "2026-10-31T02:29:46.292Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b12017",
-      "name": "b12017",
+      "tag": "b12018",
+      "name": "b12018",
       "prerelease": true,
-      "published": "2026-10-30T20:19:54Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b12017",
-      "body": "<details open>\n\nrpc : delete fs_path_to_utf8() (#31424)\n\nSigned-off-by: Adrien Gallouët <angt@huggingface.co>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/61919870>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b12017/llama-b12017-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b12017/llama-b12017-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b12017/llama-b12017-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12017/llama-b12017-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12017/llama-b12017-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12017/llama-b12017-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu 26.04 s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12017/llama-b12017-bin-ubuntu-26.04-s390x.tar.gz)\n- [Ubuntu 26.04 s390x (zDNN)](https://github.com/ggml-org/llama.cpp/releases/download/b12017/llama-b12017-bin-ubuntu-zdnn-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b12017/llama-b12017-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b12017/llama-b12017-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b12017/llama-b12017-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 librar"
+      "published": "2026-10-31T02:21:58Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b12018",
+      "body": "<details open>\n\nsycl: fix f32 to q2_0/q4_0/q5_0 rounding in CPY (#31120)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/62012681>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b12018/llama-b12018-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b12018/llama-b12018-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b12018/llama-b12018-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12018/llama-b12018-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12018/llama-b12018-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12018/llama-b12018-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu 26.04 s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12018/llama-b12018-bin-ubuntu-26.04-s390x.tar.gz)\n- [Ubuntu 26.04 s390x (zDNN)](https://github.com/ggml-org/llama.cpp/releases/download/b12018/llama-b12018-bin-ubuntu-zdnn-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b12018/llama-b12018-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b12018/llama-b12018-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b12018/llama-b12018-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https://github.com/ggml-org/llam"
     }
   ]
 }
