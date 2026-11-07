@@ -1,66 +1,26 @@
 {
-  "at": "2026-11-06T19:30:53.360Z",
+  "at": "2026-11-07T00:08:33.749Z",
   "bootstrapped": true,
   "items": [
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b12177",
-      "name": "b12177",
+      "tag": "b12180",
+      "name": "b12180",
       "prerelease": true,
-      "published": "2026-11-06T17:09:46Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b12177",
-      "body": "<details open>\n\ncli : fix crash on invalid UTF-8 in prompt or files (#31563)\n\nAssisted-by: Claude\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/64587236>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b12177/llama-b12177-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b12177/llama-b12177-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b12177/llama-b12177-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12177/llama-b12177-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12177/llama-b12177-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12177/llama-b12177-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu 26.04 s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12177/llama-b12177-bin-ubuntu-26.04-s390x.tar.gz)\n- [Ubuntu 26.04 s390x (zDNN)](https://github.com/ggml-org/llama.cpp/releases/download/b12177/llama-b12177-bin-ubuntu-zdnn-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b12177/llama-b12177-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b12177/llama-b12177-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b12177/llama-b12177-bin-ubuntu-cuda-12.8-x64.tar.gz) - [CUDA 12.8 libraries](https:/"
+      "published": "2026-11-06T23:18:52Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b12180",
+      "body": "<details open>\n\nmodel: add Kimi-K3.1-Pro text model (#31779)\n\n* model: add Kimi-K3.1-Pro text model\n\nK3 with the full-attention MLA layers replaced by DSA: on this checkpoint 24\nof the 93 layers carry a lightning indexer (32 heads x 128, top_k 2048, no\nrope). The KDA (linear-attention) layers and the rest of the K3 skeleton -\ncross-layer residuals, latent MoE, situ, MLA output gate, full-rank KDA gate -\nare unchanged, so this reuses the K3 graph and converter and adds the indexer.\n\nIndexer:\n  - the selection is an additive mask over the whole cache, not a gather of\n    the top-k rows, so it reuses the existing sparse flash attention path;\n    off that path the mask stays correct but still costs a kq over the cache\n  - the indexer key LayerNorm takes its eps from the model's rms_norm_eps,\n    because dsa_config declares no eps of its own\n\nGraph and cache:\n  - new arch with four indexer tensors per DSA layer, and a hybrid memory\n    that keeps a K-only MLA cache for those layers, recurrent state for the\n    KDA layers, and the indexer key cache\n  - the graph node budget shares the K3 entry\n\nConversion:\n  - KimiK31Model(KimiK3Model), picked by KimiK31ForConditionalGeneration\n  - dsa_config becomes attention.indexer.{head_count,key_length,top_k,types}\n    plus the indexer LayerNorm eps; the layer list is 1-indexed like\n    linear_attn_config's, and the converter asserts that it covers exactly\n    the full-attention layers\n  - the routed experts stay MXFP4 and are repacked as in K3, not dequantized\n  - the vision tower and mm_projector are skipped: text only for now\n  - the arch key follows the checkpoint's own model_type (\"kimi_k31\") and the\n    loader registers KimiK31ForConditionalGeneration; the release name carries\n    a -Pro suffix that nothing in the config or the ten"
     },
     {
       "repo": "ggml-org/llama.cpp",
       "class": "serving",
-      "tag": "b12176",
-      "name": "b12176",
+      "tag": "b12179",
+      "name": "b12179",
       "prerelease": true,
-      "published": "2026-11-06T16:39:55Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b12176",
-      "body": "<details open>\n\ntests : qualify isnan and signbit with std:: (#31791)\n\n* tests : qualify isnan and signbit with std::\n\nThe unqualified calls rely on the C math.h names also being present in the\nglobal namespace, which is not the case for the NetBSD 11.99.9/x86_64 gcc\n14.4.0 build reported in the issue.  Prefix the calls with std:: to select\nthe standard C++ overloads declared by <cmath>.\n\nref: https://github.com/ggml-org/ggml/issues/1681\n\nAssisted-by: dsh:llama.cpp/ggml-org/Qwen3.8-Flash-Next-GGUF (MacBook, M5 Max, 128GB)\n\n* tests : qualify C math calls with std::\n\nFollow-up to the isnan / signbit fix: make the remaining math calls in\ntest-quantize-fns.cpp consistent with the std:: isfinite / max / numeric_limits\nalready used in the same file.\n\nThe float variants are overloads in C++, not distinct names, so the mapping is\nfabsf -> std::fabs, copysignf -> std::copysign, nextafterf -> std::nextafter -\nnot std::fabsf & friends, which do not exist in libstdc++ and would break the\ngcc build.  NAN and INFINITY are macros and are left unqualified.\n\nOnly behavioural difference: array_rmse() fed a double accumulator to sqrtf(),\nnow std::sqrt() keeps the computation in double.  The result is more accurate\nand differs from the previous value by at most 1.4e-7 relative, three orders of\nmagnitude below the tightest tolerance in this test.\n\nAssisted-by: dsh:llama.cpp/ggml-org/Qwen3.8-Flash-Next-GGUF (MacBook, M5 Max, 128GB)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/64575797>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b12176/llama-b12176-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b12175",
-      "name": "b12175",
-      "prerelease": true,
-      "published": "2026-11-06T16:07:05Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b12175",
-      "body": "<details open>\n\ntests : override hardware_concurrency in CI (#31797)\n\nThe self-hosted CPU runners are containers with 8 CPUs, but\nstd::thread::hardware_concurrency reports the cores of the host. The\ntable mode of test-llama-context sizes its pool from that count, so it\nruns 4 models x 8 threads on an 8-CPU job and hangs.\n\nAdd TEST_ARG_HARDWARE_CONCURRENCY and TEST_ARG_PARALLEL_WORKERS as the\ndefaults for the auto-selected counts of test-llama-context and of\ntest-backend-ops, and set them to 8 and 4 for cpu-x64-high-perf.\n\nAssisted-by: dsh:llama.cpp/ggml-org/Qwen3.8-Flash-Next-GGUF (RTX 5090 32GB, DDR5 128GB)\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/64562762>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b12175/llama-b12175-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b12175/llama-b12175-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b12175/llama-b12175-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12175/llama-b12175-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12175/llama-b12175-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12175/llama-b12175-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu 26.04 s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12175/llama-b12175-bin-ubuntu-26.04-s390x.tar.gz)\n- [Ubuntu 26.04 s390x (zDNN)](https://github.co"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b12174",
-      "name": "b12174",
-      "prerelease": true,
-      "published": "2026-11-06T15:44:59Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b12174",
-      "body": "<details open>\n\ncmake : generate RC file directly without win-app.rc.in (#31718)\n\nSigned-off-by: Adrien Gallouët <angt@huggingface.co>\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/64553678>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b12174/llama-b12174-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b12174/llama-b12174-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b12174/llama-b12174-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12174/llama-b12174-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12174/llama-b12174-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12174/llama-b12174-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu 26.04 s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12174/llama-b12174-bin-ubuntu-26.04-s390x.tar.gz)\n- [Ubuntu 26.04 s390x (zDNN)](https://github.com/ggml-org/llama.cpp/releases/download/b12174/llama-b12174-bin-ubuntu-zdnn-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b12174/llama-b12174-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b12174/llama-b12174-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://github.com/ggml-org/llama.cpp/releases/download/b12174/llama-b12174-bin-ubuntu-cuda-12.8-x64.ta"
-    },
-    {
-      "repo": "ggml-org/llama.cpp",
-      "class": "serving",
-      "tag": "b12173",
-      "name": "b12173",
-      "prerelease": true,
-      "published": "2026-11-06T15:09:05Z",
-      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b12173",
-      "body": "<details open>\n\nopencl:  support repeat for f16, i32, i16, bf16 (#31782)\n\n* opencl: add f16 repeat\n\nAssisted-by: Codex\n\n* opencl: support repeat for i32, i16, bf16\n\nAssisted-by: Codex\n\n* opencl: update ops\n\nAssisted-by: Codex\n\n</details>\n\n**Website:**\n- <https://llama.app>\n\n**Attestations:**\n- <https://github.com/ggml-org/llama.cpp/attestations/64540216>\n\n**macOS/iOS:**\n- [macOS Apple Silicon (arm64)](https://github.com/ggml-org/llama.cpp/releases/download/b12173/llama-b12173-bin-macos-arm64.tar.gz)\n- macOS Apple Silicon (arm64, KleidiAI enabled) [DISABLED](https://github.com/ggml-org/llama.cpp/pull/23780)\n- [macOS Intel (x64)](https://github.com/ggml-org/llama.cpp/releases/download/b12173/llama-b12173-bin-macos-x64.tar.gz)\n- [iOS XCFramework](https://github.com/ggml-org/llama.cpp/releases/download/b12173/llama-b12173-xcframework.zip)\n\n**Linux:**\n- [Ubuntu x64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12173/llama-b12173-bin-ubuntu-x64.tar.gz)\n- [Ubuntu arm64 (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12173/llama-b12173-bin-ubuntu-arm64.tar.gz)\n- [Ubuntu s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12173/llama-b12173-bin-ubuntu-s390x.tar.gz)\n- [Ubuntu 26.04 s390x (CPU)](https://github.com/ggml-org/llama.cpp/releases/download/b12173/llama-b12173-bin-ubuntu-26.04-s390x.tar.gz)\n- [Ubuntu 26.04 s390x (zDNN)](https://github.com/ggml-org/llama.cpp/releases/download/b12173/llama-b12173-bin-ubuntu-zdnn-s390x.tar.gz)\n- [Ubuntu x64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b12173/llama-b12173-bin-ubuntu-vulkan-x64.tar.gz)\n- [Ubuntu arm64 (Vulkan)](https://github.com/ggml-org/llama.cpp/releases/download/b12173/llama-b12173-bin-ubuntu-vulkan-arm64.tar.gz)\n- [Ubuntu x64 (CUDA 12)](https://gith"
-    },
-    {
-      "repo": "huggingface/transformers",
-      "class": "framework",
-      "tag": "v5.22.2",
-      "name": "Patch release v5.22.2",
-      "prerelease": false,
-      "published": "2026-11-06T15:43:27Z",
-      "url": "https://github.com/huggingface/transformers/releases/tag/v5.22.2",
-      "body": "# Patch release v5.22.2\n\nSome in between patch for security and distributed fixes. See the included commits :hugs: \n\n- [Distributed] Set device_id only for NCCL (#50281) by @michaelbenayoun  and @3outeille \n- Harden our Jinja sandboxing (#50431) by @Rocketknight1\n\n**Full Changelog**: https://github.com/huggingface/transformers/compare/v5.22.1...v5.22.2"
+      "published": "2026-11-06T20:43:24Z",
+      "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b12179",
+      "body": "<details open>\n\nhexagon: conv_2d optimizations and support for conv_3d (#31814)\n\n* hexagon: Generalization of CONV_2D implementation for CONV_3D\n\n- New op HTP_OP_CONV_3D is wired through htp-ops.h, main.c (shares op_conv_2d) and the op remap in htp-kparams.cpp.\n- conv_3d runs on the existing HMX tiled (implicit GEMM) conv2d path. KD and KH are folded into one virtual kernel row (KD*KH), and output rows are counted as N*OD*OH.\n- htp_kparams_solve_conv3d checks the conv_3d layout and calls the tiled solver htp_kparams_conv2d_tiled, which takes an is3d flag.\n- The tiled kernel takes the sizes and strides that differ between conv_2d and conv_3d from a struct htp_conv_geom. Only the input stage unfolds depth.\n- 256-entry DMA queue can no longer overflow\n\nAssisted-by: Claude Code\n\n* hexagon: modify checking to eliminate divide-by-zero hazards\n\n* hexagon: conv2d tiled: compute the conv_3d unfold divisors on the host\n\nThe KH and OH fastdiv values used to unfold conv_3d kh into (kd, kh) and\noh into (od, oh) were built per op on the device, each with a 64-bit\ndivide. Pass them in the kernel params instead; they fit in the space the\nwindow variant already reserves, so the struct size does not change.\n\nAssisted-by: Claude Code\n\n* hexagon : preserve fold scheduling in conv2d for small size\n\nhexagon : support arbitrary positive conv2d strides\nSupport positive horizontal strides for WHCN and CWHN inputs. Preserve\nload/shuffle paths for strides 1/2 and use gather for larger strides.\n\nhexagon : improve conv2d tile size selection\n\nPrefer the largest feasible output-channel block and derive spatial\nchunk capacity from VTCM usage. Compare capacity and thread-aligned\ncandidates using per-thread work and chunk overhead.\n\nCo-authored-by: Yiwei Shao <yiwei@aizip.ai>\n\n* hex-conv: fix compiler w"
     }
   ]
 }
