@@ -1,0 +1,97 @@
+{
+  "date": "2026-09-05",
+  "weekdayNote": "Saturday",
+  "scanned": 48,
+  "passedRules": 9,
+  "triaged": 7,
+  "admitted": 5,
+  "merged": 2,
+  "quoteBlocked": 0,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [],
+  "nextAudit": "Mon 07 Sep",
+  "radar": [],
+  "items": [
+    {
+      "id": "2026-09-05-lede",
+      "date": "2026-09-05",
+      "section": "lede",
+      "title": "Claude produces first computer-checked proof of Fermat’s Last Theorem",
+      "body": "Anthropic reports Claude completed an end-to-end Lean formalization of FLT in 11 days, writing 13 million lines and proving ~29,500 intermediate theorems. Kevin Buzzard reviewed it positively. This is the largest Lean proof yet and a concrete step toward AI-assisted verification of the mathematical literature.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Anthropic Science Blog",
+      "sourceUrl": "https://www.anthropic.com/research/formalizing-fermats-last-theorem",
+      "people": [],
+      "lab": "Anthropic",
+      "model": "Claude"
+    },
+    {
+      "id": "2026-09-05-critical-1",
+      "date": "2026-09-05",
+      "section": "critical",
+      "title": "GPT-6 Astra rolls out to Plus and Business users",
+      "body": "Sam Altman and OpenAI confirmed GPT-6 Astra is now available to all Pro, Enterprise and Business Premium users in Work/Codex and the API; Plus and Business rollout completed overnight. Microsoft Azure also live. Pricing matches Fable 5.1 levels.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI / @sama",
+      "sourceUrl": "https://x.com/sama/status/2095973658867171733",
+      "people": [
+        "sam-altman",
+        "greg-brockman"
+      ],
+      "lab": "OpenAI",
+      "model": "GPT-6 Astra"
+    },
+    {
+      "id": "2026-09-05-research-1",
+      "date": "2026-09-05",
+      "section": "research",
+      "title": "FLT formalization details and GitHub release",
+      "body": "Claude agents used Prove2Me scaffolding and a multi-agent harness; the proof follows a simplified Darmon-Diamond-Taylor exposition of Wiles and was checked against Mathlib’s statement of FLT. Full Lean artifact is public.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Anthropic",
+      "sourceUrl": "https://github.com/anthropics/fermats-last-theorem",
+      "people": [],
+      "lab": "Anthropic",
+      "model": "Claude"
+    },
+    {
+      "id": "2026-09-05-words-1",
+      "date": "2026-09-05",
+      "section": "words",
+      "title": "Kevin Buzzard on the FLT autoformalization",
+      "body": "Buzzard: ‘This extraordinary autoformalization achievement... proves Fermat’s Last Theorem with no assumptions other than the axioms of mathematics.’",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Anthropic blog",
+      "sourceUrl": "https://www.anthropic.com/research/formalizing-fermats-last-theorem",
+      "people": [],
+      "lab": "Anthropic",
+      "model": ""
+    },
+    {
+      "id": "2026-09-05-china-1",
+      "date": "2026-09-05",
+      "section": "china",
+      "title": "中国大模型的集体隐形出海",
+      "body": "36氪 analysis of Chinese model export dynamics, export-control pressures and Hugging Face acquisition news. No named executive statements from DeepSeek, Z.ai or Qwen in the window.",
+      "confidence": "reported",
+      "lane": "fact",
+      "evidenceClass": "named-outlet",
+      "sourceLabel": "36氪",
+      "sourceUrl": "https://36kr.com/p/3968550220804356",
+      "people": [],
+      "lab": "",
+      "model": ""
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "date": "2026-09-19",
+  "weekdayNote": "Saturday",
+  "scanned": 12,
+  "passedRules": 5,
+  "triaged": 4,
+  "admitted": 3,
+  "merged": 0,
+  "quoteBlocked": 0,
+  "ledeAbsent": false,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [],
+  "nextAudit": "Mon 21 Sep",
+  "radar": [],
+  "items": [
+    {
+      "id": "2026-09-19-lede",
+      "date": "2026-09-19",
+      "section": "lede",
+      "title": "Anthropic embeds Accenture as independent evaluator",
+      "body": "Anthropic announces partnership with Accenture (via Faculty) for independent evaluation of frontier AI, including red-teaming, alignment assessments and safeguard testing. Both parties plan at least $1bn investment each over five years. This operationalises Dario Amodei’s earlier call to embed evaluators inside labs with employee-level access.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Anthropic",
+      "sourceUrl": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+      "people": [
+        "dario-amodei"
+      ],
+      "lab": "Anthropic",
+      "model": ""
+    },
+    {
+      "id": "2026-09-19-critical-1",
+      "date": "2026-09-19",
+      "section": "critical",
+      "title": "xAI releases Grok Voice Transcribe 2.0",
+      "body": "SpaceXAI ships Grok Voice Transcribe 2.0, ranking first on Artificial Analysis streaming leaderboard among 32 models and doubling accuracy of 1.0 at identical price ($0.10/h batch, $0.20/h streaming). Built on Grok Voice audio foundation; already powering Atlassian Loom.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "xAI",
+      "sourceUrl": "https://x.ai/news/grok-voice-transcribe-2",
+      "people": [
+        "elon-musk"
+      ],
+      "lab": "xAI",
+      "model": "Grok Voice Transcribe 2.0"
+    },
+    {
+      "id": "2026-09-19-critical-2",
+      "date": "2026-09-19",
+      "section": "critical",
+      "title": "OpenAI publishes Australian Youth Safety Blueprint",
+      "body": "OpenAI releases a six-pillar roadmap for youth AI safety in Australia, covering literacy, age-appropriate safeguards, privacy-protective age assurance and parental controls. Follows August rollout of ChatGPT for Teens in Australia.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI",
+      "sourceUrl": "https://openai.com/index/australian-youth-safety-blueprint/",
+      "people": [
+        "sam-altman"
+      ],
+      "lab": "OpenAI",
+      "model": ""
+    }
+  ]
+}
