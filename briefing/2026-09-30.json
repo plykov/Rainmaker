@@ -1,0 +1,154 @@
+{
+  "date": "2026-09-30",
+  "weekdayNote": "Wednesday",
+  "scanned": 48,
+  "passedRules": 14,
+  "triaged": 11,
+  "admitted": 7,
+  "merged": 3,
+  "quoteBlocked": 0,
+  "ledeAbsent": false,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 1
+  },
+  "fetchFailures": [],
+  "nextAudit": "Mon 5 Oct",
+  "radar": [
+    {
+      "date": "2026-10-06",
+      "label": "Anthropic Interviewer study window closes",
+      "kind": "research"
+    },
+    {
+      "date": "2026-10-20",
+      "label": "Ethan Mollick book Co-Existence",
+      "kind": "media"
+    }
+  ],
+  "items": [
+    {
+      "id": "2026-09-30-lede",
+      "date": "2026-09-30",
+      "section": "lede",
+      "title": "OpenAI DevDay ships Dots, GPT-6.1 Sol, and Ultrafast",
+      "body": "On 29 Sep OpenAI launched Dots (always-on Astra-powered agents with a cloud computer and 4,000+ app plugins), GPT-6.1 Sol (near-Astra agentic coding and professional work at one-fifth Astra token prices; cached input $0.10/M), and Ultrafast (up to 8x token generation, 300 tok/s in Codex). Why it matters: the product surface is shifting from chat sessions to persistent agents plus a mid-tier that undercuts Astra on cost. Watch next: Sol Ultrafast timing, Dots specialist pilots with Microsoft Agent 365, and whether Pro 500 uptake follows the speed claim.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI",
+      "sourceUrl": "https://openai.com/index/devday-2026-recap/",
+      "people": [
+        "sam-altman",
+        "greg-brockman"
+      ],
+      "lab": "OpenAI",
+      "model": "gpt-6.1-sol"
+    },
+    {
+      "id": "2026-09-30-critical-sol",
+      "date": "2026-09-30",
+      "section": "critical",
+      "title": "GPT-6.1 Sol priced at $2/$10 per M tokens, live in Work and Codex",
+      "body": "First-party card: Sol matches Astra on DeepSWE v1.1, approaches Astra on GDP.pdf and OSWorld 2.0 offline, and more than doubles GPT-6 Sol on Terminal-Bench Science 0.1 at under half the cost per task. API: $2 input, $0.10 cached, $10 output. Available to Plus through Edu in ChatGPT Work and Codex; not yet in consumer Chat. Alignment addendum claims fewer transparency and restriction failures versus GPT-6 Sol.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI",
+      "sourceUrl": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "people": [
+        "sam-altman"
+      ],
+      "lab": "OpenAI",
+      "model": "gpt-6.1-sol"
+    },
+    {
+      "id": "2026-09-30-critical-safety",
+      "date": "2026-09-30",
+      "section": "critical",
+      "title": "OpenAI publishes guidelines for safety cases on frontier RL runs",
+      "body": "Dated 28 Sep, amplified by Greg Brockman on 29 Sep. The post argues structured safety documentation should precede continuing a frontier RL run, covering alignment training, containment, monitoring, operational vetoes, immutable transcripts, and incident investigation. Framed as current learnings being implemented, not a completed aviation-grade case. HUMAN GATE: any claim that labs now legally must file such cases is regulation-shaped and not confirmed here.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "OpenAI",
+      "sourceUrl": "https://openai.com/index/towards-safety-cases-for-frontier-ai-training/",
+      "people": [
+        "greg-brockman"
+      ],
+      "lab": "OpenAI",
+      "model": ""
+    },
+    {
+      "id": "2026-09-30-critical-accord",
+      "date": "2026-09-30",
+      "section": "critical",
+      "title": "Sundar: White House Accord on Super Intelligence signed; Hassabis notes follow-up",
+      "body": "Sundar Pichai posted that Google signed a White House Accord on Super Intelligence and a Joint Commitment on Frontier Responsibilities after meeting the President, JD Vance, and Speaker Johnson. Demis Hassabis quoted: Good to see the progress, and we look forward to following up. HUMAN GATE: text of the Accord was not on a first-party legal page in this scan; treat membership and obligations as unconfirmed beyond the named posts.",
+      "confidence": "reported",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Sundar Pichai / Demis Hassabis on X",
+      "sourceUrl": "https://x.com/sundarpichai/status/2105121763176894804",
+      "people": [
+        "demis-hassabis"
+      ],
+      "lab": "GoogleDeepMind",
+      "model": ""
+    },
+    {
+      "id": "2026-09-30-words-sama",
+      "date": "2026-09-30",
+      "section": "words",
+      "title": "Altman: Dots are here",
+      "body": "Sam Altman posted the Dots launch line and separately that Ultrafast is so fast I do not ever want to go back, plus endorsement of 6.1 Sol at one-fifth Astra price with a 95% cache-read discount.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Sam Altman",
+      "sourceUrl": "https://x.com/sama/status/2104995014208258235",
+      "people": [
+        "sam-altman"
+      ],
+      "lab": "OpenAI",
+      "model": "gpt-6.1-sol"
+    },
+    {
+      "id": "2026-09-30-research-glm",
+      "date": "2026-09-30",
+      "section": "research",
+      "title": "Anthropic: GLM-5.3 matches Mythos-class exploit development; safeguards fail under abliteration",
+      "body": "Anthropic red team (Fasano, Fleischer, McFaul, Xiao, Gallagher) reports GLM-5.3 built end-to-end exploits in 50/410 ExploitBench trials versus 56/410 for Claude Mythos Preview, and produced a sandboxed browser file-read chain. They say refusals drop after abliteration (~2,200 GPU-hours, ~$4,400) and that cover-story / prefill / abliteration engagement rates were 64% / 92% / 100% in their simulated harmful-task setup. Lambert and Mollick contested the closed-safe framing on X. Result, not abstract: open weights at this cyber level are now downloadable.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Anthropic",
+      "sourceUrl": "https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities",
+      "people": [
+        "nathan-lambert",
+        "ethan-mollick",
+        "jack-clark"
+      ],
+      "lab": "Z.ai",
+      "model": "glm-5.3"
+    },
+    {
+      "id": "2026-09-30-china",
+      "date": "2026-09-30",
+      "section": "china",
+      "title": "China desk: no fresh same-day 36氪 / 量子位 / 财联社 item; GLM-5.3 is the live Z.ai object",
+      "body": "Queries against 36氪, 量子位, 机器之心, 财联社 and Caixin for 梁文锋 / 唐杰 / 智谱 / DeepSeek in the last 24 hours returned June reprints (e.g. 智谱创始人唐杰隔空对话马斯克) with crawl stamps on 29 Sep, not new copy. No CAC 备案 or HKEX 2513 filing surfaced. The only roster-relevant China lab object in-window is Anthropic's GLM-5.3 cyber paper on Zhipu / Z.ai.",
+      "confidence": "unverified",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "36氪 index + Anthropic",
+      "sourceUrl": "https://www.qbitai.com/tag/%E6%99%BA%E8%B0%B1",
+      "people": [
+        "tang-jie",
+        "zhang-peng"
+      ],
+      "lab": "Z.ai",
+      "model": "glm-5.3"
+    }
+  ]
+}
