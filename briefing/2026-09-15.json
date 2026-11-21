@@ -1,0 +1,89 @@
+{
+  "date": "2026-09-15",
+  "weekdayNote": "Tuesday",
+  "scanned": 42,
+  "passedRules": 8,
+  "triaged": 6,
+  "admitted": 4,
+  "merged": 1,
+  "quoteBlocked": 0,
+  "ledeAbsent": false,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [],
+  "nextAudit": "Wed 16 Sep",
+  "radar": [],
+  "items": [
+    {
+      "id": "2026-09-15-lede",
+      "date": "2026-09-15",
+      "section": "lede",
+      "title": "Sam Altman: OpenAI now writes explicit safety cases before frontier RL runs",
+      "body": "Altman posted that OpenAI formulates explicit safety cases in advance of frontier reinforcement learning runs expected to significantly increase capability. He welcomes a federal framework for consistent safety requirements but says labs need not wait for legislation. Pacing means slower than maximum speed so alignment stays ahead of capabilities; progress continues.\nWhy it matters: shifts the public safety conversation from post-training release to pre-run development controls at the current frontier lab.\nWatch next: whether Anthropic, Google DeepMind or xAI adopt comparable pre-run safety cases and publish them.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "@sama",
+      "sourceUrl": "https://x.com/sama/status/2099348812305473766",
+      "people": [
+        "sam-altman"
+      ],
+      "lab": "OpenAI",
+      "model": ""
+    },
+    {
+      "id": "2026-09-15-critical-1",
+      "date": "2026-09-15",
+      "section": "critical",
+      "title": "Z.AI (智谱) raises US$5 billion via share placement and zero-coupon convertibles",
+      "body": "HKEX 2513 filing: ~US$2 bn share placement at HK$714 (discount) plus ~US$3 bn zero-coupon convertible bonds due 2027. ~60 % of net proceeds earmarked for next-generation GLM models, fully self-training systems and related compute infrastructure.\nConfidence: confirmed (exchange filing). People/lab: Zhang Peng, Tang Jie / Z.ai.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "filing",
+      "sourceLabel": "HKEX / Reuters",
+      "sourceUrl": "https://www.reuters.com/world/asia-pacific/chinas-zai-raises-5-billion-new-share-convertible-bond-sales-filing-shows-2026-09-13/",
+      "people": [
+        "zhang-peng",
+        "tang-jie"
+      ],
+      "lab": "Z.ai",
+      "model": "GLM"
+    },
+    {
+      "id": "2026-09-15-words-1",
+      "date": "2026-09-15",
+      "section": "words",
+      "title": "Altman on the two failure modes to avoid",
+      "body": "We are unapologetically on Team Humanity, and AI must always serve people. To ensure that, we need ways to ensure that alignment and safety techniques stay ahead of progress in model capabilities.\nSecond, we could end up in a world with too much concentration of power.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "@sama",
+      "sourceUrl": "https://x.com/sama/status/2099352016988614852",
+      "people": [
+        "sam-altman"
+      ],
+      "lab": "OpenAI",
+      "model": ""
+    },
+    {
+      "id": "2026-09-15-china-1",
+      "date": "2026-09-15",
+      "section": "china",
+      "title": "DeepSeek “推倒重来”",
+      "body": "V4.1 Flash adopts a wholly new non-symmetric architecture versus V4 Flash; prior training recipes and optimisations largely discarded. Prefill activates 8B, decode 16B parameters to improve cost efficiency on input-dense agent workloads. Concurrent DSH plugin update.",
+      "confidence": "reported",
+      "lane": "fact",
+      "evidenceClass": "named-outlet",
+      "sourceLabel": "36氪",
+      "sourceUrl": "https://36kr.com/p/3983071485843079",
+      "people": [
+        "liang-wenfeng"
+      ],
+      "lab": "DeepSeek",
+      "model": "DeepSeek-V4.1-Flash"
+    }
+  ]
+}
