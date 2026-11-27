@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-01",
+  "weekdayNote": "Thursday",
+  "scanned": 64,
+  "passedRules": 11,
+  "triaged": 8,
+  "admitted": 6,
+  "merged": 2,
+  "quoteBlocked": 0,
+  "ledeAbsent": false,
+  "humanHeld": {
+    "leak": 0,
+    "regulation": 0
+  },
+  "fetchFailures": [
+    {
+      "source": "x.ai/news",
+      "detail": "index page returned thin content"
+    }
+  ],
+  "nextAudit": "Mon 5 Oct",
+  "radar": [
+    {
+      "date": "2026-10-20",
+      "label": "Ethan Mollick book Co-Existence",
+      "kind": "publish"
+    }
+  ],
+  "items": [
+    {
+      "id": "2026-10-01-lede",
+      "date": "2026-10-01",
+      "section": "lede",
+      "title": "Google DeepMind ships Gemini 4 Argon to Fairwind testers",
+      "body": "Demis Hassabis and Google DeepMind announced Gemini 4 Argon on 30 Sep, a frontier model for long-horizon coding, enterprise knowledge work and cyber defense, opening first to government and trusted defenders via the Fairwind Program. Introductory API price is $2 in / $10 out; output context rises to 1M tokens. Watch: paid API and AI Ultra availability, and whether third-party benches confirm DeepSWE 77.9% and Vals Index leadership.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Google blog / Hassabis",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "people": [
+        "demis-hassabis"
+      ],
+      "lab": "Google DeepMind",
+      "model": "Gemini 4 Argon"
+    },
+    {
+      "id": "2026-10-01-critical-argon",
+      "date": "2026-10-01",
+      "section": "critical",
+      "title": "Argon claims SOTA on DeepSWE, Vals, and 1M-token outputs",
+      "body": "Koray Kavukcuoglu’s post says Argon is already used inside Google for C-to-Rust migrations (re2, libgav1, Fuchsia Zircon) and claims 77.9% on DeepSWE v1.1, #1 on Vals Index and AutomationBench 51.3%, plus 91.7% LVBench. Cyber path: no cyber guardrails for Fairwind testers; Wiz Scan for Good cited a healthcare exposure prior models missed. After intro pricing, list is $4/$20.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "Google blog",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "people": [
+        "demis-hassabis"
+      ],
+      "lab": "Google DeepMind",
+      "model": "Gemini 4 Argon"
+    },
+    {
+      "id": "2026-10-01-research-synthid",
+      "date": "2026-10-01",
+      "section": "research",
+      "title": "SynthID Bio watermarks functional AI-designed proteins",
+      "body": "DeepMind posted SynthID Bio on 30 Sep: watermark methods that survive wet-lab synthesis on VEGF-A, SARS-CoV-2 RBD and PD-L1 binders without measured loss of hit rate or affinity. Ongoing work with Hie lab / Arc Institute to watermark an Evo 2 bacteriophage genome. Result is a biosecurity primitive, not a new binder family.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "DeepMind",
+      "sourceUrl": "https://deepmind.google/blog/introducing-synthid-bio/",
+      "people": [
+        "demis-hassabis"
+      ],
+      "lab": "Google DeepMind",
+      "model": ""
+    },
+    {
+      "id": "2026-10-01-words-hassabis",
+      "date": "2026-10-01",
+      "section": "words",
+      "title": "Hassabis: Argon first to Fairwind, then wider",
+      "body": "Hassabis posted the launch and pointed at the Google blog. Quote verified on X: Very excited to announce Gemini 4 Argon, our new Frontier AI model, and a huge step forward across key capabilities. We’re focused on rolling it out responsibly starting with government and trusted cyber defenders through our Fairwind Program today, before wider availability soon.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "X / demishassabis",
+      "sourceUrl": "https://x.com/demishassabis/status/2105417239432200636",
+      "people": [
+        "demis-hassabis"
+      ],
+      "lab": "Google DeepMind",
+      "model": "Gemini 4 Argon"
+    },
+    {
+      "id": "2026-10-01-china-glmflash",
+      "date": "2026-10-01",
+      "section": "china",
+      "title": "GLM-5.3-Flash: More Intelligence with Less Compute",
+      "body": "Z.ai AutoClaw blog dated 1 Oct presents GLM-5.3-Flash as a native multimodal 320B/18B-active model trained on a 30T multimodal corpus, with hybrid sparse+linear attention. Company benches: Terminal Bench 2.1 84.3, DeepSWE v1.1 63.4, GDPval-AA v2 1773. Traffic claimed on Chinese accelerators under the Ox Alpha alias. Not independently scored here.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "AutoClaw / Z.ai",
+      "sourceUrl": "https://autoclaw.z.ai/blog/model/glm-5.3-flash/",
+      "people": [
+        "tang-jie",
+        "zhang-peng"
+      ],
+      "lab": "Z.ai",
+      "model": "GLM-5.3-Flash"
+    },
+    {
+      "id": "2026-10-01-china-hkex",
+      "date": "2026-10-01",
+      "section": "china",
+      "title": "智譜：根據2026年度股份激勵計劃授予獎勵",
+      "body": "HKEX 2513 filing 30 Sep: Zhipu granted 1,222,934 H-share awards at RMB 0.1 purchase price; grant-day close 641.0 HKD. Vesting 4–63 months on performance conditions. Residual plan capacity 43,361,375 H shares. Filing is talent retention, not a model release.",
+      "confidence": "confirmed",
+      "lane": "fact",
+      "evidenceClass": "first-party",
+      "sourceLabel": "HKEX 2513",
+      "sourceUrl": "https://news.futunn.com/hk/notice/1000449785/zai-grant-of-awards-pursuant-to-the-2026-share-award",
+      "people": [
+        "zhang-peng",
+        "tang-jie"
+      ],
+      "lab": "Z.ai",
+      "model": ""
+    }
+  ]
+}
